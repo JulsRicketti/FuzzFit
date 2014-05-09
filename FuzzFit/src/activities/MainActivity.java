@@ -2,6 +2,7 @@ package activities;
 
 import com.example.jfitnessfunctiontester.Mediator;
 import com.example.jfitnessfunctiontester.R;
+import com.example.jfitnessfunctiontester.User;
 
 
 import history.History;
@@ -15,6 +16,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 	
@@ -23,6 +25,8 @@ public class MainActivity extends Activity {
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
 	public static String activityOption =""; //will always let me know which kind of activity I am going for.
+	
+
 	
 	//Stuff for the forms:
 	Button walkerButton;
@@ -38,10 +42,14 @@ public class MainActivity extends Activity {
 	Recommend recommend;
 	Analyse analyse;
 	
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+		//implement function that forces user to fil out his/her profile before starting anything when used
+		//for the first time!
+		User user = new User(this, "24", "61", "164", "Female");
+				
 		walkerButton = (Button)findViewById(R.id.enterTestButton);
 		walkerButton.setOnClickListener(new OnClickListener() {
 		
@@ -73,7 +81,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				activityOption = weightLossOption;
-				Intent i = new Intent(MainActivity.this, PedometerActivity.class);
+				Intent i = new Intent(MainActivity.this, WeightLossActivity.class);
 				startActivity(i);
 				
 			}

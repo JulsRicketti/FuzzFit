@@ -15,16 +15,16 @@ public class History {
 	public History(Context context){	
 		dbAdapter = new DatabaseAdapter(context);
 	}
-	public History(Context context, String tableName, String recommendationDate, String recommendation, String activityDate, String activityDistance, String activityTime, String activityVelocity, String monitor){
+	public History(Context context, String tableName, String recommendationDate, String recommendation, String activityDate, String activityDistance, String activityTime, String activityVelocity, String monitor, String calories){
 		dbAdapter = new DatabaseAdapter(context);
 		dbAdapter.open();
-		dbAdapter.insertActivity(tableName, recommendation, activityDate, activityDistance, activityTime, activityVelocity, monitor);
+		dbAdapter.insertActivity(tableName, recommendation, activityDate, activityDistance, activityTime, activityVelocity, monitor, calories);
 		dbAdapter.close();
 	}
 	
-	public void insert(String tableName, String recommendation, String activityDate, String activityDistance, String activityTime, String activityVelocity, String monitor){
+	public void insert(String tableName, String recommendation, String activityDate, String activityDistance, String activityTime, String activityVelocity, String monitor, String calories){
 		dbAdapter.open();
-		dbAdapter.insertActivity(tableName, recommendation, activityDate, activityDistance, activityTime, activityVelocity, monitor);
+		dbAdapter.insertActivity(tableName, recommendation, activityDate, activityDistance, activityTime, activityVelocity, monitor, calories);
 		dbAdapter.close();
 	}
 	
@@ -102,9 +102,9 @@ public class History {
 		return activity;
 	}
 	
-	public void updateDatabase(String tableName, String recommendation, String activityDate, String activityDistance, String activityTime, String activityVelocity,String monitor ){
+	public void updateDatabase(String tableName, String recommendation, String activityDate, String activityDistance, String activityTime, String activityVelocity,String monitor, String calories ){
 		dbAdapter.open();
-		dbAdapter.updatePhysicalActivity(tableName, recommendation, activityDate, activityDistance, activityTime, activityVelocity, monitor);
+		dbAdapter.updatePhysicalActivity(tableName, recommendation, activityDate, activityDistance, activityTime, activityVelocity, monitor, calories);
 		dbAdapter.close();
 	}
 

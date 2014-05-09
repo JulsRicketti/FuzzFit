@@ -12,6 +12,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.jfitnessfunctiontester.Mediator;
 import com.example.jfitnessfunctiontester.R;
 
 public class WeightLossActivity extends Activity {
@@ -26,6 +27,7 @@ public class WeightLossActivity extends Activity {
 	EditText wlCalorieConsumptionEditText;
 	String calorieConsumption="";
 	
+	Mediator mediator; 
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -83,7 +85,7 @@ public class WeightLossActivity extends Activity {
 					}
 				}
 				else{ //if the user doesnt specify, we assume we are working with 2000 calories daily 
-					
+					Toast.makeText(getApplicationContext(), "TCCII - Aprovado", Toast.LENGTH_LONG).show();
 				}
 				
 			}

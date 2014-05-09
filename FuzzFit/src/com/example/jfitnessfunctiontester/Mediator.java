@@ -130,30 +130,30 @@ public class Mediator {
 	}
 	
 	public void updateWalkerEntry(String recommendation, String activityDate, String activityDistance, String activityTime){
-		history.updateDatabase(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, "null", getMonitorResult());
+		history.updateDatabase(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, "null", getMonitorResult(), "null");
 	}
 	
 	//For the next two ones remembers to change the situation with the velocity
-	public void updateWeightLossEntry(String recommendation, String activityDate, String activityDistance, String activityTime){
-		history.updateDatabase(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, "null", getMonitorResult());
+	public void updateWeightLossEntry(String recommendation, String activityDate, String activityDistance, String activityTime, String calories){
+		history.updateDatabase(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, "null", getMonitorResult(), calories);
 	}
 	
 	public void updateRunnerEntry(String recommendation, String activityDate, String activityDistance, String activityTime){
-		history.updateDatabase(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, "null", getMonitorResult());
+		history.updateDatabase(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, "null", getMonitorResult(), "null");
 	}
 	
 	//this is what will be used whenever it goes through the recommend class
 	public void buildWalkerEntry(String recommendation, String activityDate, String activityDistance, String activityTime){
-		history.insert(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,"null", getMonitorResult());
+		history.insert(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,"null", getMonitorResult(), "null");
 	}
 	
 	//For the next two ones remembers to change the situation with the velocity	
-	public void buildWeightLossEntry(String recommendation, String activityDate, String activityDistance, String activityTime){
-		history.insert(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,"null", getMonitorResult());
+	public void buildWeightLossEntry(String recommendation, String activityDate, String activityDistance, String activityTime, String calories){
+		history.insert(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,"null", getMonitorResult(), calories);
 	}
 	
 	public void buildRunnerEntry(String recommendation, String activityDate, String activityDistance, String activityTime){
-		history.insert(DatabaseAdapter.RUNNER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,"null", getMonitorResult());
+		history.insert(DatabaseAdapter.RUNNER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,"null", getMonitorResult(), "null");
 	}
 	
 	

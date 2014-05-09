@@ -988,6 +988,7 @@ containing a value of this type.
         public static final int ic_launcher=0x7f020057;
     }
     public static final class id {
+        public static final int RelativeLayout1=0x7f050058;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
@@ -999,12 +1000,12 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050058;
+        public static final int action_settings=0x7f050060;
         public static final int activityEnterButton=0x7f050040;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
-        public static final int button1=0x7f050045;
+        public static final int caloriesRecommendationTextView=0x7f05005c;
         public static final int checkbox=0x7f05002d;
         public static final int chronometerChronometer=0x7f05004b;
         public static final int collapseActionView=0x7f05000d;
@@ -1073,7 +1074,14 @@ containing a value of this type.
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
+        public static final int weightLossButton=0x7f050045;
         public static final int withText=0x7f05000c;
+        public static final int wlCalorieConsumptionEditText=0x7f05005a;
+        public static final int wlEnterActivityButton=0x7f05005f;
+        public static final int wlExerciseOptionTextView=0x7f05005e;
+        public static final int wlMessageTextView=0x7f050059;
+        public static final int wlRecommendationButton=0x7f05005b;
+        public static final int wlSwitchExerciseButton=0x7f05005d;
         public static final int xTextView=0x7f050048;
         public static final int yTextView=0x7f050049;
         public static final int zTextView=0x7f05004a;

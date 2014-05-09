@@ -139,6 +139,9 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 			recommend = new RunningRecommend(this);
 			recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" minutes");
 		}
+		if(MainActivity.activityOption.equals(weightLossOption)){
+			
+		}
 	}
 
 	

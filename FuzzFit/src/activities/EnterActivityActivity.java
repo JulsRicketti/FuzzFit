@@ -29,6 +29,7 @@ public class EnterActivityActivity extends Activity {
 
 	static final String walkerOption = "WALKER";
 	static final String runnerOption = "RUNNER";
+	static final String weightLossOption = "WEIGHT_LOSS";
 	
 	TextView recommendationTextView;
 	

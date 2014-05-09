@@ -35,4 +35,12 @@
         android:layout_marginTop="70dp"
         android:text="Weight Loss" />
 
+    <Button
+        android:id="@+id/userProfileButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:text="Register/Update" />
+
 </RelativeLayout>

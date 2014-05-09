@@ -81,7 +81,7 @@ public class WeightLossActivity extends Activity {
 						Toast.makeText(getApplicationContext(), "For a healthy weight loss please consume over 1500 calories daily", Toast.LENGTH_LONG).show();
 					}
 					if(calorieConsumptionValue>2500){
-						Toast.makeText(getApplicationContext(), "For possibility of weight loss without body damage, please consume under 2500 calories daily", Toast.LENGTH_LONG).show();
+						Toast.makeText(getApplicationContext(), "For possibility of maximum weight loss without body damage, please consume under 2500 calories daily", Toast.LENGTH_LONG).show();
 					}
 				}
 				else{ //if the user doesnt specify, we assume we are working with 2000 calories daily 

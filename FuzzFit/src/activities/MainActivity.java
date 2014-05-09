@@ -33,6 +33,8 @@ public class MainActivity extends Activity {
 	Button runnerButton;
 	Button weightLossButton;
 	
+	Button userProfileButton;
+	
 	String distance="0", time="0";
 	
     DatabaseAdapter db = new DatabaseAdapter(this);
@@ -50,9 +52,47 @@ public class MainActivity extends Activity {
 		//for the first time!
 		User user = new User(this, "24", "61", "164", "Female");
 				
-		walkerButton = (Button)findViewById(R.id.enterTestButton);
-		walkerButton.setOnClickListener(new OnClickListener() {
+		userProfileButton = (Button) findViewById(R.id.userProfileButton);
 		
+		walkerButton = (Button)findViewById(R.id.enterTestButton);
+		runnerButton = (Button) findViewById(R.id.runnerButton);
+		weightLossButton = (Button) findViewById(R.id.weightLossButton);
+		
+		setButtons();
+//this is solely for testing purposes (it can be taken out and put back on at any time)		
+//		db.open();
+//		db.deleteAll(DatabaseAdapter.WALKER_HISTORY_TABLE);
+//		db.deleteAll(DatabaseAdapter.RUNNER_HISTORY_TABLE);
+		db.open();
+		if(db.userProfileIsEmpty()){
+			walkerButton.setEnabled(false);
+			runnerButton.setEnabled(false);
+			weightLossButton.setEnabled(false);
+			Toast.makeText(getApplicationContext(), "Please register yourself before we start.", Toast.LENGTH_LONG).show();
+		}
+		else{
+			walkerButton.setEnabled(true);
+			runnerButton.setEnabled(true);
+			weightLossButton.setEnabled(true);
+		}
+		db.close();
+		
+	}
+	
+	void setButtons(){
+		userProfileButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				Intent i  = new Intent(MainActivity.this,RegisterUserActivity.class);
+				startActivity(i);
+				
+			}
+		});
+		
+		walkerButton.setOnClickListener(new OnClickListener() {
+			
 			@Override
 			public void onClick(View v) {
 				//doStuff(); //for testing purposes
@@ -63,7 +103,6 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		runnerButton = (Button) findViewById(R.id.runnerButton);
 		runnerButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -75,7 +114,6 @@ public class MainActivity extends Activity {
 			}
 		});
 		
-		weightLossButton = (Button) findViewById(R.id.weightLossButton);
 		weightLossButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -86,11 +124,6 @@ public class MainActivity extends Activity {
 				
 			}
 		});
-//this is solely for testing purposes (it can be taken out and put back on at any time)		
-//		db.open();
-//		db.deleteAll(DatabaseAdapter.WALKER_HISTORY_TABLE);
-//		db.deleteAll(DatabaseAdapter.RUNNER_HISTORY_TABLE);
-		history = new History(this);
 	}
 	
 	@Override

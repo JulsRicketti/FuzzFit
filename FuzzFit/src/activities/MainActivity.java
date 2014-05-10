@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
 		setContentView(R.layout.activity_main);
 		//implement function that forces user to fil out his/her profile before starting anything when used
 		//for the first time!
-		User user = new User(this, "24", "61", "164", "Female");
+	//	User user = new User(this, "24", "61", "164", "Female");
 				
 		userProfileButton = (Button) findViewById(R.id.userProfileButton);
 		
@@ -64,6 +64,7 @@ public class MainActivity extends Activity {
 //		db.deleteAll(DatabaseAdapter.WALKER_HISTORY_TABLE);
 //		db.deleteAll(DatabaseAdapter.RUNNER_HISTORY_TABLE);
 		db.open();
+	//	db.deleteAll(DatabaseAdapter.USER_PROFILE_TABLE);
 		if(db.userProfileIsEmpty()){
 			walkerButton.setEnabled(false);
 			runnerButton.setEnabled(false);

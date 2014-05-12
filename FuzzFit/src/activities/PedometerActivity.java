@@ -1,5 +1,8 @@
 package activities;
 
+import java.util.Timer;
+import java.util.TimerTask;
+
 import monitor.MonitorObserver;
 import recommend.Recommend;
 import recommend.RunningRecommend;
@@ -22,6 +25,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.SystemClock;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -38,6 +42,9 @@ import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.os.Build;
 
 public class PedometerActivity extends Activity implements SensorEventListener{
+	
+	static final int CALORIE_UPDATE_INTERVAL = 10000;
+
 	
 	static final String walkerOption = "WALKER";
 	static final String runnerOption = "RUNNER";
@@ -128,6 +135,22 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		numSteps =0;
 		
 		acceleration = 0.00f;
+
+//Error here!
+		//Possible solution here:
+		//http://stackoverflow.com/questions/17379002/java-lang-runtimeexception-cant-create-handler-inside-thread-that-has-not-call
+//		Timer calorieCounterTimer = new Timer();
+//		
+//		TimerTask calorieCounterTask = new TimerTask() {
+//			
+//			@Override
+//			public void run() {
+//			//	Toast.makeText(context, "TCCII - APROVADO\n Situação: APROVADO", Toast.LENGTH_LONG).show();
+//			}
+//		};
+//		
+//		calorieCounterTimer.schedule(calorieCounterTask, CALORIE_UPDATE_INTERVAL);
+		
 		
 		//setting stuff related to physical activies:
 		recommendationTextView =(TextView) findViewById(R.id.pedometerRecommendationTextView);
@@ -140,6 +163,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 			recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" minutes");
 		}
 		if(MainActivity.activityOption.equals(weightLossOption)){
+			//We need to estimate velocity and calories every minute or so
 			
 		}
 	}

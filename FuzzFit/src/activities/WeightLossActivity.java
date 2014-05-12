@@ -17,6 +17,7 @@ import com.example.jfitnessfunctiontester.R;
 
 public class WeightLossActivity extends Activity {
 
+	
 	Button wlRecommendationButton;
 	Button wlSwitchExerciseButton;
 	Button wlEnterActivityButton;
@@ -78,15 +79,16 @@ public class WeightLossActivity extends Activity {
 				if(!calorieConsumption.equals("")){
 					float calorieConsumptionValue = Float.parseFloat(calorieConsumption);	
 					if(calorieConsumptionValue<1500){
-						Toast.makeText(getApplicationContext(), "For a healthy weight loss please consume over 1500 calories daily", Toast.LENGTH_LONG).show();
+						Toast.makeText(getApplicationContext(), "For a healthy weight loss please consume over 1500 calories daily\n (Please consult a nutritionist if necessary)", Toast.LENGTH_LONG).show();
 					}
 					if(calorieConsumptionValue>2500){
-						Toast.makeText(getApplicationContext(), "For possibility of maximum weight loss without body damage, please consume under 2500 calories daily", Toast.LENGTH_LONG).show();
+						Toast.makeText(getApplicationContext(), "For possibility of maximum weight loss without body damage, please consume under 2500 calories daily\n (Please consult a nutritionist if necessary)", Toast.LENGTH_LONG).show();
 					}
 				}
 				else{ //if the user doesnt specify, we assume we are working with 2000 calories daily 
-					Toast.makeText(getApplicationContext(), "TCCII - Aprovado", Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), "By default it will be assumed your intake is of 2000 calories.\n (Please consult a nutritionist if necessary)", Toast.LENGTH_LONG).show();
 				}
+				
 				
 			}
 		});

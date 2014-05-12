@@ -30,7 +30,7 @@ public class Mediator {
 	public ArrayList <String> activityDistanceHistory= new ArrayList<String>();
 	public ArrayList <String> activityTimeHistory= new ArrayList<String>();
 	public ArrayList <String> monitorHistory= new ArrayList<String>();
-	
+	public ArrayList <String> calorieHistory = new ArrayList<String>(); 
 	
 	History history;
 	Recommend recommendation;
@@ -85,6 +85,7 @@ public class Mediator {
 			 activityTimeHistory = history.getHistory("WeightLossHistoryTable").activityTime;
 			 activityDateHistory = history.getHistory("WeightLossHistoryTable").activityDate;
 			 monitorHistory = history.getHistory("WeightLossHistoryTable").monitor;
+			 calorieHistory = history.getHistory("WeightLossHistoryTable").calories;
 			 return true;
 		 }
 		 return false;

@@ -10,6 +10,7 @@ public class ActivityHistory {
 	public ArrayList <String> activityDistance;
 	public ArrayList <String> activityTime;
 	public ArrayList <String> monitor;
+	public ArrayList <String> calories;
 	
 	public History history;
 	
@@ -62,6 +63,14 @@ public class ActivityHistory {
 	}
 	public void setMonitor(ArrayList<String> monitor) {
 		this.monitor = monitor;
+	}
+
+	public ArrayList<String> getCalories() {
+		return calories;
+	}
+
+	public void setCalories(ArrayList<String> calories) {
+		this.calories = calories;
 	}
 
 	

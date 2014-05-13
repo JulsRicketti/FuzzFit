@@ -135,6 +135,7 @@ public class MainActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				//remember to change this back to ReportMenuActivity! For now this is testing purposes ONLY!
 				Intent i = new Intent(MainActivity.this, ReportMenuActivity.class);
 				startActivity(i);
 				

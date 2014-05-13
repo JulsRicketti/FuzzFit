@@ -10,5 +10,6 @@
     <string name="title_activity_pedometer">PedometerActivity</string>
     <string name="title_activity_register_user">RegisterUserActivity</string>
     <string name="title_activity_report_menu">ReportMenuActivity</string>
+    <string name="title_activity_report_list_view">ReportListViewActivity</string>
 
 </resources>

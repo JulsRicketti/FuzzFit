@@ -42,10 +42,13 @@
             android:name="activities.RegisterUserActivity"
             android:label="@string/title_activity_register_user" >
         </activity>
-
         <activity
             android:name="activities.ReportMenuActivity"
             android:label="@string/title_activity_report_menu" >
+        </activity>
+        <activity
+            android:name="activities.ReportListViewActivity"
+            android:label="@string/title_activity_report_list_view" >
         </activity>
     </application>
 

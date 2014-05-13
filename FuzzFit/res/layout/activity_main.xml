@@ -43,4 +43,13 @@
         android:layout_alignParentTop="true"
         android:text="Register/Update" />
 
+    <Button
+        android:id="@+id/reportButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/userProfileButton"
+        android:layout_marginBottom="38dp"
+        android:text="Report" />
+
 </RelativeLayout>

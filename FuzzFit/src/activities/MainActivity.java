@@ -36,6 +36,8 @@ public class MainActivity extends Activity {
 	
 	Button userProfileButton;
 	
+	Button reportButton;
+	
 	String distance="0", time="0";
 	
     DatabaseAdapter db = new DatabaseAdapter(this);
@@ -54,6 +56,8 @@ public class MainActivity extends Activity {
 	//	User user = new User(this, "24", "61", "164", "Female");
 				
 		userProfileButton = (Button) findViewById(R.id.userProfileButton);
+		
+		reportButton = (Button) findViewById(R.id.reportButton);
 		
 		walkerButton = (Button)findViewById(R.id.enterTestButton);
 		runnerButton = (Button) findViewById(R.id.runnerButton);
@@ -122,6 +126,16 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				activityOption = weightLossOption;
 				Intent i = new Intent(MainActivity.this, WeightLossActivity.class);
+				startActivity(i);
+				
+			}
+		});
+		
+		reportButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				Intent i = new Intent(MainActivity.this, ReportMenuActivity.class);
 				startActivity(i);
 				
 			}

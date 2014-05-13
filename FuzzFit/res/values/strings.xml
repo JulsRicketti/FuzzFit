@@ -9,5 +9,6 @@
     <string name="title_activity_weight_loss">WeightLossActivity</string>
     <string name="title_activity_pedometer">PedometerActivity</string>
     <string name="title_activity_register_user">RegisterUserActivity</string>
+    <string name="title_activity_report_menu">ReportMenuActivity</string>
 
 </resources>

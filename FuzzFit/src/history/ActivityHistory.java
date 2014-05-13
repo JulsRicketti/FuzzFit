@@ -21,6 +21,7 @@ public class ActivityHistory {
 		activityDistance = new ArrayList<String>();
 		activityTime = new ArrayList<String>();
 		monitor = new ArrayList<String>();
+		calories = new ArrayList<String>();
 	}
 	
 	public ArrayList<String> getRecommendationDate() {

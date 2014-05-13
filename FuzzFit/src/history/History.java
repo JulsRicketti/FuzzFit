@@ -97,7 +97,7 @@ public class History {
 			activity.activityDistance.add(history.getString(history.getColumnIndex(DatabaseAdapter.ACTIVITY_DISTANCE)));
 			activity.activityTime.add(history.getString(history.getColumnIndex(DatabaseAdapter.ACTIVITY_TIME)));
 			activity.monitor.add(history.getString(history.getColumnIndex(DatabaseAdapter.MONITOR)));
-			//activity.calories.add(history.getString(history.getColumnIndex(DatabaseAdapter.CALORIES))); //does not work! Figure it out!
+			activity.calories.add(history.getString(history.getColumnIndex(DatabaseAdapter.CALORIES))); //does not work! Figure it out!
 			history.moveToNext();			
 		}
 		return activity;

@@ -3,6 +3,9 @@ package activities;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import others.CalorieHandler;
+import others.User;
+
 import monitor.MonitorObserver;
 import recommend.Recommend;
 import recommend.RunningRecommend;
@@ -12,7 +15,6 @@ import com.example.jfitnessfunctiontester.R;
 import com.example.jfitnessfunctiontester.R.id;
 import com.example.jfitnessfunctiontester.R.layout;
 import com.example.jfitnessfunctiontester.R.menu;
-import com.example.jfitnessfunctiontester.User;
 
 
 import analyse.Analyse;
@@ -43,8 +45,8 @@ import android.os.Build;
 
 public class PedometerActivity extends Activity implements SensorEventListener{
 	
-	static final int CALORIE_UPDATE_INTERVAL = 10000;
-
+	static final int CALORIE_UPDATE_INTERVAL = 60000;
+	CalorieHandler calories;
 	
 	static final String walkerOption = "WALKER";
 	static final String runnerOption = "RUNNER";
@@ -95,12 +97,21 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	
 	TextView recommendationTextView;
 	
+	int aprovado =100;
+	private Handler handler = new Handler();
+	 	
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pedometer);
 		
+		calories = new CalorieHandler(context);
+		calories.setCalories(0);
+		
+		context = this;
 		User user = new User(this);
+
 		
 		if(user.getSex()=="Male")
 			strideLength = Float.parseFloat(user.getHeight())*maleStrideLengthConstant;
@@ -135,22 +146,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		numSteps =0;
 		
 		acceleration = 0.00f;
-
-//Error here!
-		//Possible solution here:
-		//http://stackoverflow.com/questions/17379002/java-lang-runtimeexception-cant-create-handler-inside-thread-that-has-not-call
-//		Timer calorieCounterTimer = new Timer();
-//		
-//		TimerTask calorieCounterTask = new TimerTask() {
-//			
-//			@Override
-//			public void run() {
-//			//	Toast.makeText(context, "TCCII - APROVADO\n Situação: APROVADO", Toast.LENGTH_LONG).show();
-//			}
-//		};
-//		
-//		calorieCounterTimer.schedule(calorieCounterTask, CALORIE_UPDATE_INTERVAL);
-		
+		 handler.post(timedTask); //to calculate the calories
 		
 		//setting stuff related to physical activies:
 		recommendationTextView =(TextView) findViewById(R.id.pedometerRecommendationTextView);
@@ -164,11 +160,46 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		}
 		if(MainActivity.activityOption.equals(weightLossOption)){
 			//We need to estimate velocity and calories every minute or so
-			
+		    handler.post(timedTask); //to calculate the calories
 		}
 	}
-
 	
+	int timesGoneThroughAPROVADO =0;
+//calls the calorie counter function
+	private Runnable timedTask = new Runnable(){
+
+		  @Override
+		  public void run() {
+			  timesGoneThroughAPROVADO++;
+			  calculateCalories();
+			  handler.postDelayed(timedTask, CALORIE_UPDATE_INTERVAL);
+		  }
+	 };
+
+	float previousDistance =0;
+	float currentDistanceInterval =0;
+	void setCurrentDistance(){
+		
+		if(previousDistance ==0){
+			currentDistanceInterval = distance;
+			previousDistance = distance;
+		}
+		else{
+			currentDistanceInterval = distance-previousDistance;
+			previousDistance = distance;
+		}
+	}
+	
+	float calculateVelocity(){
+		//v=d/t
+		return (currentDistanceInterval/60); //distance is in meters and time is in seconds!
+	}
+
+	void calculateCalories(){
+		setCurrentDistance();
+		calories.calculateCalories(calculateVelocity(), 1); //here we need to give the time in minutes
+	}
+	 
 	void setButtons(){
 		finishPedometerButton.setEnabled(false);
 		
@@ -188,9 +219,11 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 			@Override
 			public void onClick(View v) {
 				enableAccelerometerListening();
-				finishPedometerButton.setEnabled(true);
 				chronometer.setBase(SystemClock.elapsedRealtime() + timeWhenStopped);
 				chronometer.start();
+				startPedometerButton.setEnabled(false);
+				pausePedometerButton.setEnabled(true);
+				finishPedometerButton.setEnabled(true);
 				
 			}
 		});
@@ -201,6 +234,8 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 				sensorManager.unregisterListener(sensorEventListener);
 				timeWhenStopped = chronometer.getBase() - SystemClock.elapsedRealtime();
 				chronometer.stop();
+				startPedometerButton.setEnabled(true);
+				pausePedometerButton.setEnabled(false);
 				
 			}
 		});
@@ -214,6 +249,11 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 					timeWhenStopped = chronometer.getBase() - SystemClock.elapsedRealtime();
 					chronometer.stop();
 				    
+					resetButton.setEnabled(false);
+					startPedometerButton.setEnabled(false);
+					pausePedometerButton.setEnabled(false);
+				
+					
 					if(MainActivity.activityOption.equals(walkerOption)){
 						MonitorObserver.updateWalk(context); 
 						analyse = new WalkingAnalyse(context);
@@ -254,7 +294,11 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 			if(Math.abs(currentY-previousY) > threshould){
 				numSteps++;
 				distance+=strideLength/100; //we convert that to meters!
-				stepsTextView.setText("Steps: "+String.valueOf(numSteps)+"\nDistance: "+distance);
+				//if(!MainActivity.activityOption.equals(weightLossOption))
+					stepsTextView.setText("Steps: "+String.valueOf(numSteps)+"\nDistance: "+distance+"\nCalories Burned: "+calories.getCalories()+
+							"\nTCCII - APROVADO"+timesGoneThroughAPROVADO);
+				//else
+				//	stepsTextView.setText("Steps: "+String.valueOf(numSteps)+"\nDistance: "+distance+"\nCalories Burned: "+calories.getCalories());
 			}
 			xTextView.setText(String.valueOf(x));
 			yTextView.setText(String.valueOf(y));

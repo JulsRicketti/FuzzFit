@@ -3,13 +3,14 @@ package analyse;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 
+import others.Mediator;
+import others.User;
+
 import recommend.Recommend;
 import recommend.WalkingRecommend;
 import recommend.WeightLossRecommend;
 import android.content.Context;
 
-import com.example.jfitnessfunctiontester.Mediator;
-import com.example.jfitnessfunctiontester.User;
 
 public class WeighLossAnalyse implements Analyse{
 

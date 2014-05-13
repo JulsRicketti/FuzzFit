@@ -3,12 +3,13 @@ package analyse;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 
+import others.Mediator;
+
 import recommend.Recommend;
 import recommend.WalkingRecommend;
 import android.content.Context;
 import android.widget.Toast;
 
-import com.example.jfitnessfunctiontester.Mediator;
 
 public class WalkingAnalyse implements Analyse{
 

@@ -1,4 +1,4 @@
-package com.example.jfitnessfunctiontester;
+package others;
 
 import persistance.DatabaseAdapter;
 import android.content.Context;

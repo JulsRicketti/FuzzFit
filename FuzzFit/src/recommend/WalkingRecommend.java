@@ -4,9 +4,10 @@ import java.util.ArrayList;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 
+import others.Mediator;
+
 import android.content.Context;
 
-import com.example.jfitnessfunctiontester.Mediator;
 
 //try to make it a singleton
 public class WalkingRecommend implements Recommend {

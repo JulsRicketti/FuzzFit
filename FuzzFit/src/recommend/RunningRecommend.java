@@ -1,6 +1,6 @@
 package recommend;
 
-import com.example.jfitnessfunctiontester.Mediator;
+import others.Mediator;
 
 import android.content.Context;
 

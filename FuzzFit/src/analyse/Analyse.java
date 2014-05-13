@@ -1,6 +1,6 @@
 package analyse;
 
-import com.example.jfitnessfunctiontester.Mediator;
+import others.Mediator;
 
 public interface Analyse {
 	

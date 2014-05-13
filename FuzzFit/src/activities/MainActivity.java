@@ -1,8 +1,9 @@
 package activities;
 
-import com.example.jfitnessfunctiontester.Mediator;
+import others.Mediator;
+import others.User;
+
 import com.example.jfitnessfunctiontester.R;
-import com.example.jfitnessfunctiontester.User;
 
 
 import history.History;

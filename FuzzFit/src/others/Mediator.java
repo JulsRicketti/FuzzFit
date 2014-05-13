@@ -1,4 +1,4 @@
-package com.example.jfitnessfunctiontester;
+package others;
 
 import history.ActivityHistory;
 import history.History;

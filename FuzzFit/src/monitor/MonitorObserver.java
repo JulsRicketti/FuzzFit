@@ -1,6 +1,6 @@
 package monitor;
 
-import com.example.jfitnessfunctiontester.User;
+import others.User;
 
 import android.content.Context;
 import history.ActivityHistory;

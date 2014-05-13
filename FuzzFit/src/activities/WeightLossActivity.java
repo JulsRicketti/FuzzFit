@@ -1,5 +1,6 @@
 package activities;
 
+import others.Mediator;
 import android.app.Activity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -12,7 +13,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.jfitnessfunctiontester.Mediator;
 import com.example.jfitnessfunctiontester.R;
 
 public class WeightLossActivity extends Activity {

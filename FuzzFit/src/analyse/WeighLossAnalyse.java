@@ -3,6 +3,7 @@ package analyse;
 import org.joda.time.DateTime;
 import org.joda.time.Days;
 
+import others.CalorieHandler;
 import others.Mediator;
 import others.User;
 
@@ -22,6 +23,8 @@ public class WeighLossAnalyse implements Analyse{
 	Recommend recommend;
 	User user;
 	
+	CalorieHandler calorieHandler;
+	
 	boolean isFirstActivity;
 	float lastRecommendation;
 	float lastMonitor;
@@ -32,7 +35,7 @@ public class WeighLossAnalyse implements Analyse{
 	public WeighLossAnalyse(Context context){
 		this.context = context;
 		mediator = new Mediator(context);
-		recommend = new WeightLossRecommend();
+		recommend = new WeightLossRecommend(context);
 		user = new User(context);
 		isFirstActivity = !(mediator.setWalkingHistory());
 	}
@@ -107,9 +110,6 @@ public class WeighLossAnalyse implements Analyse{
 
 	
 	void calculateCalories(float time, float velocity){
-	//(use the calorie class)
-	//	float met = defineMET(velocity); 
-	//	calories = Float.parseFloat(user.getWeight())*(time/60)*met;
 	}
 		
 	DateTime getLastDate(){
@@ -127,6 +127,12 @@ public class WeighLossAnalyse implements Analyse{
 			return true;
 		}
 		return false;
+	}
+
+	//enter the amount of calories the user consumes
+	@Override
+	public void enterCalories(float calories) {
+
 	}
 
 	

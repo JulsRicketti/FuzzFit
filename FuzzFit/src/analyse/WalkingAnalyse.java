@@ -120,6 +120,13 @@ public class WalkingAnalyse implements Analyse{
 		return mediator.getMonitorResult();
 		
 	}
+
+
+	@Override
+	public void enterCalories(float calories) {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

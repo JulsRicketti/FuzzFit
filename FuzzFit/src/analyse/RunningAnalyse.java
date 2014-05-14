@@ -122,4 +122,10 @@ public class RunningAnalyse implements Analyse{
 		return false;
 	}
 
+	@Override
+	public void enterCalories(float calories) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

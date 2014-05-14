@@ -72,6 +72,9 @@ public class EnterActivityActivity extends Activity {
 			recommend = new RunningRecommend(this);
 			recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" minutes");
 		}
+		if(MainActivity.activityOption.equals(weightLossOption)){
+			recommendationTextView.setText("Recommendation: "+WeightLossActivity.activityDistance+ "km in "+(WeightLossActivity.activityTime)*60+" minutes");
+		}
 	}
 
 	void setButtons(){
@@ -96,7 +99,11 @@ public class EnterActivityActivity extends Activity {
 					recommend = new RunningRecommend(context);
 					recommendationTextView.setText("Recommendation: "+recommend.recommend(context)+" minutes");
 					
-				}		
+				}
+				if(MainActivity.activityOption.equals(weightLossOption)){
+					//send it in to analyse and go straight into registering it
+					//monitor is optional?
+				}
 			}
 		});
 		

@@ -1,36 +1,57 @@
 package recommend;
 
+import others.Mediator;
 import android.content.Context;
 
 public class WeightLossRecommend implements Recommend{
 
+	final float increaseConstant = 50;
+	final float minimumCaloriesRecommendation = 100; 
+	
+	Context context;
+	Mediator mediator;
+	
+	boolean isNotEmpty;
+	float currentCaloriesRecommendation;
+	
+	public WeightLossRecommend(Context context){
+		this.context = context;
+		mediator = new Mediator(context);
+		isNotEmpty = mediator.setWeightLossHistory();
+		if(isNotEmpty)
+			currentCaloriesRecommendation= getLastRecommendation();
+		else
+			currentCaloriesRecommendation= minimumCaloriesRecommendation;
+	}
+	
 	@Override
 	public String recommend(Context context) {
-		// TODO Auto-generated method stub
-		return null;
+		return Float.toString(currentCaloriesRecommendation);
 	}
 
 	@Override
 	public float getLastRecommendation() {
-		// TODO Auto-generated method stub
-		return 0;
+		if(isNotEmpty)
+			return Float.parseFloat(mediator.getRecommendationHistory().get(mediator.getRecommendationHistory().size()-1));
+		else
+			return minimumCaloriesRecommendation;
 	}
 
 	@Override
 	public void increaseRecommendation() {
-		// TODO Auto-generated method stub
+		currentCaloriesRecommendation += increaseConstant;
 		
 	}
 
 	@Override
 	public void decreaseRecommendation() {
-		// TODO Auto-generated method stub
+		currentCaloriesRecommendation -= increaseConstant;
 		
 	}
 
 	@Override
 	public void maintainRecommendation() {
-		// TODO Auto-generated method stub
+		currentCaloriesRecommendation = getLastRecommendation();
 		
 	}
 

@@ -160,6 +160,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		}
 		if(MainActivity.activityOption.equals(weightLossOption)){
 			//We need to estimate velocity and calories every minute or so
+			recommendationTextView.setText("Recommendation: "+WeightLossActivity.activityDistance+ "km in "+(WeightLossActivity.activityTime)*60+" minutes");
 		    handler.post(timedTask); //to calculate the calories
 		}
 	}
@@ -224,6 +225,10 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 				startPedometerButton.setEnabled(false);
 				pausePedometerButton.setEnabled(true);
 				finishPedometerButton.setEnabled(true);
+				
+				//check to see if it's better to be put here
+//				if(MainActivity.activityOption.equals(weightLossOption))
+//					handler.post(timedTask); //to calculate the calories
 				
 			}
 		});

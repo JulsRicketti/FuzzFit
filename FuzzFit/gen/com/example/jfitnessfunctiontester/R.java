@@ -33,12 +33,13 @@ public final class R {
         public static final int mr_fuzz_colored=0x7f020001;
     }
     public static final class id {
-        public static final int RelativeLayout1=0x7f090028;
-        public static final int action_settings=0x7f090030;
+        public static final int RelativeLayout1=0x7f09002a;
+        public static final int action_settings=0x7f090032;
         public static final int activityEnterButton=0x7f090004;
         public static final int ageRegisterEditText=0x7f09001d;
         public static final int ageRegisterTextView=0x7f09001a;
-        public static final int caloriesRecommendationTextView=0x7f09002c;
+        public static final int caloriesRecommendationTextView=0x7f09002e;
+        public static final int chart_container=0x7f090025;
         public static final int chronometerChronometer=0x7f090011;
         public static final int distanceEditText=0x7f090006;
         public static final int distanceTextView=0x7f090003;
@@ -56,7 +57,7 @@ public final class R {
         public static final int reportButton=0x7f09000b;
         public static final int resetButton=0x7f090013;
         public static final int runnerButton=0x7f090007;
-        public static final int runnerReportButton=0x7f090026;
+        public static final int runnerReportButton=0x7f090028;
         public static final int seekBar1=0x7f090018;
         public static final int sensitivityTextView=0x7f090019;
         public static final int sexRegisterSpinner=0x7f090021;
@@ -66,19 +67,20 @@ public final class R {
         public static final int tableRow2=0x7f090012;
         public static final int timeEditText=0x7f090002;
         public static final int timeTextView=0x7f090001;
+        public static final int tv_title=0x7f090024;
         public static final int userProfileButton=0x7f09000a;
-        public static final int walkerReportButton=0x7f090025;
+        public static final int walkerReportButton=0x7f090027;
         public static final int weightLossButton=0x7f090009;
-        public static final int weightLossReportButton=0x7f090027;
+        public static final int weightLossReportButton=0x7f090029;
         public static final int weightRegisterEditText=0x7f09001e;
         public static final int weightRegisterTextView=0x7f09001b;
-        public static final int whichReportTextView=0x7f090024;
-        public static final int wlCalorieConsumptionEditText=0x7f09002a;
-        public static final int wlEnterActivityButton=0x7f09002f;
-        public static final int wlExerciseOptionTextView=0x7f09002e;
-        public static final int wlMessageTextView=0x7f090029;
-        public static final int wlRecommendationButton=0x7f09002b;
-        public static final int wlSwitchExerciseButton=0x7f09002d;
+        public static final int whichReportTextView=0x7f090026;
+        public static final int wlCalorieConsumptionEditText=0x7f09002c;
+        public static final int wlEnterActivityButton=0x7f090031;
+        public static final int wlExerciseOptionTextView=0x7f090030;
+        public static final int wlMessageTextView=0x7f09002b;
+        public static final int wlRecommendationButton=0x7f09002d;
+        public static final int wlSwitchExerciseButton=0x7f09002f;
         public static final int xTextView=0x7f09000e;
         public static final int yTextView=0x7f09000f;
         public static final int zTextView=0x7f090010;

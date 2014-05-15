@@ -6,6 +6,13 @@ public class WeightLossMonitor extends Monitor {
 		
 	}
 	
+	public WeightLossMonitor(float calories){
+		if(calories>=MonitorObserver.calories)
+			result = (float) 100.0;
+		if(calories<MonitorObserver.calories)
+			result = (float) 60.0;
+	}
+	
 	@Override
 	void fuzzifier(float timeInput, float distanceInput, float speedInput) {
 		// TODO Auto-generated method stub

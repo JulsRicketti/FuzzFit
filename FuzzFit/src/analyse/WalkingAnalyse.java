@@ -81,7 +81,7 @@ public class WalkingAnalyse implements Analyse{
 	float time, distance;
 	float monitorResult;
 	@Override
-	public void enterActivity(float time, float distance, float velocity) {
+	public void enterActivity(float time, float distance, float calories) {
 		this.time =time;
 		this.distance =distance;
 		String date = getCurrentDate().toString().substring(0, 10);
@@ -109,7 +109,7 @@ public class WalkingAnalyse implements Analyse{
 
 
 	@Override
-	public void updateActivity(float time, float distance, float velocity) {
+	public void updateActivity(float time, float distance, float calories) {
 		// TODO Auto-generated method stub
 		
 	}

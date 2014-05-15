@@ -43,54 +43,55 @@ public class WeighLossAnalyse implements Analyse{
 	float monitorResult;
 	@Override
 	public void analyse() {
-		// TODO Auto-generated method stub
 		if(isFirstActivity){
 			//send recommendation for the very first activity
 			recommend.maintainRecommendation();
 		}
 		else{
 			lastRecommendation = Float.parseFloat(mediator.recommendationHistory.get(mediator.recommendationHistory.size()-1));
-			//lastMonitor = Float.parseFloat(mediator.getMonitorResult());//this is not updating!!! 
-		//	lastMonitor = Float.parseFloat(mediator.monitorWalker(this.time, this.distance));
-			
-			if(monitorResult>=improvementPercentage){
+		
+			//we don't go over 500 because it may be unhealthy
+			if(monitorResult>=improvementPercentage && lastRecommendation<500){
 				//increase
 				recommend.increaseRecommendation();
 			}
-			if(monitorResult>=averagePercentage && monitorResult<improvementPercentage){
-				//stay the same
+			else{
 				recommend.maintainRecommendation();
 			}
-			if(monitorResult<averagePercentage){
-				//decrease
-				recommend.decreaseRecommendation();
-			}
+//			if(monitorResult>=averagePercentage && monitorResult<improvementPercentage){
+//				//stay the same
+//				recommend.maintainRecommendation();
+//			}
+//			if(monitorResult<averagePercentage){
+//				//decrease
+//				recommend.decreaseRecommendation();
+//			}
 		}
 	}
 
 	@Override
-	public void enterActivity(float time, float distance, float velocity) {
-		if(velocity == 0){
-			velocity = distance/(time/60); //we need to know the average velocity in order to find the calories
-		}
-		calculateCalories(time, velocity);
+	public void enterActivity(float time, float distance, float calories) {
 		String date = getCurrentDate().toString().substring(0, 10);
 		try{
+
 			if(!isSameDay()){
-				//monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance));	MAKE ONE FOR WEIGHT LOSS
+				monitorResult = Float.parseFloat(mediator.monitorWeightLoss(calories));
 				analyse();
-				//MAKE ONE FOR WEIGHT LOSS:
-				//mediator.buildWalkerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time));
+				mediator.buildWeightLossEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
 			}
 			else{
-				//MAKE THE COMMENTED ONES FOR WEIGHT LOSS!! 
-				//monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance));
+				distance += Float.parseFloat(mediator.getLastActivityDistance());
+				time += Float.parseFloat(mediator.getLastActivityTime());
+				calories += Float.parseFloat(mediator.getLastActivityCalories());
+				monitorResult = Float.parseFloat(mediator.monitorWeightLoss(calories));
 				analyse();
-				//mediator.buildWalkerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time));
+				mediator.updateWeightLossEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time),Float.toString(calories));
 			}
 		}
 		catch(ArrayIndexOutOfBoundsException e){
-			
+			monitorResult = Float.parseFloat(mediator.monitorWeightLoss(calories));
+			analyse();
+			mediator.buildWeightLossEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
 		}
 		
 	}

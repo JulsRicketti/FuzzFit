@@ -2,6 +2,7 @@ package monitor;
 
 import others.User;
 
+import activities.WeightLossActivity;
 import android.content.Context;
 import history.ActivityHistory;
 import history.History;
@@ -24,15 +25,6 @@ public class MonitorObserver {
 			currentDailyDistance = Float.parseFloat(history.getWalkerHistory().getRecommendation().get(history.getWalkerHistory().getRecommendation().size()-1));
 		else
 			currentDailyDistance = minimumDailyDistance;
-	}
-	
-	//weight loss
-	public static final float maxDailyCalories = 500;
-	public static final float minDailyCalories = 250;
-	public static float currentDailyCalories;
-	
-	static void updateWeightLoss(){
-		
 	}
 	
 	//running
@@ -60,5 +52,11 @@ public class MonitorObserver {
 			currentRunningTime = 10;
 			currentRunningDistance = averageHumanSpeed*(currentRunningTime*60);
 		}
+	}
+	
+	//weight loss related:
+	public static float calories = WeightLossActivity.caloriesToLose;
+	public static void updateWeightLoss(){
+		calories = WeightLossActivity.caloriesToLose;
 	}
 }

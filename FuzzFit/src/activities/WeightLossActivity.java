@@ -1,5 +1,6 @@
 package activities;
 
+import monitor.MonitorObserver;
 import others.CalorieHandler;
 import others.Mediator;
 import recommend.Recommend;
@@ -97,6 +98,7 @@ public class WeightLossActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				
 				wlEnterActivityButton.setEnabled(true);
 				wlSwitchExerciseButton.setEnabled(true);
 				float calorieConsumptionValue=0;
@@ -117,8 +119,8 @@ public class WeightLossActivity extends Activity {
 					calorieConsumptionValue = 2000;
 				}
 				if(calorieConsumptionValue>1500){
-					if(recommend.getLastRecommendation()<500)
-						recommend.increaseRecommendation();
+//					if(recommend.getLastRecommendation()<500)
+//						recommend.increaseRecommendation();
 					caloriesToLose = (Float.parseFloat(recommend.recommend(context)));
 				}
 				else{
@@ -130,7 +132,9 @@ public class WeightLossActivity extends Activity {
 				activityVelocity = caloriesHandler.calculateActivityVelocity(caloriesToLose, activityTime); //comes in km/h
 				activityDistance = activityVelocity*(activityTime);
 				wlExerciseOptionTextView.setText("Distance: "+activityDistance+" km\nTime: "+activityTime);
-				
+
+				MonitorObserver.updateWeightLoss(); //update the observer so we know the values we are monitoring
+
 			}
 		});
 		

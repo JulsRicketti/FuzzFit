@@ -10,6 +10,7 @@ import monitor.MonitorObserver;
 import recommend.Recommend;
 import recommend.RunningRecommend;
 import recommend.WalkingRecommend;
+import recommend.WeightLossRecommend;
 
 import com.example.jfitnessfunctiontester.R;
 import com.example.jfitnessfunctiontester.R.id;
@@ -20,6 +21,7 @@ import com.example.jfitnessfunctiontester.R.menu;
 import analyse.Analyse;
 import analyse.RunningAnalyse;
 import analyse.WalkingAnalyse;
+import analyse.WeighLossAnalyse;
 import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
@@ -192,7 +194,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	}
 	
 	float calculateVelocity(){
-		//v=d/t
+		//v=d/tv (m/s)
 		return (currentDistanceInterval/60); //distance is in meters and time is in seconds!
 	}
 
@@ -274,7 +276,14 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 						recommend = new RunningRecommend(context);
 						recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" minutes");
 						
-					}		
+					}	
+					if(MainActivity.activityOption.equals(weightLossOption)){
+						MonitorObserver.updateWeightLoss();
+						analyse = new WeighLossAnalyse(context);
+						analyse.enterActivity(time, distance, calories.getCalories());
+						recommend = new WeightLossRecommend(context);
+						recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" calories");
+					}
 			}
 		});
 

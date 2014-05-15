@@ -1,9 +1,11 @@
 package activities;
 
+import others.CalorieHandler;
 import monitor.MonitorObserver;
 import recommend.Recommend;
 import recommend.RunningRecommend;
 import recommend.WalkingRecommend;
+import recommend.WeightLossRecommend;
 
 import com.example.jfitnessfunctiontester.R;
 import com.example.jfitnessfunctiontester.R.layout;
@@ -12,6 +14,7 @@ import com.example.jfitnessfunctiontester.R.menu;
 import analyse.Analyse;
 import analyse.RunningAnalyse;
 import analyse.WalkingAnalyse;
+import analyse.WeighLossAnalyse;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Context;
@@ -44,6 +47,8 @@ public class EnterActivityActivity extends Activity {
 	Recommend recommend;
 	Analyse analyse;
 	
+	CalorieHandler calorieHandler;
+	
 	Context context;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +63,8 @@ public class EnterActivityActivity extends Activity {
 		distanceEditText.addTextChangedListener(distanceTextWatcher);
 		timeEditText = (EditText) findViewById(R.id.timeEditText);
 		timeEditText.addTextChangedListener(timeTextWatcher);
+		
+		calorieHandler = new CalorieHandler(context);
 		
 		enterButton = (Button) findViewById(R.id.activityEnterButton);
 		pedometerButton = (Button) findViewById(R.id.pedometerButton);
@@ -89,7 +96,7 @@ public class EnterActivityActivity extends Activity {
 					analyse = new WalkingAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), 0); //this is what to do whenever inserting a new activity
 					recommend = new WalkingRecommend(context);
-					recommendationTextView.setText("Recommendation: "+recommend.recommend(context)+" meters");
+					recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" meters");
 				
 				}
 				if(MainActivity.activityOption.equals(runnerOption)){
@@ -97,12 +104,19 @@ public class EnterActivityActivity extends Activity {
 					analyse = new RunningAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), 0);
 					recommend = new RunningRecommend(context);
-					recommendationTextView.setText("Recommendation: "+recommend.recommend(context)+" minutes");
+					recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" minutes");
 					
 				}
 				if(MainActivity.activityOption.equals(weightLossOption)){
 					//send it in to analyse and go straight into registering it
 					//monitor is optional?
+					MonitorObserver.updateWeightLoss();
+					float velocity = Float.parseFloat(distanceString)/Float.parseFloat(timeString);
+					calorieHandler.calculateCalories(velocity, Float.parseFloat(timeString));
+					analyse = new WeighLossAnalyse(context);
+					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());
+					recommend = new WeightLossRecommend(context);
+					recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" calories");
 				}
 			}
 		});

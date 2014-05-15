@@ -111,6 +111,10 @@ public class Mediator {
 	}
 
 	
+	public String getLastActivityCalories(){
+		return calorieHistory.get(calorieHistory.size()-1);
+	}
+	
 	public String getLastActivityDistance(){
 		return activityDistanceHistory.get(activityDistanceHistory.size()-1);
 	}
@@ -167,7 +171,7 @@ public class Mediator {
 	}
 	
 	public String monitorWeightLoss(float calories){
-		monitor = new WeightLossMonitor();
+		monitor = new WeightLossMonitor(calories);
 		return Float.toString(monitor.getResult());
 	}
 	

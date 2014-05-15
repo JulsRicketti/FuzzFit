@@ -64,7 +64,7 @@ public class RunningAnalyse implements Analyse{
 	float time, distance, velocity;
 	float monitorResult;
 	@Override
-	public void enterActivity(float time, float distance, float velocity) {
+	public void enterActivity(float time, float distance, float calories) {
 		this.time =time;
 		this.distance =distance;
 		this.velocity = velocity;
@@ -94,7 +94,7 @@ public class RunningAnalyse implements Analyse{
 	}
 
 	@Override
-	public void updateActivity(float time, float distance, float velocity) {
+	public void updateActivity(float time, float distance, float calories) {
 		// TODO Auto-generated method stub
 		
 	}

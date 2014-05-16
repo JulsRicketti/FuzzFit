@@ -199,13 +199,13 @@ public class RunningMonitor extends Monitor{
 		FuzzySet []outputs = new FuzzySet[9];
 		
 		outputs[0] = new FuzzySet(INSUFFICIENT, min(timeMap.get(BAD).getDegreeOfMembership(), distanceMap.get(BAD).getDegreeOfMembership()));
-		outputs[1] = new FuzzySet(AVERAGE_SUFICIENT, min(timeMap.get(AVERAGE).getDegreeOfMembership(), distanceMap.get(AVERAGE).getDegreeOfMembership()));//here
+		outputs[1] = new FuzzySet(INSUFFICIENT, min(timeMap.get(AVERAGE).getDegreeOfMembership(), distanceMap.get(AVERAGE).getDegreeOfMembership()));//here
 		outputs[2] = new FuzzySet(SUFFICIENT, min(timeMap.get(GOOD).getDegreeOfMembership(), distanceMap.get(GOOD).getDegreeOfMembership()));
 		outputs[3] = new FuzzySet(AVERAGE_SUFICIENT, min(timeMap.get(GOOD).getDegreeOfMembership(), distanceMap.get(BAD).getDegreeOfMembership()));
 		outputs[4] = new FuzzySet(SUFFICIENT, min(timeMap.get(GOOD).getDegreeOfMembership(), distanceMap.get(AVERAGE).getDegreeOfMembership())); //here
 		outputs[5] = new FuzzySet(SUFFICIENT, min(timeMap.get(AVERAGE).getDegreeOfMembership(), distanceMap.get(GOOD).getDegreeOfMembership()));
-		outputs[6] = new FuzzySet(INSUFFICIENT, min(timeMap.get(AVERAGE).getDegreeOfMembership(), distanceMap.get(BAD).getDegreeOfMembership()));
-		outputs[7] = new FuzzySet(AVERAGE_SUFICIENT, min(timeMap.get(BAD).getDegreeOfMembership(), distanceMap.get(GOOD).getDegreeOfMembership()));
+		outputs[6] = new FuzzySet(AVERAGE_SUFICIENT, min(timeMap.get(AVERAGE).getDegreeOfMembership(), distanceMap.get(BAD).getDegreeOfMembership()));
+		outputs[7] = new FuzzySet(INSUFFICIENT, min(timeMap.get(BAD).getDegreeOfMembership(), distanceMap.get(GOOD).getDegreeOfMembership()));
 		outputs[8] = new FuzzySet(INSUFFICIENT, min(timeMap.get(BAD).getDegreeOfMembership(), distanceMap.get(AVERAGE).getDegreeOfMembership())); //here
 		
 		auxOutputs = outputs;
@@ -233,31 +233,81 @@ public class RunningMonitor extends Monitor{
 
 	@Override
 	void defuzzifier() {
+		//COG = sum(W*x)/sum(W)
+		///we need to find the intervals of each one to find the X
 		float[] mAndB = new float[2];
 
 		float[] x = new float[6];
+
 		x[0] = 0;
 		
 		mAndB = findLinearFunction(poor, 1, average_bad, 0);
 		x[1] = findInterval(insufficientOutputs.getDegreeOfMembership(), mAndB);
+		System.out.println("X[1]"+x[1]);
 		
 		mAndB = findLinearFunction(poor, 0, average_bad, 1);
 		x[2] = findInterval(averageOutputs.getDegreeOfMembership(), mAndB);
-
+		System.out.println("X[2]"+x[2]);
+		
 		mAndB = findLinearFunction(average_good, 1, perfect, 0);
 		x[3] = findInterval(averageOutputs.getDegreeOfMembership(), mAndB);
+		System.out.println("X[3]"+x[3]);
 		
 		mAndB = findLinearFunction(average_good, 0, perfect, 1);
 		x[4] = findInterval(sufficientOutputs.getDegreeOfMembership(), mAndB);
-//		
+		System.out.println("X[4]"+x[4]);
+	
 		x[5] = perfect;
-//
 
+		float cog = 0;
+		float auxInsuf, auxAvg, auxSuf;
+		
+		float  ux=0, sum=0, sumWeight =0;
+		//loop through all xs
+		//for insufficient outputs
+		for(int i =0; i<average_bad; i++){
+			if(i<=x[1]){
+				ux=insufficientOutputs.getDegreeOfMembership();
+			}
+			else{
+			//	if(insufficientOutputs.getDegreeOfMembership()>=averageOutputs.getDegreeOfMembership()){
+					mAndB = findLinearFunction(poor, 1, average_bad, 0);
+					ux = findDegreeOfMembership(i, mAndB);
+				//}
+			}
+			sumWeight+=i*ux;
+			sum += ux;
+		}
+		//for average outputs
+		for(int i=(int) poor; i<perfect; i++){
+			if(i<=x[2]){
+				//if(averageOutputs.getDegreeOfMembership()>=insufficientOutputs.getDegreeOfMembership()){
+				mAndB = findLinearFunction(poor, 0, average_bad, 1);
+				ux = findDegreeOfMembership(i, mAndB);
+				//}
+			}
+			if(i>x[2] && i<=x[3]){
+				ux = averageOutputs.getDegreeOfMembership();
+			}
+			if(i>x[3]){
+				//if(averageOutputs.getDegreeOfMembership()>=sufficientOutputs.getDegreeOfMembership()){
+				mAndB = findLinearFunction(average_good, 1, perfect, 0);
+				ux = findDegreeOfMembership(i, mAndB);
+				//}
+			}
+			sumWeight += i*ux;
+			sum+=ux;
+		}
+		//for sufficient outputs
+		for(int i=(int)average_good; i<perfect; i++){
+			mAndB = findLinearFunction(average_good, 0, perfect, 1);
+			ux=findDegreeOfMembership(i, mAndB);
+			sumWeight += i*ux;
+			sum+=ux;
 
-		float cog = x[1]*insufficientOutputs.getDegreeOfMembership() + x[2]*averageOutputs.getDegreeOfMembership() + x[3]*averageOutputs.getDegreeOfMembership() + x[4]*sufficientOutputs.getDegreeOfMembership() + x[5]*sufficientOutputs.getDegreeOfMembership();
-		cog /= (2*insufficientOutputs.getDegreeOfMembership() + 2*averageOutputs.getDegreeOfMembership()+2*sufficientOutputs.getDegreeOfMembership());
+		}
 		
-		
+		cog = sumWeight/sum;
 		System.out.println("cog: "+cog);
 		setResult(cog);
 		

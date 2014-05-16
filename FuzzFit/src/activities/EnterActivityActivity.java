@@ -91,10 +91,12 @@ public class EnterActivityActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				float velocity = Float.parseFloat(distanceString)/Float.parseFloat(timeString);
+				calorieHandler.calculateCalories(velocity, Float.parseFloat(timeString));
 				if(MainActivity.activityOption.equals(walkerOption)){
 					MonitorObserver.updateWalk(context); 
 					analyse = new WalkingAnalyse(context);
-					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), 0); //this is what to do whenever inserting a new activity
+					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories()); //this is what to do whenever inserting a new activity
 					recommend = new WalkingRecommend(context);
 					recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" meters");
 				
@@ -102,7 +104,7 @@ public class EnterActivityActivity extends Activity {
 				if(MainActivity.activityOption.equals(runnerOption)){
 					MonitorObserver.updateRun(context);
 					analyse = new RunningAnalyse(context);
-					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), 0);
+					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());
 					recommend = new RunningRecommend(context);
 					recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" minutes");
 					
@@ -111,8 +113,6 @@ public class EnterActivityActivity extends Activity {
 					//send it in to analyse and go straight into registering it
 					//monitor is optional?
 					MonitorObserver.updateWeightLoss();
-					float velocity = Float.parseFloat(distanceString)/Float.parseFloat(timeString);
-					calorieHandler.calculateCalories(velocity, Float.parseFloat(timeString));
 					analyse = new WeighLossAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());
 					recommend = new WeightLossRecommend(context);

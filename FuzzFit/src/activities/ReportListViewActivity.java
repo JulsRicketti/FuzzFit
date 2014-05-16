@@ -6,14 +6,13 @@ import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.Date;
-import java.util.GregorianCalendar;
-import java.util.List;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
 import org.achartengine.chart.PointStyle;
-import org.achartengine.chart.TimeChart;
 import org.achartengine.model.SeriesSelection;
 import org.achartengine.model.TimeSeries;
 import org.achartengine.model.XYMultipleSeriesDataset;
@@ -21,10 +20,12 @@ import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
 import persistance.DatabaseAdapter;
+import android.app.ActionBar.LayoutParams;
 import android.app.ListActivity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -32,10 +33,11 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jfitnessfunctiontester.R;
-import com.jjoe64.graphview.GraphViewDataInterface;
 
 public class ReportListViewActivity extends ListActivity{
 	
@@ -56,6 +58,10 @@ public class ReportListViewActivity extends ListActivity{
 	ListView reportListView;
 	
 	String table ="";
+	
+	TextView record1TextView;
+	TextView record2TextView;
+	TextView record3TextView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		   super.onCreate(savedInstanceState);
@@ -68,6 +74,10 @@ public class ReportListViewActivity extends ListActivity{
 		    reportListView = (ListView) findViewById(android.R.id.list);
 
 		    ArrayList<String> al = new ArrayList<String>();
+		    
+		    record1TextView = (TextView) findViewById(R.id.record1TextView);
+		    record2TextView = (TextView) findViewById(R.id.record2TextView);
+		    record3TextView = (TextView) findViewById(R.id.record3TextView);
 		    
 		    if(ReportMenuActivity.reportOption.equals(walkerOption)){
 		    	table = DatabaseAdapter.WALKER_HISTORY_TABLE;
@@ -94,6 +104,40 @@ public class ReportListViewActivity extends ListActivity{
 		
 	}
 
+	float getBiggestItem(ArrayList<String> arrayList){
+		ArrayList<Float> arrayListFloat = new ArrayList<Float>();
+		
+		//we "convert" all of the string items into float to find the largest
+		for(int i=0; i<arrayList.size(); i++)
+			arrayListFloat.add(Float.parseFloat(arrayList.get(i)));
+		Collections.sort(arrayListFloat);
+		
+		return arrayListFloat.get(arrayListFloat.size()-1);
+	}
+	
+	void popupWindow(){
+		 LayoutInflater layoutInflater 
+	     = (LayoutInflater)getBaseContext()
+	      .getSystemService(LAYOUT_INFLATER_SERVICE);  
+	    View popupView = layoutInflater.inflate(R.layout.activity_report_popup_layout, null);  
+	             final PopupWindow popupWindow = new PopupWindow(
+	               popupView, 
+	               LayoutParams.WRAP_CONTENT,  
+	                     LayoutParams.WRAP_CONTENT);  
+	            openChart();
+	             Button btnDismiss = (Button)popupView.findViewById(R.id.dismiss);
+	             btnDismiss.setOnClickListener(new Button.OnClickListener(){
+	            
+	     @Override
+	     public void onClick(View v) {
+	      // TODO Auto-generated method stub
+	      popupWindow.dismiss();
+	     }});
+	               
+	             popupWindow.showAsDropDown(plotsButton, 50, -30);
+	         
+	   }
+	
 	private GraphicalView mChart;
 	
 	void setButtons(){
@@ -101,7 +145,9 @@ public class ReportListViewActivity extends ListActivity{
 			
 			@Override
 			public void onClick(View v) {
-				openChart();
+				
+				popupWindow();
+			//	openChart();
 			}
 		});
 	}
@@ -148,7 +194,7 @@ public class ReportListViewActivity extends ListActivity{
 	 
 	        // Creating XYSeriesRenderer to customize visitsSeries
 	        XYSeriesRenderer visitsRenderer = new XYSeriesRenderer();
-	        visitsRenderer.setColor(Color.WHITE);
+	        visitsRenderer.setColor(Color.BLACK);
 	        visitsRenderer.setPointStyle(PointStyle.CIRCLE);
 	        visitsRenderer.setFillPoints(true);
 	        visitsRenderer.setLineWidth(2);
@@ -156,7 +202,7 @@ public class ReportListViewActivity extends ListActivity{
 	 
 	        // Creating XYSeriesRenderer to customize viewsSeries
 	        XYSeriesRenderer viewsRenderer = new XYSeriesRenderer();
-	        viewsRenderer.setColor(Color.YELLOW);
+	        viewsRenderer.setColor(Color.BLUE);
 	        viewsRenderer.setPointStyle(PointStyle.CIRCLE);
 	        viewsRenderer.setFillPoints(true);
 	        viewsRenderer.setLineWidth(2);

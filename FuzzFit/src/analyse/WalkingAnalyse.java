@@ -90,12 +90,13 @@ public class WalkingAnalyse implements Analyse{
 			if(!isSameDay()){
 				monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance));			 
 				analyse();
-				mediator.buildWalkerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time));
+				mediator.buildWalkerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
 			}
 			else{
+				//(should I keep using the updated recommendation?? For now, yes.)
 				distance += Float.parseFloat(mediator.getLastActivityDistance());
 				time += Float.parseFloat(mediator.getLastActivityTime());
-				monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance)); //here on try number 2, everything is fine
+				monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance));
 				analyse();
 				mediator.updateWalkerEntry(recommend.recommend(context),date, Float.toString(distance), Float.toString(time));
 			} 
@@ -103,7 +104,7 @@ public class WalkingAnalyse implements Analyse{
 		catch(ArrayIndexOutOfBoundsException e){
 			monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance));
 			analyse();
-			mediator.buildWalkerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time));
+			mediator.buildWalkerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
 		}
 	}
 

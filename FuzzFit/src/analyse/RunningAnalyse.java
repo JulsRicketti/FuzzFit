@@ -74,7 +74,7 @@ public class RunningAnalyse implements Analyse{
 			//if(!isSameDay()){
 				monitorResult = Float.parseFloat(mediator.monitorRunner(time, distance, 0));			 
 				analyse();
-				mediator.buildRunnerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time));
+				mediator.buildRunnerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
 			//}
 			//else{
 				//we  only consider things in one run!!
@@ -88,7 +88,7 @@ public class RunningAnalyse implements Analyse{
 		catch(ArrayIndexOutOfBoundsException e){
 			monitorResult = Float.parseFloat(mediator.monitorRunner(time, distance, 0));
 			analyse();
-			mediator.buildRunnerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time));
+			mediator.buildRunnerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
 		}
 		
 	}

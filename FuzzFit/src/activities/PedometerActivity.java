@@ -149,7 +149,6 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		
 		acceleration = 0.00f;
 		 handler.post(timedTask); //to calculate the calories
-		
 		//setting stuff related to physical activies:
 		recommendationTextView =(TextView) findViewById(R.id.pedometerRecommendationTextView);
 		if(MainActivity.activityOption.equals(walkerOption)){
@@ -163,7 +162,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		if(MainActivity.activityOption.equals(weightLossOption)){
 			//We need to estimate velocity and calories every minute or so
 			recommendationTextView.setText("Recommendation: "+WeightLossActivity.activityDistance+ "km in "+(WeightLossActivity.activityTime)*60+" minutes");
-		    handler.post(timedTask); //to calculate the calories
+
 		}
 	}
 	
@@ -193,9 +192,10 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		}
 	}
 	
+	float kmHConstant = (float) 3.6;
 	float calculateVelocity(){
 		//v=d/tv (m/s)
-		return (currentDistanceInterval/60); //distance is in meters and time is in seconds!
+		return (currentDistanceInterval/60)*kmHConstant; //by the end of the calculation, we convert it to km/h
 	}
 
 	void calculateCalories(){
@@ -264,7 +264,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 					if(MainActivity.activityOption.equals(walkerOption)){
 						MonitorObserver.updateWalk(context); 
 						analyse = new WalkingAnalyse(context);
-						analyse.enterActivity(time, distance, 0); //this is what to do whenever inserting a new activity
+						analyse.enterActivity(time, distance, calories.getCalories()); //this is what to do whenever inserting a new activity
 						recommend = new WalkingRecommend(context);
 						recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" meters");
 					
@@ -272,7 +272,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 					if(MainActivity.activityOption.equals(runnerOption)){
 						MonitorObserver.updateRun(context);
 						analyse = new RunningAnalyse(context);
-						analyse.enterActivity(time, distance, 0);
+						analyse.enterActivity(time, distance, calories.getCalories());
 						recommend = new RunningRecommend(context);
 						recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" minutes");
 						

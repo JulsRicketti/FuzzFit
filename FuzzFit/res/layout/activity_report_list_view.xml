@@ -16,7 +16,7 @@
 
         <ListView
             android:id="@android:id/list"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="400dp" >
         </ListView>
 
@@ -30,21 +30,41 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:text="Illustrate Progress" />
-    
-      <TextView
-       android:id="@+id/tv_title"
-       android:layout_width="fill_parent"
-       android:layout_height="wrap_content"
-       android:text="Time Series Demo"
-       android:gravity="center_horizontal" />
- 
-    <LinearLayout
-        android:orientation="horizontal"
-        android:id="@+id/chart_container"
+
+    <TextView
+        android:id="@+id/currentRecordsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_title" >
- 
-    </LinearLayout>
+        android:layout_below="@+id/plotsButton"        
+        android:layout_centerHorizontal="true"
+        android:text="Current Records:"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/record1TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/currentRecordsTextView"
+        android:layout_centerHorizontal="true"
+        android:text="Record1" 
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <TextView
+        android:id="@+id/record2TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/record1TextView"
+        android:layout_centerHorizontal="true"
+        android:text="Record2" 
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+        android:id="@+id/record3TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/record2TextView"
+        android:layout_alignRight="@+id/record1TextView"
+        android:text="Record3" 
+        android:textAppearance="?android:attr/textAppearanceMedium"/>
 
 </RelativeLayout>

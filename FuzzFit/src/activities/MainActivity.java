@@ -69,7 +69,7 @@ public class MainActivity extends Activity {
 //		db.deleteAll(DatabaseAdapter.WALKER_HISTORY_TABLE);
 //		db.deleteAll(DatabaseAdapter.RUNNER_HISTORY_TABLE);
 		db.open();
-	//	db.deleteAll(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE);
+//		db.deleteAll(DatabaseAdapter.WALKER_HISTORY_TABLE);
 		if(db.userProfileIsEmpty()){
 			walkerButton.setEnabled(false);
 			runnerButton.setEnabled(false);

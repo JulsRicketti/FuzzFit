@@ -102,8 +102,9 @@ public final class R {
         public static final int activity_report_list_view=0x7f030004;
         public static final int activity_report_menu=0x7f030005;
         public static final int activity_report_popup_layout=0x7f030006;
-        public static final int activity_weight_loss=0x7f030007;
-        public static final int list_view_test=0x7f030008;
+        public static final int activity_view_graph=0x7f030007;
+        public static final int activity_weight_loss=0x7f030008;
+        public static final int list_view_test=0x7f030009;
     }
     public static final class menu {
         public static final int main=0x7f080000;
@@ -112,8 +113,9 @@ public final class R {
         public static final int report_list_view=0x7f080003;
         public static final int report_menu=0x7f080004;
         public static final int running=0x7f080005;
-        public static final int walking=0x7f080006;
-        public static final int weight_loss=0x7f080007;
+        public static final int view_graph=0x7f080006;
+        public static final int walking=0x7f080007;
+        public static final int weight_loss=0x7f080008;
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
@@ -124,6 +126,7 @@ public final class R {
         public static final int title_activity_report_list_view=0x7f060009;
         public static final int title_activity_report_menu=0x7f060008;
         public static final int title_activity_running=0x7f060004;
+        public static final int title_activity_view_graph=0x7f06000a;
         public static final int title_activity_walking=0x7f060003;
         public static final int title_activity_weight_loss=0x7f060005;
     }

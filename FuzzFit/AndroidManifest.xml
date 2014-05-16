@@ -50,6 +50,10 @@
             android:name="activities.ReportListViewActivity"
             android:label="@string/title_activity_report_list_view" >
         </activity>
+        <activity
+            android:name="com.example.jfitnessfunctiontester.ViewGraphActivity"
+            android:label="@string/title_activity_view_graph" >
+        </activity>
     </application>
 
 </manifest>

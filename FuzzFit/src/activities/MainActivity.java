@@ -38,6 +38,7 @@ public class MainActivity extends Activity {
 	
 	Button reportButton;
 	
+	Button deleteDBButton; //used only for testing!
 	String distance="0", time="0";
 	
     DatabaseAdapter db = new DatabaseAdapter(this);
@@ -63,13 +64,11 @@ public class MainActivity extends Activity {
 		runnerButton = (Button) findViewById(R.id.runnerButton);
 		weightLossButton = (Button) findViewById(R.id.weightLossButton);
 		
+		deleteDBButton = (Button) findViewById(R.id.deleteDBButton);
+		
 		setButtons();
-//this is solely for testing purposes (it can be taken out and put back on at any time)		
-//		db.open();
-//		db.deleteAll(DatabaseAdapter.WALKER_HISTORY_TABLE);
-//		db.deleteAll(DatabaseAdapter.RUNNER_HISTORY_TABLE);
 		db.open();
-//		db.deleteAll(DatabaseAdapter.WALKER_HISTORY_TABLE);
+
 		if(db.userProfileIsEmpty()){
 			walkerButton.setEnabled(false);
 			runnerButton.setEnabled(false);
@@ -139,6 +138,18 @@ public class MainActivity extends Activity {
 				Intent i = new Intent(MainActivity.this, ReportMenuActivity.class);
 				startActivity(i);
 				
+			}
+		});
+		
+		deleteDBButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				db.open();
+				db.deleteAll(DatabaseAdapter.RUNNER_HISTORY_TABLE);
+				db.deleteAll(DatabaseAdapter.WALKER_HISTORY_TABLE);
+				db.deleteAll(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE);
+				db.close();
 			}
 		});
 	}

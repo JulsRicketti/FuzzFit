@@ -52,4 +52,14 @@
         android:layout_marginBottom="38dp"
         android:text="Report" />
 
+    <Button
+        android:id="@+id/deleteDBButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/enterTestButton"
+        android:layout_marginTop="21dp"
+        android:text="Delete DB" />
+
 </RelativeLayout>

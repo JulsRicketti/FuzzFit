@@ -62,6 +62,7 @@ public class ReportListViewActivity extends ListActivity{
 	TextView record1TextView;
 	TextView record2TextView;
 	TextView record3TextView;
+	TextView record4TextView;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		   super.onCreate(savedInstanceState);
@@ -78,6 +79,7 @@ public class ReportListViewActivity extends ListActivity{
 		    record1TextView = (TextView) findViewById(R.id.record1TextView);
 		    record2TextView = (TextView) findViewById(R.id.record2TextView);
 		    record3TextView = (TextView) findViewById(R.id.record3TextView);
+		    record4TextView = (TextView) findViewById(R.id.record4TextView);
 		    
 		    if(ReportMenuActivity.reportOption.equals(walkerOption)){
 		    	table = DatabaseAdapter.WALKER_HISTORY_TABLE;
@@ -100,10 +102,17 @@ public class ReportListViewActivity extends ListActivity{
 		    al=history.getHistory(table).activityDate;
 		    final ArrayAdapter<String> ad;
 		    ad = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,al);
-		    reportListView.setAdapter(ad); //exception here
+		    reportListView.setAdapter(ad);
+		    
+		    //set the textviews for the records
+		    record1TextView.setText("Record Distance: "+getBiggestItem(history.getHistory(table).activityDistance));
+		    record2TextView.setText("Record time: "+getBiggestItem(history.getHistory(table).activityTime));
+		    record3TextView.setText("Record average velocity: "+getBiggestItem(history.getHistory(table).activityVelocity));
+		    record4TextView.setText("Record burned calories: "+getBiggestItem(history.getHistory(table).calories));
 		
 	}
 
+	
 	float getBiggestItem(ArrayList<String> arrayList){
 		ArrayList<Float> arrayListFloat = new ArrayList<Float>();
 		
@@ -277,6 +286,7 @@ public class ReportListViewActivity extends ListActivity{
 	      "\nActivity Recommendation: "+history.getHistory(table).recommendation.get(position)+
 	      "\nActivity Distance: "+history.getHistory(table).activityDistance.get(position)+
 	      "\nActivity Time: "+history.getHistory(table).activityTime.get(position)+
+	      "\nActivity Average Velocity: "+history.getHistory(table).activityVelocity.get(position)+
 	      "\nActivity Monitor: "+history.getHistory(table).monitor.get(position)+
 	      "\nActivity Calories: "+history.getHistory(table).calories.get(position), Toast.LENGTH_LONG).show();
 	}

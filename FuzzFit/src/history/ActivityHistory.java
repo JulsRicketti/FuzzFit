@@ -8,6 +8,7 @@ public class ActivityHistory {
 	public ArrayList <String> recommendation;
 	public ArrayList <String> activityDate;
 	public ArrayList <String> activityDistance;
+	public ArrayList <String> activityVelocity;
 	public ArrayList <String> activityTime;
 	public ArrayList <String> monitor;
 	public ArrayList <String> calories;
@@ -20,6 +21,7 @@ public class ActivityHistory {
 		activityDate = new ArrayList<String>();
 		activityDistance = new ArrayList<String>();
 		activityTime = new ArrayList<String>();
+		activityVelocity = new ArrayList<String>();
 		monitor = new ArrayList<String>();
 		calories = new ArrayList<String>();
 	}
@@ -72,6 +74,14 @@ public class ActivityHistory {
 
 	public void setCalories(ArrayList<String> calories) {
 		this.calories = calories;
+	}
+
+	public ArrayList<String> getActivityVelocity() {
+		return activityVelocity;
+	}
+
+	public void setActivityVelocity(ArrayList<String> activityVelocity) {
+		this.activityVelocity = activityVelocity;
 	}
 
 	

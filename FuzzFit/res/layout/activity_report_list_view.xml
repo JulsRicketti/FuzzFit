@@ -63,8 +63,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/record2TextView"
-        android:layout_alignRight="@+id/record1TextView"
+        android:layout_centerHorizontal="true"
         android:text="Record3" 
         android:textAppearance="?android:attr/textAppearanceMedium"/>
+
+    <TextView
+        android:id="@+id/record4TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/record3TextView"
+        android:layout_centerHorizontal="true"
+        android:text="Record4"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

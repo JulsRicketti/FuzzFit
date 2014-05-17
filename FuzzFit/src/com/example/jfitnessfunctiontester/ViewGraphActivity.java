@@ -171,7 +171,8 @@ public class ViewGraphActivity extends Activity {
 	        multiRenderer.setShowGrid(true);
 	        multiRenderer.setGridColor(Color.GRAY);
 	        multiRenderer.setPointSize(10.0f);
-
+	        multiRenderer.setMargins(new int[] { 50, 50, 50, 22 }); //thing that fixes the legend (the 3rd one is the one to change)
+	        
 	        multiRenderer.addSeriesRenderer(distanceRenderer);
 	        multiRenderer.addSeriesRenderer(timeRenderer);
 	        multiRenderer.addSeriesRenderer(velocityRenderer);

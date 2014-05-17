@@ -114,66 +114,75 @@ public class ViewGraphActivity extends Activity {
 	            
 	        }
 	 
-	        // Creating a distanceDataset to hold each series
-	        XYMultipleSeriesDataset distanceDataset = new XYMultipleSeriesDataset();
-	 
-	        // Adding Visits Series to the distanceDataset
-	        distanceDataset.addSeries(distanceSeries);
-	        distanceDataset.addSeries(timeSeries);
-	        distanceDataset.addSeries(velocitySeries);
-	        distanceDataset.addSeries(caloriesSeries);
+	        // Creating a dataSet to hold each series
+	        XYMultipleSeriesDataset dataSet = new XYMultipleSeriesDataset();
+	        dataSet.addSeries(distanceSeries);
+	        dataSet.addSeries(timeSeries);
+	        dataSet.addSeries(velocitySeries);
+	        dataSet.addSeries(caloriesSeries);
 	 
 	        // Creating XYSeriesRenderer to customize distanceSeries
 	        XYSeriesRenderer distanceRenderer = new XYSeriesRenderer();
-	        distanceRenderer.setColor(Color.RED);
+	        distanceRenderer.setColor(Color.parseColor("#990000"));
 	        distanceRenderer.setPointStyle(PointStyle.DIAMOND);
 	        distanceRenderer.setFillPoints(true);
-	        distanceRenderer.setLineWidth(7);
+	        distanceRenderer.setLineWidth(5);
 	        distanceRenderer.setDisplayChartValues(true);
+	        distanceRenderer.setChartValuesTextSize(20);
 	 
 	        // Creating XYSeriesRenderer to customize timeSeries
 	        XYSeriesRenderer timeRenderer = new XYSeriesRenderer();
-	        timeRenderer.setColor(Color.BLUE);
+	        timeRenderer.setColor(Color.parseColor("#0000AA"));
 	        timeRenderer.setPointStyle(PointStyle.CIRCLE);
 	        timeRenderer.setFillPoints(true);
-	        timeRenderer.setLineWidth(7);
+	        timeRenderer.setLineWidth(5);
 	        timeRenderer.setDisplayChartValues(true);
+	        timeRenderer.setChartValuesTextSize(20);
 	        
 	        XYSeriesRenderer velocityRenderer = new XYSeriesRenderer();
-	        velocityRenderer.setColor(Color.GREEN);
+	        velocityRenderer.setColor(Color.parseColor("#559900"));
 	        velocityRenderer.setPointStyle(PointStyle.SQUARE);
 	        velocityRenderer.setFillPoints(true);
-	        velocityRenderer.setLineWidth(7);
+	        velocityRenderer.setLineWidth(5);
 	        velocityRenderer.setDisplayChartValues(true);
+	        velocityRenderer.setChartValuesTextSize(20);
 	 
 	        XYSeriesRenderer caloriesRenderer = new XYSeriesRenderer();
-	        caloriesRenderer.setColor(Color.MAGENTA);
+	        caloriesRenderer.setColor(Color.parseColor("#9900AA"));
 	        caloriesRenderer.setPointStyle(PointStyle.TRIANGLE);
 	        caloriesRenderer.setFillPoints(true);
-	        caloriesRenderer.setLineWidth(7);
+	        caloriesRenderer.setLineWidth(5);
 	        caloriesRenderer.setDisplayChartValues(true);
+	        caloriesRenderer.setChartValuesTextSize(20);
 	        
 	        // Creating a XYMultipleSeriesRenderer to customize the whole chart
 	        XYMultipleSeriesRenderer multiRenderer = new XYMultipleSeriesRenderer();
 	 
 	        multiRenderer.setChartTitle("Improvement Chart");
+	        multiRenderer.setChartTitleTextSize(20);
 	        multiRenderer.setXTitle("Days");
+	        multiRenderer.setAxisTitleTextSize(20);
+	        multiRenderer.setLegendTextSize(25);
 	        multiRenderer.setYTitle("Count");
+	        multiRenderer.setLabelsTextSize(30);
 	        multiRenderer.setZoomButtonsVisible(true);
-	 
-	        // Adding distanceRenderer and timeRenderer to multipleRenderer
-	        // Note: The order of adding distanceDataseries to distanceDataset and renderers to multipleRenderer
-	        // should be same
+	        multiRenderer.setBackgroundColor(Color.parseColor("#F5F5F5"));
+	        multiRenderer.setMarginsColor(Color.parseColor("#F5F5F5"));
+	        multiRenderer.setShowGrid(true);
+	        multiRenderer.setGridColor(Color.GRAY);
+	        multiRenderer.setPointSize(10.0f);
+
 	        multiRenderer.addSeriesRenderer(distanceRenderer);
 	        multiRenderer.addSeriesRenderer(timeRenderer);
 	        multiRenderer.addSeriesRenderer(velocityRenderer);
 	        multiRenderer.addSeriesRenderer(caloriesRenderer);
+
 	 
 	        // Getting a reference to LinearLayout of the MainActivity Layout
 	        LinearLayout chartContainer = (LinearLayout) findViewById(R.id.chart_container);
 	 
 	        // Creating a Time Chart
-	        mChart = (GraphicalView) ChartFactory.getTimeChartView(getBaseContext(), distanceDataset, multiRenderer,"dd-MMM-yyyy");
+	        mChart = (GraphicalView) ChartFactory.getTimeChartView(getBaseContext(), dataSet, multiRenderer,"dd-MMM-yyyy");
 	 
 	        multiRenderer.setClickEnabled(true);
 	        multiRenderer.setSelectableBuffer(10);

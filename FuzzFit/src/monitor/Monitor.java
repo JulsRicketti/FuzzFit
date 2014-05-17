@@ -51,7 +51,7 @@ public abstract class Monitor {
 	}
 
 	
-	abstract void fuzzifier(float timeInput, float distanceInput, float speedInput);
+	abstract void fuzzifier(float timeInput, float distanceInput, float caloriesInput);
 	abstract void fuzzyRules(FuzzySet[] inputSet);
 	abstract void inferenceEngine();
 	abstract void defuzzifier();

@@ -55,7 +55,7 @@ public class WalkingMonitor extends Monitor {
 		}
 
 		@Override
-		public void fuzzifier(float timeInput, float distanceInput, float speedInput) {
+		public void fuzzifier(float timeInput, float distanceInput, float caloriesInput) {
 			FuzzySet []timeFuzzySet = new FuzzySet[3];
 			FuzzySet []distanceFuzzySet = new FuzzySet[3];
 			
@@ -136,6 +136,7 @@ public class WalkingMonitor extends Monitor {
 			badInterval[0] = 0; badInterval[1]=dailyMinDistance/2;
 			averageInterval[0] = dailyMinDistance/2; averageInterval[1]=dailyMinDistance;
 			goodInterval[0]=dailyMinDistance; goodInterval[1]=goodDistance;
+			
 			if(distanceInput<=dailyMinDistance/2){
 				membershipBad = 1;
 				membershipAverage = 0;
@@ -264,8 +265,6 @@ public class WalkingMonitor extends Monitor {
 			
 			float  ux=0, sum=0, sumWeight =0;
 			//loop through all xs
-			//situacao: aprovado Thank you!
-			//for insufficient outputs
 			for(int i =0; i<average_bad; i++){
 				if(i<=x[1]){
 					ux=insufficientOutputs.getDegreeOfMembership();

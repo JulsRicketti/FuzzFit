@@ -61,7 +61,7 @@ public class RunningMonitor extends Monitor{
 	}
 	
 	@Override
-	void fuzzifier(float timeInput, float distanceInput, float speedInput) {
+	void fuzzifier(float timeInput, float distanceInput, float caloriesInput) {
 		FuzzySet []timeFuzzySet = new FuzzySet[3];
 		FuzzySet []distanceFuzzySet = new FuzzySet[3];
 		

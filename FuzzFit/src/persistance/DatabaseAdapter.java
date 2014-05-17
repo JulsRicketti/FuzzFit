@@ -123,7 +123,7 @@ public class DatabaseAdapter {
         initialValues.put(ACTIVITY_DATE,activityDate);
         initialValues.put(ACTIVITY_DISTANCE,activityDistance);
         initialValues.put(ACTIVITY_TIME, activityTime);
-        initialValues.put(ACTIVITY_VELOCITY, activityTime);
+        initialValues.put(ACTIVITY_VELOCITY, activityVelocity);
         initialValues.put(MONITOR, monitor);
         initialValues.put(CALORIES, calories);
         

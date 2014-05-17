@@ -57,6 +57,7 @@ public class Mediator {
 			activityTimeHistory = history.getWalkerHistory().activityTime;
 			activityDateHistory = history.getWalkerHistory().activityDate;
 			monitorHistory = history.getWalkerHistory().monitor;
+			calorieHistory = history.getWalkerHistory().calories;
 			return true; //it will return true when not empty
 		}
 			return false; //in case its empty, it will return false
@@ -71,6 +72,7 @@ public class Mediator {
 			 activityTimeHistory= history.getRunnerHistory().activityTime;
 			 activityDateHistory = history.getRunnerHistory().activityDate;
 			 monitorHistory = history.getRunnerHistory().monitor;
+			 calorieHistory = history.getRunnerHistory().calories;
 			 return true;
 		 }
 		 return false;

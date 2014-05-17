@@ -75,7 +75,7 @@ public class ViewGraphActivity extends Activity {
 	        	try {
 					dt[i]= new SimpleDateFormat("yyyy-MM-dd").parse(dates.get(i));
 					visits[i] = Float.parseFloat(data.get(i));
-					views[i] = Float.parseFloat(data.get(i));
+		//			views[i] = Float.parseFloat(data.get(i));
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -86,8 +86,11 @@ public class ViewGraphActivity extends Activity {
 //	        int[] views = {2200, 2700, 2900, 2800, 3200};
 	 
 	        // Creating TimeSeries for Visits
-	        TimeSeries visitsSeries = new TimeSeries("Visits");
-	 
+	        TimeSeries visitsSeries;
+	        if(ReportMenuActivity.reportOption.equals(walkerOption) || ReportMenuActivity.reportOption.equals(runnerOption))
+	        	visitsSeries = new TimeSeries("Distance");
+	        else
+	        	visitsSeries = new TimeSeries("Calories");
 	        // Creating TimeSeries for Views
 	        TimeSeries viewsSeries = new TimeSeries("Views");
 	 
@@ -108,10 +111,10 @@ public class ViewGraphActivity extends Activity {
 	 
 	        // Creating XYSeriesRenderer to customize visitsSeries
 	        XYSeriesRenderer visitsRenderer = new XYSeriesRenderer();
-	        visitsRenderer.setColor(Color.BLACK);
-	        visitsRenderer.setPointStyle(PointStyle.CIRCLE);
+	        visitsRenderer.setColor(Color.RED);
+	        visitsRenderer.setPointStyle(PointStyle.DIAMOND);
 	        visitsRenderer.setFillPoints(true);
-	        visitsRenderer.setLineWidth(2);
+	        visitsRenderer.setLineWidth(7);
 	        visitsRenderer.setDisplayChartValues(true);
 	 
 	        // Creating XYSeriesRenderer to customize viewsSeries
@@ -119,7 +122,7 @@ public class ViewGraphActivity extends Activity {
 	        viewsRenderer.setColor(Color.BLUE);
 	        viewsRenderer.setPointStyle(PointStyle.CIRCLE);
 	        viewsRenderer.setFillPoints(true);
-	        viewsRenderer.setLineWidth(2);
+	        viewsRenderer.setLineWidth(7);
 	        viewsRenderer.setDisplayChartValues(true);
 	 
 	        // Creating a XYMultipleSeriesRenderer to customize the whole chart

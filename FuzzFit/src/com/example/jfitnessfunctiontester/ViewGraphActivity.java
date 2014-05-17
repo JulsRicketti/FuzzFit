@@ -39,7 +39,10 @@ public class ViewGraphActivity extends Activity {
 	
 	History history;
 	ArrayList<String> dates;
-	ArrayList<String> data;
+	ArrayList<String> distanceData;
+	ArrayList<String> timeData;
+	ArrayList<String> velocityData;
+	ArrayList<String> caloriesData;
 	Context context = this;
 	
 	@Override
@@ -49,19 +52,29 @@ public class ViewGraphActivity extends Activity {
 		
 		history = new History(context);
 
-	    if(ReportMenuActivity.reportOption.equals(walkerOption)){ //(data)
+	    if(ReportMenuActivity.reportOption.equals(walkerOption)){ //(distanceData)
 	    	dates = history.getWalkerHistory().getActivityDate();
-	    	data = history.getWalkerHistory().activityDistance;
+	    	distanceData = history.getWalkerHistory().activityDistance;
+	    	timeData = history.getWalkerHistory().activityTime;
+	    	velocityData = history.getWalkerHistory().activityVelocity;
+	    	caloriesData = history.getWalkerHistory().calories;
 	    }
 
-	    if(ReportMenuActivity.reportOption.equals(runnerOption)){//(data)
+	    if(ReportMenuActivity.reportOption.equals(runnerOption)){//(distanceData)
 	    	dates = history.getRunnerHistory().getActivityDate();
-	    	data = history.getRunnerHistory().activityDistance;
+	    	distanceData = history.getRunnerHistory().activityDistance;
+	    	timeData = history.getRunnerHistory().activityTime;
+	    	velocityData = history.getRunnerHistory().activityVelocity;
+	    	caloriesData = history.getRunnerHistory().calories;
 	    }
 	    
 	    if(ReportMenuActivity.reportOption.equals(weightLossOption)){//(calories)
 	    	dates = history.getWeightLossHistory().getActivityDate();
-	    	data = history.getWeightLossHistory().getCalories();
+	    	distanceData = history.getWeightLossHistory().activityDistance;
+	    	timeData = history.getWeightLossHistory().activityTime;
+	    	velocityData = history.getWeightLossHistory().activityVelocity;
+	    	caloriesData = history.getWeightLossHistory().calories;
+
 	    }
 		openChart();
 	}
@@ -69,84 +82,98 @@ public class ViewGraphActivity extends Activity {
 	 private void openChart(){
 		 
 	        Date[] dt = new Date[dates.size()];
-	        float[] visits = new float[dates.size()];
-	        float[] views = new float[dates.size()];
+	        float[] distance = new float[dates.size()];
+	        float[] velocity = new float[dates.size()];
+	        float[] calories = new float[dates.size()];
+	        float[] time = new float[dates.size()];
 	        for(int i=0;i<dates.size();i++){
 	        	try {
 					dt[i]= new SimpleDateFormat("yyyy-MM-dd").parse(dates.get(i));
-					visits[i] = Float.parseFloat(data.get(i));
-		//			views[i] = Float.parseFloat(data.get(i));
+					distance[i] = Float.parseFloat(distanceData.get(i));
+					time[i] = Float.parseFloat(timeData.get(i));
+					velocity[i] =  Float.parseFloat(velocityData.get(i));
+					calories[i] = Float.parseFloat(caloriesData.get(i));
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 	        }
 	 
-//	        int[] visits = { 2000,2500,2700,2100,2800};
-//	        int[] views = {2200, 2700, 2900, 2800, 3200};
-	 
 	        // Creating TimeSeries for Visits
-	        TimeSeries visitsSeries;
-	        if(ReportMenuActivity.reportOption.equals(walkerOption) || ReportMenuActivity.reportOption.equals(runnerOption))
-	        	visitsSeries = new TimeSeries("Distance");
-	        else
-	        	visitsSeries = new TimeSeries("Calories");
-	        // Creating TimeSeries for Views
-	        TimeSeries viewsSeries = new TimeSeries("Views");
+	        TimeSeries distanceSeries = new TimeSeries("Distance (meters)");
+	        TimeSeries timeSeries = new TimeSeries("Time (minutes)");
+	        TimeSeries velocitySeries = new TimeSeries("Average Velocity (m/s)");
+	        TimeSeries caloriesSeries = new TimeSeries("Calories Burned (kcal)");
 	 
-	        // Adding data to Visits and Views Series
+	        // Adding distanceData to Visits and Views Series
 	        for(int i=0;i<dt.length;i++){
-	            visitsSeries.add(dt[i], visits[i]);
-	            viewsSeries.add(dt[i],views[i]);
+	            distanceSeries.add(dt[i], distance[i]);
+	            timeSeries.add(dt[i],time[i]);
+	            velocitySeries.add(dt[i], velocity[i]);
+	            caloriesSeries.add(dt[i], calories[i]);
+	            
 	        }
 	 
-	        // Creating a dataset to hold each series
-	        XYMultipleSeriesDataset dataset = new XYMultipleSeriesDataset();
+	        // Creating a distanceDataset to hold each series
+	        XYMultipleSeriesDataset distanceDataset = new XYMultipleSeriesDataset();
 	 
-	        // Adding Visits Series to the dataset
-	        dataset.addSeries(visitsSeries);
+	        // Adding Visits Series to the distanceDataset
+	        distanceDataset.addSeries(distanceSeries);
+	        distanceDataset.addSeries(timeSeries);
+	        distanceDataset.addSeries(velocitySeries);
+	        distanceDataset.addSeries(caloriesSeries);
 	 
-	        // Adding Visits Series to dataset
-	        dataset.addSeries(viewsSeries);
+	        // Creating XYSeriesRenderer to customize distanceSeries
+	        XYSeriesRenderer distanceRenderer = new XYSeriesRenderer();
+	        distanceRenderer.setColor(Color.RED);
+	        distanceRenderer.setPointStyle(PointStyle.DIAMOND);
+	        distanceRenderer.setFillPoints(true);
+	        distanceRenderer.setLineWidth(7);
+	        distanceRenderer.setDisplayChartValues(true);
 	 
-	        // Creating XYSeriesRenderer to customize visitsSeries
-	        XYSeriesRenderer visitsRenderer = new XYSeriesRenderer();
-	        visitsRenderer.setColor(Color.RED);
-	        visitsRenderer.setPointStyle(PointStyle.DIAMOND);
-	        visitsRenderer.setFillPoints(true);
-	        visitsRenderer.setLineWidth(7);
-	        visitsRenderer.setDisplayChartValues(true);
+	        // Creating XYSeriesRenderer to customize timeSeries
+	        XYSeriesRenderer timeRenderer = new XYSeriesRenderer();
+	        timeRenderer.setColor(Color.BLUE);
+	        timeRenderer.setPointStyle(PointStyle.CIRCLE);
+	        timeRenderer.setFillPoints(true);
+	        timeRenderer.setLineWidth(7);
+	        timeRenderer.setDisplayChartValues(true);
+	        
+	        XYSeriesRenderer velocityRenderer = new XYSeriesRenderer();
+	        velocityRenderer.setColor(Color.GREEN);
+	        velocityRenderer.setPointStyle(PointStyle.SQUARE);
+	        velocityRenderer.setFillPoints(true);
+	        velocityRenderer.setLineWidth(7);
+	        velocityRenderer.setDisplayChartValues(true);
 	 
-	        // Creating XYSeriesRenderer to customize viewsSeries
-	        XYSeriesRenderer viewsRenderer = new XYSeriesRenderer();
-	        viewsRenderer.setColor(Color.BLUE);
-	        viewsRenderer.setPointStyle(PointStyle.CIRCLE);
-	        viewsRenderer.setFillPoints(true);
-	        viewsRenderer.setLineWidth(7);
-	        viewsRenderer.setDisplayChartValues(true);
-	 
+	        XYSeriesRenderer caloriesRenderer = new XYSeriesRenderer();
+	        caloriesRenderer.setColor(Color.MAGENTA);
+	        caloriesRenderer.setPointStyle(PointStyle.TRIANGLE);
+	        caloriesRenderer.setFillPoints(true);
+	        caloriesRenderer.setLineWidth(7);
+	        caloriesRenderer.setDisplayChartValues(true);
+	        
 	        // Creating a XYMultipleSeriesRenderer to customize the whole chart
 	        XYMultipleSeriesRenderer multiRenderer = new XYMultipleSeriesRenderer();
 	 
-	        if(ReportMenuActivity.reportOption.equals(walkerOption) || ReportMenuActivity.reportOption.equals(runnerOption))
-	        	multiRenderer.setChartTitle("Distance Improvement Chart");
-	        else
-	        	multiRenderer.setChartTitle("Calories Burned Chart");
+	        multiRenderer.setChartTitle("Improvement Chart");
 	        multiRenderer.setXTitle("Days");
 	        multiRenderer.setYTitle("Count");
 	        multiRenderer.setZoomButtonsVisible(true);
 	 
-	        // Adding visitsRenderer and viewsRenderer to multipleRenderer
-	        // Note: The order of adding dataseries to dataset and renderers to multipleRenderer
+	        // Adding distanceRenderer and timeRenderer to multipleRenderer
+	        // Note: The order of adding distanceDataseries to distanceDataset and renderers to multipleRenderer
 	        // should be same
-	        multiRenderer.addSeriesRenderer(visitsRenderer);
-	        multiRenderer.addSeriesRenderer(viewsRenderer);
+	        multiRenderer.addSeriesRenderer(distanceRenderer);
+	        multiRenderer.addSeriesRenderer(timeRenderer);
+	        multiRenderer.addSeriesRenderer(velocityRenderer);
+	        multiRenderer.addSeriesRenderer(caloriesRenderer);
 	 
 	        // Getting a reference to LinearLayout of the MainActivity Layout
 	        LinearLayout chartContainer = (LinearLayout) findViewById(R.id.chart_container);
 	 
 	        // Creating a Time Chart
-	        mChart = (GraphicalView) ChartFactory.getTimeChartView(getBaseContext(), dataset, multiRenderer,"dd-MMM-yyyy");
+	        mChart = (GraphicalView) ChartFactory.getTimeChartView(getBaseContext(), distanceDataset, multiRenderer,"dd-MMM-yyyy");
 	 
 	        multiRenderer.setClickEnabled(true);
 	        multiRenderer.setSelectableBuffer(10);
@@ -161,12 +188,15 @@ public class ViewGraphActivity extends Activity {
 	 
 	                if (seriesSelection != null) {
 	                    int seriesIndex = seriesSelection.getSeriesIndex();
-	                    String selectedSeries="Visits";
+	                    String selectedSeries="Distance";
 	                    if(seriesIndex==0)
-	                        selectedSeries = "Visits";
-	                    else
-	                        selectedSeries = "Views";
-	 
+	                        selectedSeries = "Distance";
+	                    if(seriesIndex==1)
+	                        selectedSeries = "Time";
+	                    if(seriesIndex==2)
+	                        selectedSeries = "Velocity";
+	                    if(seriesIndex==3)
+	                        selectedSeries = "Calories";
 	                    // Getting the clicked Date ( x value )
 	                    long clickedDateSeconds = (long) seriesSelection.getXValue();
 	                    Date clickedDate = new Date(clickedDateSeconds);

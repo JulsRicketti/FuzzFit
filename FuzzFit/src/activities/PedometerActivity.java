@@ -166,13 +166,11 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		}
 	}
 	
-	int timesGoneThroughAPROVADO =0;
 //calls the calorie counter function
 	private Runnable timedTask = new Runnable(){
 
 		  @Override
 		  public void run() {
-			  timesGoneThroughAPROVADO++;
 			  calculateCalories();
 			  handler.postDelayed(timedTask, CALORIE_UPDATE_INTERVAL);
 		  }
@@ -205,6 +203,8 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	 
 	void setButtons(){
 		finishPedometerButton.setEnabled(false);
+		resetButton.setEnabled(false);
+		pausePedometerButton.setEnabled(false);
 		
 		resetButton.setOnClickListener(new OnClickListener() {
 			
@@ -227,6 +227,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 				startPedometerButton.setEnabled(false);
 				pausePedometerButton.setEnabled(true);
 				finishPedometerButton.setEnabled(true);
+				resetButton.setEnabled(true);
 				
 				//check to see if it's better to be put here
 //				if(MainActivity.activityOption.equals(weightLossOption))
@@ -309,8 +310,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 				numSteps++;
 				distance+=strideLength/100; //we convert that to meters!
 				//if(!MainActivity.activityOption.equals(weightLossOption))
-					stepsTextView.setText("Steps: "+String.valueOf(numSteps)+"\nDistance: "+distance+"\nCalories Burned: "+calories.getCalories()+
-							"\nTCCII - APROVADO"+timesGoneThroughAPROVADO);
+					stepsTextView.setText("Steps: "+String.valueOf(numSteps)+"\nDistance: "+distance+"\nCalories Burned: "+calories.getCalories());
 				//else
 				//	stepsTextView.setText("Steps: "+String.valueOf(numSteps)+"\nDistance: "+distance+"\nCalories Burned: "+calories.getCalories());
 			}

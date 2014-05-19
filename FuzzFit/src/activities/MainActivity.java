@@ -195,16 +195,16 @@ public class MainActivity extends Activity {
 				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-10", "1400", "35", "13", "96", "100");
 				
 				//weightloss
-				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "785", "2014-05-01", "1000", "10", "13", "96", "100");
-				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "785", "2014-05-02", "900", "15", "13", "91", "150");
-				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "785", "2014-05-03", "800", "20", "13", "96", "150");
-				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "785", "2014-05-04", "1000", "20", "13", "96", "200");
-				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "785", "2014-05-05", "900", "25", "13", "96", "250");
-				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "785", "2014-05-06", "1123", "30", "13", "96", "300");
-				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "785", "2014-05-07", "911", "30", "13", "96", "350");
-				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "785", "2014-05-08", "800", "30", "13", "96", "400");
-				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "785", "2014-05-09", "1500", "35", "13", "96", "450");				
-				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "785", "2014-05-10", "1400", "35", "13", "96", "500");
+				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-01", "1000", "10", "13", "96", "100");
+				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-02", "900", "15", "13", "91", "150");
+				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-03", "800", "20", "13", "96", "150");
+				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-04", "1000", "20", "13", "96", "200");
+				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-05", "900", "25", "13", "96", "250");
+				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-06", "1123", "30", "13", "96", "300");
+				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-07", "911", "30", "13", "96", "350");
+				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-08", "800", "30", "13", "96", "400");
+				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-09", "1500", "35", "13", "96", "450");				
+				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-10", "1400", "35", "13", "96", "500");
 
 				db.close();
 			}

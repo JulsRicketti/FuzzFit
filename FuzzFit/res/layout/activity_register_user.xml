@@ -81,7 +81,7 @@
         android:layout_alignRight="@+id/weightRegisterEditText"
         android:layout_below="@+id/sexRegisterSpinner"
         android:layout_marginTop="68dp"
-        android:text="FinishAPROVADO" />
+        android:text="Finish" />
 
     <Spinner
         android:id="@+id/sexRegisterSpinner"

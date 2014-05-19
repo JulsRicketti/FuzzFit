@@ -150,13 +150,13 @@ public class WeightLossActivity extends Activity {
 					variationNumber=1;
 					entered=true;
 				}
-				if(variationNumber==1 && !entered){ //20 minutes
-					activityTime = activityTime/3;
+				if(variationNumber==1 && !entered){ //80 minutes
+					activityTime += activityTime/3;
 					variationNumber=2;
 					entered=true;
 				}
-				if(variationNumber==2&& !entered){ //15 minutes
-					activityTime = activityTime/4;
+				if(variationNumber==2&& !entered){ //120 minutes
+					activityTime += activityTime;
 					variationNumber=3;
 					entered=true;
 				}
@@ -165,6 +165,7 @@ public class WeightLossActivity extends Activity {
 					variationNumber=0;
 					entered=true;
 				}
+				
 				activityVelocity = caloriesHandler.calculateActivityVelocity(caloriesToLose, activityTime); //comes in km/h
 				activityDistance = activityVelocity*(activityTime);
 				wlExerciseOptionTextView.setText("Distance: "+activityDistance+" km\nTime: "+activityTime*60 +"minutes");

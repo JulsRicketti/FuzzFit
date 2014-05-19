@@ -144,12 +144,12 @@ public class Mediator {
 	//For the next two ones remembers to change the situation with the velocity
 	public void updateWeightLossEntry(String recommendation, String activityDate, String activityDistance, String activityTime, String calories){
 		float averageVelocity = (Float.parseFloat(activityDistance))/(Float.parseFloat(activityTime)/60);
-		history.updateDatabase(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, Float.toString(averageVelocity), getMonitorResult(), calories);
+		history.updateDatabase(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, Float.toString(averageVelocity), getMonitorResult(), calories);
 	}
 	
 	public void updateRunnerEntry(String recommendation, String activityDate, String activityDistance, String activityTime, String calories){
 		float averageVelocity = (Float.parseFloat(activityDistance))/(Float.parseFloat(activityTime)/60);
-		history.updateDatabase(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, Float.toString(averageVelocity), getMonitorResult(), calories);
+		history.updateDatabase(DatabaseAdapter.RUNNER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, Float.toString(averageVelocity), getMonitorResult(), calories);
 	}
 	
 	//this is what will be used whenever it goes through the recommend class
@@ -160,7 +160,7 @@ public class Mediator {
 	
 	//For the next two ones remembers to change the situation with the velocity	
 	public void buildWeightLossEntry(String recommendation, String activityDate, String activityDistance, String activityTime, String calories){
-		float averageVelocity = (Float.parseFloat(activityDistance))/(Float.parseFloat(activityTime)/60);
+		float averageVelocity = (Float.parseFloat(activityDistance))/(Float.parseFloat(activityTime)*60);
 		history.insert(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,Float.toString(averageVelocity), getMonitorResult(), calories);
 	}
 	

@@ -91,8 +91,10 @@ public class EnterActivityActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				float velocity = Float.parseFloat(distanceString)/Float.parseFloat(timeString);
-				calorieHandler.calculateCalories(velocity, Float.parseFloat(timeString));
+				float timeHours = Float.parseFloat(timeString)/60; //time converted into hours
+				float distanceKM = Float.parseFloat(distanceString)/1000;
+				float velocityKM = distanceKM/timeHours;
+				calorieHandler.calculateCalories(velocityKM, timeHours);
 				if(MainActivity.activityOption.equals(walkerOption)){
 					MonitorObserver.updateWalk(context); 
 					analyse = new WalkingAnalyse(context);

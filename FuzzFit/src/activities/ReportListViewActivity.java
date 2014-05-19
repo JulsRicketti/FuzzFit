@@ -142,10 +142,10 @@ public class ReportListViewActivity extends ListActivity{
 	protected void onListItemClick(ListView l, View v, int position, long id)
 	{
 	      Toast.makeText(this, "Activity Date: "+history.getHistory(table).activityDate.get(position)+
-	      "\nActivity Recommendation: "+history.getHistory(table).recommendation.get(position)+
-	      "\nActivity Distance: "+history.getHistory(table).activityDistance.get(position)+
-	      "\nActivity Time: "+history.getHistory(table).activityTime.get(position)+
-	      "\nActivity Average Velocity: "+history.getHistory(table).activityVelocity.get(position)+
+	      "\nActivity Recommendation: "+history.getHistory(table).recommendation.get(position)+ //see how I can choose
+	      "\nActivity Distance: "+history.getHistory(table).activityDistance.get(position)+" meters"+
+	      "\nActivity Time: "+history.getHistory(table).activityTime.get(position)+" minutes"+
+	      "\nActivity Average Velocity: "+history.getHistory(table).activityVelocity.get(position)+ "meters/second"+
 	      "\nActivity Monitor: "+history.getHistory(table).monitor.get(position)+
 	      "\nActivity Calories: "+history.getHistory(table).calories.get(position), Toast.LENGTH_LONG).show();
 	}

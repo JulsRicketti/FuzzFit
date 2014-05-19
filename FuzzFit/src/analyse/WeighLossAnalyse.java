@@ -10,6 +10,7 @@ import others.User;
 import recommend.Recommend;
 import recommend.WalkingRecommend;
 import recommend.WeightLossRecommend;
+import android.R.integer;
 import android.content.Context;
 
 
@@ -37,7 +38,7 @@ public class WeighLossAnalyse implements Analyse{
 		mediator = new Mediator(context);
 		recommend = new WeightLossRecommend(context);
 		user = new User(context);
-		isFirstActivity = !(mediator.setWalkingHistory());
+		isFirstActivity = !(mediator.setWeightLossHistory());
 	}
 	
 	float monitorResult;
@@ -124,6 +125,7 @@ public class WeighLossAnalyse implements Analyse{
 	
 	boolean isSameDay(){
 		DateTime today = new DateTime();
+		int blah = Days.daysBetween(getLastDate(), today).getDays();
 		if(Days.daysBetween(getLastDate(), today).getDays() == 0){
 			return true;
 		}

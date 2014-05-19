@@ -138,11 +138,13 @@ public class WeightLossActivity extends Activity {
 			}
 		});
 		
+		
 		wlSwitchExerciseButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
 			public void onClick(View v) {
 				boolean entered =false;
+				activityTime=1;
 				if(variationNumber==0 && !entered){ //30 minutes
 					activityTime = activityTime/2;
 					variationNumber=1;
@@ -166,7 +168,7 @@ public class WeightLossActivity extends Activity {
 				activityVelocity = caloriesHandler.calculateActivityVelocity(caloriesToLose, activityTime); //comes in km/h
 				activityDistance = activityVelocity*(activityTime);
 				wlExerciseOptionTextView.setText("Distance: "+activityDistance+" km\nTime: "+activityTime*60 +"minutes");
-				activityTime=1;
+
 			}
 		});
 		

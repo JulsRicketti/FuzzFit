@@ -33,12 +33,12 @@ public final class R {
         public static final int mr_fuzz_colored=0x7f020001;
     }
     public static final class id {
-        public static final int RelativeLayout1=0x7f090034;
-        public static final int action_settings=0x7f09003c;
+        public static final int RelativeLayout1=0x7f090035;
+        public static final int action_settings=0x7f09003d;
         public static final int activityEnterButton=0x7f090004;
         public static final int ageRegisterEditText=0x7f09001f;
         public static final int ageRegisterTextView=0x7f09001c;
-        public static final int caloriesRecommendationTextView=0x7f090038;
+        public static final int caloriesRecommendationTextView=0x7f090039;
         public static final int chart_container=0x7f090033;
         public static final int chronometerChronometer=0x7f090013;
         public static final int currentRecordsTextView=0x7f090026;
@@ -47,6 +47,7 @@ public final class R {
         public static final int distanceEditText=0x7f090006;
         public static final int distanceTextView=0x7f090003;
         public static final int enterTestButton=0x7f090008;
+        public static final int exportGraphButton=0x7f090034;
         public static final int finishPedometerButton=0x7f090018;
         public static final int finishRegisterButton=0x7f090022;
         public static final int heightRegisterEditText=0x7f090021;
@@ -85,12 +86,12 @@ public final class R {
         public static final int weightRegisterEditText=0x7f090020;
         public static final int weightRegisterTextView=0x7f09001d;
         public static final int whichReportTextView=0x7f09002b;
-        public static final int wlCalorieConsumptionEditText=0x7f090036;
-        public static final int wlEnterActivityButton=0x7f09003b;
-        public static final int wlExerciseOptionTextView=0x7f09003a;
-        public static final int wlMessageTextView=0x7f090035;
-        public static final int wlRecommendationButton=0x7f090037;
-        public static final int wlSwitchExerciseButton=0x7f090039;
+        public static final int wlCalorieConsumptionEditText=0x7f090037;
+        public static final int wlEnterActivityButton=0x7f09003c;
+        public static final int wlExerciseOptionTextView=0x7f09003b;
+        public static final int wlMessageTextView=0x7f090036;
+        public static final int wlRecommendationButton=0x7f090038;
+        public static final int wlSwitchExerciseButton=0x7f09003a;
         public static final int xTextView=0x7f090010;
         public static final int yTextView=0x7f090011;
         public static final int zTextView=0x7f090012;

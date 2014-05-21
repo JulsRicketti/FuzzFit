@@ -38,4 +38,13 @@
         android:layout_below="@id/tv_title" >
  
     </LinearLayout>
+
+    <Button
+        android:id="@+id/exportGraphButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Export" />
+
 </RelativeLayout>

@@ -22,10 +22,15 @@ import activities.ReportListViewActivity;
 import activities.ReportMenuActivity;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.MeasureSpec;
+import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -36,6 +41,8 @@ public class ViewGraphActivity extends Activity {
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
 	private GraphicalView mChart;
+	
+	Button exportGraphButton;
 	
 	History history;
 	ArrayList<String> dates;
@@ -49,6 +56,9 @@ public class ViewGraphActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_graph);
+		
+		exportGraphButton =(Button) findViewById(R.id.exportGraphButton);
+		setButtons();
 		
 		history = new History(context);
 
@@ -79,7 +89,35 @@ public class ViewGraphActivity extends Activity {
 		openChart();
 	}
 
-	 private void openChart(){
+	ImageView bmImage; 
+	LinearLayout chartContainer;
+	
+	void setButtons(){
+		exportGraphButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+//				bmImage = (ImageView)findViewById(R.id.image);
+//
+//				chartContainer.setDrawingCacheEnabled(true);
+//			      // this is the important code :)  
+//			      // Without it the view will have a dimension of 0,0 and the bitmap will be null          
+//
+//				chartContainer.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), 
+//			            MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
+//
+//
+//				chartContainer.buildDrawingCache(true);
+//			      Bitmap b = Bitmap.createBitmap(chartContainer.getDrawingCache());
+//			      chartContainer.setDrawingCacheEnabled(false); // clear drawing cache
+//
+//			      bmImage.setImageBitmap(b);
+				
+			}
+		});
+	}
+
+	private void openChart(){
 		 
 	        Date[] dt = new Date[dates.size()];
 	        float[] distance = new float[dates.size()];
@@ -102,8 +140,8 @@ public class ViewGraphActivity extends Activity {
 	        // Creating TimeSeries for Visits
 	        TimeSeries distanceSeries = new TimeSeries("Distance (meters)");
 	        TimeSeries timeSeries = new TimeSeries("Time (minutes)");
-	        TimeSeries velocitySeries = new TimeSeries("Average Velocity (m/s)");
-	        TimeSeries caloriesSeries = new TimeSeries("Calories Burned (kcal)");
+	        TimeSeries velocitySeries = new TimeSeries("Average Velocity (km/h)");
+	        TimeSeries caloriesSeries = new TimeSeries("Calories Burned");
 	 
 	        // Adding distanceData to Visits and Views Series
 	        for(int i=0;i<dt.length;i++){
@@ -180,7 +218,7 @@ public class ViewGraphActivity extends Activity {
 
 	 
 	        // Getting a reference to LinearLayout of the MainActivity Layout
-	        LinearLayout chartContainer = (LinearLayout) findViewById(R.id.chart_container);
+	        chartContainer = (LinearLayout) findViewById(R.id.chart_container);
 	 
 	        // Creating a Time Chart
 	        mChart = (GraphicalView) ChartFactory.getTimeChartView(getBaseContext(), dataSet, multiRenderer,"dd-MMM-yyyy");

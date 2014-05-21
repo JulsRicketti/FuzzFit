@@ -70,17 +70,20 @@ public class MainActivity extends Activity {
 		
 		setButtons();
 		db.open();
+		//db.deleteAll(DatabaseAdapter.USER_PROFILE_TABLE); //just for testing remember to remove!!
 
 		if(db.userProfileIsEmpty()){
 			walkerButton.setEnabled(false);
 			runnerButton.setEnabled(false);
 			weightLossButton.setEnabled(false);
+			reportButton.setEnabled(false);
 			Toast.makeText(getApplicationContext(), "Please register yourself before we start.", Toast.LENGTH_LONG).show();
 		}
 		else{
 			walkerButton.setEnabled(true);
 			runnerButton.setEnabled(true);
 			weightLossButton.setEnabled(true);
+			reportButton.setEnabled(true);
 		}
 		db.close();
 		

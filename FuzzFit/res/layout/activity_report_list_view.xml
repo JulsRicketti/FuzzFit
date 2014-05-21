@@ -30,12 +30,19 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
         android:text="Illustrate Progress" />
-
+    <Button
+        android:id="@+id/exportDatabaseButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/plotsButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="24dp"
+        android:text="Export Data" />
     <TextView
         android:id="@+id/currentRecordsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/plotsButton"        
+        android:layout_below="@+id/exportDatabaseButton"        
         android:layout_centerHorizontal="true"
         android:text="Current Records:"
         android:textAppearance="?android:attr/textAppearanceLarge" />

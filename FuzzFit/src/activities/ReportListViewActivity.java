@@ -2,6 +2,10 @@ package activities;
 
 import history.History;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -25,7 +29,9 @@ import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.View;
@@ -48,6 +54,7 @@ public class ReportListViewActivity extends ListActivity{
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
 	Button plotsButton;
+	Button exportDatabaseButton;
 	
 	History history;
 	ArrayList<String> dates;
@@ -73,6 +80,7 @@ public class ReportListViewActivity extends ListActivity{
 		    history = new History(context);
 		    
 		    plotsButton = (Button) findViewById(R.id.plotsButton);
+		    exportDatabaseButton = (Button) findViewById(R.id.exportDatabaseButton);
 		    setButtons();
 		    reportListView = (ListView) findViewById(android.R.id.list);
 
@@ -125,7 +133,7 @@ public class ReportListViewActivity extends ListActivity{
 		
 		return arrayListFloat.get(arrayListFloat.size()-1);
 	}
-	
+	 
 	void setButtons(){
 		plotsButton.setOnClickListener(new OnClickListener() {
 			
@@ -133,6 +141,49 @@ public class ReportListViewActivity extends ListActivity{
 			public void onClick(View v) {
 				Intent i = new Intent(ReportListViewActivity.this, ViewGraphActivity.class);
 				startActivity(i);
+			}
+		});
+		
+		exportDatabaseButton.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				try {
+					File sdCard = Environment.getExternalStorageDirectory();
+					File dir = new File (sdCard.getAbsolutePath() + "/FuzzFitDocuments");
+					dir.mkdirs();
+					File myFile = new File(dir, ReportMenuActivity.reportOption+"fuzzFitDataFile.txt");
+					myFile.createNewFile();
+					FileOutputStream fOut = new FileOutputStream(myFile);
+					OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
+					
+					
+					myOutWriter.append(ReportMenuActivity.reportOption+" History:\n");											
+					for(int i =0; i<history.getHistory(table).activityDate.size(); i++){
+						myOutWriter.append(" Date: "+history.getHistory(table).activityDate.get(i));
+						myOutWriter.append(" Recommendation: "+history.getHistory(table).recommendation.get(i));
+						myOutWriter.append(" Distance: "+history.getHistory(table).activityDistance.get(i));
+						myOutWriter.append(" Time: "+history.getHistory(table).activityTime.get(i));
+						myOutWriter.append(" Average Velocity: "+history.getHistory(table).activityVelocity.get(i));
+						myOutWriter.append(" Monitor: "+history.getHistory(table).monitor.get(i));
+						myOutWriter.append(" Calories: "+history.getHistory(table).calories.get(i)+"\n");
+					}
+					//records:
+					myOutWriter.append("\nRecords:");
+					myOutWriter.append("\nRecord Distance: "+getBiggestItem(history.getHistory(table).activityDistance));
+					myOutWriter.append("\nRecord time: "+getBiggestItem(history.getHistory(table).activityTime));
+					myOutWriter.append("\nRecord average velocity: "+getBiggestItem(history.getHistory(table).activityVelocity));
+					myOutWriter.append("\nRecord burned calories: "+getBiggestItem(history.getHistory(table).calories));
+					myOutWriter.close();
+					fOut.close();
+					sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE).setData(Uri.fromFile(myFile)));
+					Toast.makeText(getBaseContext(),
+							"Done writing SD "+ReportMenuActivity.reportOption+"fuzzFitDataFile.txt",
+							Toast.LENGTH_SHORT).show();
+				} catch (Exception e) {
+					Toast.makeText(getBaseContext(), e.getMessage(),
+							Toast.LENGTH_SHORT).show();
+				}
 			}
 		});
 	}

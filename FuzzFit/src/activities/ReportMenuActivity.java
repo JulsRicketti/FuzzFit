@@ -31,6 +31,8 @@ public class ReportMenuActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_report_menu);
 		
+		setTitle("Report Menu");
+		
 		walkerReportButton = (Button) findViewById(R.id.walkerReportButton);
 		runnerReportButton = (Button) findViewById(R.id.runnerReportButton);
 		weightLossReportButton = (Button) findViewById(R.id.weightLossReportButton);

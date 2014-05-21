@@ -50,6 +50,8 @@ public class WeightLossActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_weight_loss);
 		
+		setTitle("Weight Loss Program");
+		
 		caloriesRecommendationTextView = (TextView) findViewById(R.id.caloriesRecommendationTextView);
 		wlExerciseOptionTextView = (TextView) findViewById(R.id.wlExerciseOptionTextView);
 		

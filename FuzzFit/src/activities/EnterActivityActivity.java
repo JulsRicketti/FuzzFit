@@ -34,6 +34,10 @@ public class EnterActivityActivity extends Activity {
 	static final String runnerOption = "RUNNER";
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
+	final String walkerTitle = "Walk Training";
+	final String runnerTitle = "Run Training";
+	final String weightLossTitle = "Weight Loss Program";
+	
 	TextView recommendationTextView;
 	
 	EditText distanceEditText;
@@ -54,6 +58,14 @@ public class EnterActivityActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_enter);
+		
+		//set screen title
+		if(MainActivity.activityOption.equals(walkerOption))
+			setTitle(walkerTitle);
+		if(MainActivity.activityOption.equals(runnerOption))
+			setTitle(runnerTitle);
+		if(MainActivity.activityOption.equals(weightLossOption))
+			setTitle(weightLossTitle);
 		
 		context = this;
 		

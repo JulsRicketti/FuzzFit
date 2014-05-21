@@ -54,6 +54,9 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	static final String runnerOption = "RUNNER";
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
+	final String walkerTitle = "Walk Training";
+	final String runnerTitle = "Run Training";
+	final String weightLossTitle = "Weight Loss Program";
 	//How to find the stride?
 	//source : http://walking.about.com/cs/pedometers/a/pedometerset.htm
 	//height*strideLengh
@@ -107,6 +110,15 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pedometer);
+		
+		//set screen title
+		if(MainActivity.activityOption.equals(walkerOption))
+			setTitle(walkerTitle+" Pedometer");
+		if(MainActivity.activityOption.equals(runnerOption))
+			setTitle(runnerTitle+" Pedometer");
+		if(MainActivity.activityOption.equals(weightLossOption))
+			setTitle(weightLossTitle+" Pedometer");
+
 		
 		calories = new CalorieHandler(context);
 		calories.setCalories(0);

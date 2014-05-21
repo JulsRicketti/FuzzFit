@@ -40,6 +40,10 @@ public class ViewGraphActivity extends Activity {
 	static final String runnerOption = "RUNNER";
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
+	final String walkerTitle = "Walk Training Report";
+	final String runnerTitle = "Run Training Report";
+	final String weightLossTitle = "Weight Loss Program Report";
+	
 	private GraphicalView mChart;
 	
 	Button exportGraphButton;
@@ -56,6 +60,15 @@ public class ViewGraphActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_graph);
+		
+		//set screen title
+		if(ReportMenuActivity.reportOption.equals(walkerOption))
+			setTitle(walkerTitle+ " Chart");
+		if(ReportMenuActivity.reportOption.equals(runnerOption))
+			setTitle(runnerTitle+ " Chart");
+		if(ReportMenuActivity.reportOption.equals(weightLossOption))
+			setTitle(weightLossTitle+ " Chart");
+
 		
 		exportGraphButton =(Button) findViewById(R.id.exportGraphButton);
 		setButtons();

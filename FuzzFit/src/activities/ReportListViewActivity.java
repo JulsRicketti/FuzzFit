@@ -53,6 +53,10 @@ public class ReportListViewActivity extends ListActivity{
 	static final String runnerOption = "RUNNER";
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
+	final String walkerTitle = "Walk Training Report";
+	final String runnerTitle = "Run Training Report";
+	final String weightLossTitle = "Weight Loss Program Report";
+	
 	Button plotsButton;
 	Button exportDatabaseButton;
 	
@@ -77,6 +81,16 @@ public class ReportListViewActivity extends ListActivity{
 		   super.onCreate(savedInstanceState);
 		    setContentView(R.layout.activity_report_list_view);
 
+			//set screen title
+			if(ReportMenuActivity.reportOption.equals(walkerOption))
+				setTitle(walkerTitle);
+			if(ReportMenuActivity.reportOption.equals(runnerOption))
+				setTitle(runnerTitle);
+			if(ReportMenuActivity.reportOption.equals(weightLossOption))
+				setTitle(weightLossTitle);
+
+		    
+		    
 		    history = new History(context);
 		    
 		    plotsButton = (Button) findViewById(R.id.plotsButton);

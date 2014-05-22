@@ -25,6 +25,12 @@
     <string name="change_button_recommendation_enter">Trocar</string>
     <string name="enter_button_recommendation_enter">Entra</string>
     <string name="open_pedometer_button_recommendation_enter">Abrir Pedômetro</string>
+        <!--  Java   -->
+    <string name="text_view_next_recommendation_enter">Próxima Recomendação: </string>
+	<string name="text_view_recommendation_time_enter">minutos</string>
+    <string name="text_view_recommendation_distance_enter">metros</string>
+    <string name="text_view_recommendation_distance_km_enter">km em </string>        
+ 	<string name="text_view_recommendation_calories_enter"> calorias</string>
     
     <!--  PedometerActivity   -->
     <string name="recommendation_pedometer">Recomendação</string>
@@ -42,11 +48,35 @@
     <string name="weight_loss_exercise_time">Ajustar tempo de atividade (minutos)</string>
     <string name="weight_loss_exercise_time_button">Ajustar Atividade</string>
     <string name="weight_loss_exercise_option">Opções de Atividade</string>
+    <!--  Java   -->
+    <string name="low_calorie_message">Para uma perda de peso saudável, por favor consuma mais de 1500 calorias por dia. (Consulte um nutricionista se necessário) Apenas faça estar atividades quando estiver consumindo mais 1500 calorias diárias.</string>
+    <string name="high_calorie_message">Para a possibilidade de máxima perda de peso sem danos ao corpo, por favor consuma menos de 2500 calorias diárias. (Consulte um nutricionista se necessário)</string>
+    <string name="default_calorie_message">Por default, supomos que você esteja consumindo 2000 calorias diárias. (Consulte um nutricionista se necessário)</string>
+    <string name="consume_more_calories_message">Por favor consuma mais calorias</string>
+    <string name="weight_loss_distance">Distância: </string>
+    <string name="weight_loss_distance_unit">km </string>
+    <string name="weight_loss_time">Tempo: </string>
+    <string name="weight_loss_time_unit"> minutos </string>
     
     <!--  ReportListViewActivity   -->
     <string name="export_data_report">Exportar Dados</string>
     <string name="current_records_report">Atuais Recordes:</string>
     <string name="illustrate_progress_button_report">Ilustrar Progresso</string>
+      <!--  Java   -->
+    <string name="toast_activity_date">Data da Atividade: </string>
+    <string name="toast_activity_recommendation">Recomendação: </string>
+    <string name="toast_activity_distance">Distância da Atividade: </string>
+    <string name="toast_activity_distance_unit"> metros </string>
+    <string name="toast_activity_time">Tempo da Atividade: </string>
+    <string name="toast_activity_time_unit"> minutos </string>
+    <string name="toast_activity_average_velocity">Velocidade Média da Atividade: </string>
+    <string name="toast_activity_average_velocity_unit"> km/h </string>
+    <string name="toast_activity_monitor">Monitor: </string>
+    <string name="toast_activity_calories">Calorias Queimadas: </string>
+    <string name="record_distance">Distância recorde: </string>
+    <string name="record_time">Tempo recorde: </string>
+    <string name="record_average_velocity">Velocidade média recorde: </string>
+    <string name="record_calories">Recorde de calorias queimadas: </string>
     
     <!--  ReportListViewActivity   -->
     <string name="select_report_menu">Por favor selecione o relato que deseja visualizar</string>

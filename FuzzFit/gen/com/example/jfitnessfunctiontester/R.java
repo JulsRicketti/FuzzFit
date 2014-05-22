@@ -147,6 +147,7 @@ public final class R {
         public static final int high_calorie_message=0x7f060026;
         public static final int illustrate_progress_button_report=0x7f06002f;
         /**   Java   
+  Java   
          */
         public static final int low_calorie_message=0x7f060025;
         public static final int open_pedometer_button_recommendation_enter=0x7f060012;
@@ -183,6 +184,7 @@ public final class R {
         public static final int sex_register_user=0x7f06000a;
         public static final int start_button_pedometer=0x7f06001a;
         /**   Java   
+  Java   
          */
         public static final int text_view_next_recommendation_enter=0x7f060013;
         public static final int text_view_recommendation_calories_enter=0x7f060017;
@@ -194,6 +196,7 @@ public final class R {
         public static final int toast_activity_average_velocity_unit=0x7f060037;
         public static final int toast_activity_calories=0x7f060039;
         /**   Java   
+  Java   
          */
         public static final int toast_activity_date=0x7f060030;
         public static final int toast_activity_distance=0x7f060032;

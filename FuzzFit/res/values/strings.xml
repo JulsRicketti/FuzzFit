@@ -55,8 +55,8 @@
     <string name="weight_loss_exercise_time_button">Adjust Exercise</string>
     <string name="weight_loss_exercise_option">Exercise Option</string>
     <!--  Java   -->
-    <string name="low_calorie_message">"For a healthy weight loss please consume over 1500 calories daily. (Please consult a nutritionist if necessary) Only do these exercises when your consumption is over 1500 calories.</string>
-    <string name="high_calorie_message">"For possibility of maximum weight loss without body damage, please consume under 2500 calories daily. (Please consult a nutritionist if necessary)</string>
+    <string name="low_calorie_message">For a healthy weight loss please consume over 1500 calories daily. (Please consult a nutritionist if necessary) Only do these exercises when your consumption is over 1500 calories.</string>
+    <string name="high_calorie_message">For possibility of maximum weight loss without body damage, please consume under 2500 calories daily. (Please consult a nutritionist if necessary)</string>
     <string name="default_calorie_message">By default it will be assumed your intake is of 2000 calories. (Please consult a nutritionist if necessary)</string>
     <string name="consume_more_calories_message">Please consume more calories</string>
     <string name="weight_loss_distance">Distance: </string>

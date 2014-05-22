@@ -63,6 +63,7 @@ public class EnterActivityActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_enter);
+
 		
 		//set screen title
 		if(MainActivity.activityOption.equals(walkerOption))
@@ -95,11 +96,11 @@ public class EnterActivityActivity extends Activity {
 		//we need to set the kind of activity we are doing here:
 		if(MainActivity.activityOption.equals(walkerOption)){
 			recommend = new WalkingRecommend(this);
-			recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" meters");			
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(this)+" "+getString(R.string.text_view_recommendation_distance_enter));
 		}
 		if(MainActivity.activityOption.equals(runnerOption)){
 			recommend = new RunningRecommend(this);
-			recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" minutes");
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+recommend.recommend(this)+getString(R.string.text_view_recommendation_time_enter));
 		}
 		if(MainActivity.activityOption.equals(weightLossOption)){
 			//we need to make the adjustment options invisible
@@ -107,7 +108,7 @@ public class EnterActivityActivity extends Activity {
 			changeRecommendationButton.setVisibility(View.GONE);
 			changeRecommendationEditText.setVisibility(View.GONE);
 			
-			recommendationTextView.setText("Recommendation: "+WeightLossActivity.activityDistance+ "km in "+(WeightLossActivity.activityTime)*60+" minutes");
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+WeightLossActivity.activityDistance+" "+ getString(R.string.text_view_recommendation_distance_km_enter)+" "+(WeightLossActivity.activityTime)*60+getString(R.string.text_view_recommendation_time_enter));
 		}
 	}
 
@@ -128,7 +129,7 @@ public class EnterActivityActivity extends Activity {
 					analyse = new WalkingAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories()); //this is what to do whenever inserting a new activity
 					recommend = new WalkingRecommend(context);
-					recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" meters");
+					recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+" "+R.string.text_view_recommendation_distance_enter);
 				
 				}
 				if(MainActivity.activityOption.equals(runnerOption)){
@@ -136,7 +137,7 @@ public class EnterActivityActivity extends Activity {
 					analyse = new RunningAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());
 					recommend = new RunningRecommend(context);
-					recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" minutes");
+					recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+" "+R.string.text_view_recommendation_time_enter);
 					
 				}
 				if(MainActivity.activityOption.equals(weightLossOption)){
@@ -147,7 +148,7 @@ public class EnterActivityActivity extends Activity {
 					analyse = new WeighLossAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());
 					recommend = new WeightLossRecommend(context);
-					recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" calories");
+					recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+R.string.text_view_recommendation_calories_enter);
 				}
 			}
 		});
@@ -168,10 +169,10 @@ public class EnterActivityActivity extends Activity {
 			public void onClick(View v) {
 				recommend.updateRecommendation(Float.parseFloat(changeRecommendationString));
 				if(MainActivity.activityOption.equals(walkerOption)){
-					recommendationTextView.setText("Recommendation: "+recommend.recommend(context)+" meters");			
+					recommendationTextView.setText(R.string.recommendation_enter+recommend.recommend(context)+R.string.text_view_recommendation_distance_enter);			
 				}
 				if(MainActivity.activityOption.equals(runnerOption)){
-					recommendationTextView.setText("Recommendation: "+recommend.recommend(context)+" minutes");
+					recommendationTextView.setText(R.string.recommendation_enter+recommend.recommend(context)+R.string.text_view_recommendation_time_enter);
 				}
 			}
 		});

@@ -129,10 +129,10 @@ public class ReportListViewActivity extends ListActivity{
 		    reportListView.setAdapter(ad);
 		    
 		    //set the textviews for the records
-		    record1TextView.setText("Record Distance: "+getBiggestItem(history.getHistory(table).activityDistance));
-		    record2TextView.setText("Record time: "+getBiggestItem(history.getHistory(table).activityTime));
-		    record3TextView.setText("Record average velocity: "+getBiggestItem(history.getHistory(table).activityVelocity));
-		    record4TextView.setText("Record burned calories: "+getBiggestItem(history.getHistory(table).calories));
+		    record1TextView.setText(getString(R.string.record_distance)+" "+getBiggestItem(history.getHistory(table).activityDistance)+" "+getString(R.string.toast_activity_distance_unit));
+		    record2TextView.setText(getString(R.string.record_time)+" "+getBiggestItem(history.getHistory(table).activityTime)+" "+getString(R.string.toast_activity_time_unit));
+		    record3TextView.setText(getString(R.string.record_average_velocity)+" "+getBiggestItem(history.getHistory(table).activityVelocity)+" "+getString(R.string.toast_activity_average_velocity_unit));
+		    record4TextView.setText(getString(R.string.record_calories)+" "+getBiggestItem(history.getHistory(table).calories));
 		
 	}
 
@@ -206,13 +206,20 @@ public class ReportListViewActivity extends ListActivity{
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id)
 	{
-	      Toast.makeText(this, "Activity Date: "+history.getHistory(table).activityDate.get(position)+
-	      "\nActivity Recommendation: "+history.getHistory(table).recommendation.get(position)+ //see how I can choose
-	      "\nActivity Distance: "+history.getHistory(table).activityDistance.get(position)+" meters"+
-	      "\nActivity Time: "+history.getHistory(table).activityTime.get(position)+" minutes"+
-	      "\nActivity Average Velocity: "+history.getHistory(table).activityVelocity.get(position)+ "meters/second"+
-	      "\nActivity Monitor: "+history.getHistory(table).monitor.get(position)+
-	      "\nActivity Calories: "+history.getHistory(table).calories.get(position), Toast.LENGTH_LONG).show();
+		Toast.makeText(this, getString(R.string.toast_activity_date)+" "+history.getHistory(table).activityDate.get(position)+
+				"\n"+getString(R.string.toast_activity_recommendation)+" "+history.getHistory(table).recommendation.get(position)+
+				"\n"+getString(R.string.toast_activity_distance)+" "+history.getHistory(table).activityDistance.get(position)+" "+getString(R.string.toast_activity_distance_unit)+
+				"\n"+getString(R.string.toast_activity_time)+" "+history.getHistory(table).activityTime.get(position)+" "+getString(R.string.toast_activity_time_unit)+
+				"\n"+getString(R.string.toast_activity_average_velocity)+" "+history.getHistory(table).activityVelocity.get(position)+" "+getString(R.string.toast_activity_average_velocity_unit)+
+				"\n"+getString(R.string.toast_activity_monitor)+" "+history.getHistory(table).monitor.get(position)+
+				"\n"+getString(R.string.toast_activity_calories)+" "+history.getHistory(table).calories.get(position), Toast.LENGTH_LONG).show();
+//	      Toast.makeText(this, "Activity Date: "+history.getHistory(table).activityDate.get(position)+
+//	      "\nActivity Recommendation: "+history.getHistory(table).recommendation.get(position)+ //see how I can choose
+//	      "\nActivity Distance: "+history.getHistory(table).activityDistance.get(position)+" meters"+
+//	      "\nActivity Time: "+history.getHistory(table).activityTime.get(position)+" minutes"+
+//	      "\nActivity Average Velocity: "+history.getHistory(table).activityVelocity.get(position)+ "km/h"+
+//	      "\nActivity Monitor: "+history.getHistory(table).monitor.get(position)+
+//	      "\nActivity Calories: "+history.getHistory(table).calories.get(position), Toast.LENGTH_LONG).show();
 	}
 
 	

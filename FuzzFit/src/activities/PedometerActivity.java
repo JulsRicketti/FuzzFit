@@ -66,10 +66,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	float strideLength;
 	float height = 1.64f;
 	float distance=0;
-	
-	TextView xTextView;
-	TextView yTextView;
-	TextView zTextView; 
+
 	
 	TextView sensitivityTextView; //display field of sensitivity 
 	TextView stepsTextView; //display for steps
@@ -132,9 +129,6 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		else
 			strideLength = Float.parseFloat(user.getHeight())*femaleStrideLengthConstant;
 		
-		xTextView = (TextView) findViewById(R.id.xTextView);
-		yTextView = (TextView) findViewById(R.id.yTextView);
-		zTextView = (TextView) findViewById(R.id.zTextView);
 		
 		chronometer = (Chronometer) findViewById(R.id.chronometerChronometer);
 		
@@ -165,15 +159,18 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		recommendationTextView =(TextView) findViewById(R.id.pedometerRecommendationTextView);
 		if(MainActivity.activityOption.equals(walkerOption)){
 			recommend = new WalkingRecommend(this);
-			recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" meters");			
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(this)+" "+getString(R.string.text_view_recommendation_distance_enter));
+			//	recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" meters");			
 		}
 		if(MainActivity.activityOption.equals(runnerOption)){
 			recommend = new RunningRecommend(this);
-			recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" minutes");
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+recommend.recommend(this)+getString(R.string.text_view_recommendation_time_enter));
+			//recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" minutes");
 		}
 		if(MainActivity.activityOption.equals(weightLossOption)){
 			//We need to estimate velocity and calories every minute or so
-			recommendationTextView.setText("Recommendation: "+WeightLossActivity.activityDistance+ "km in "+(WeightLossActivity.activityTime)*60+" minutes");
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+WeightLossActivity.activityDistance+" "+ getString(R.string.text_view_recommendation_distance_km_enter)+" "+(WeightLossActivity.activityTime)*60+getString(R.string.text_view_recommendation_time_enter));
+			//recommendationTextView.setText("Recommendation: "+WeightLossActivity.activityDistance+ "km in "+(WeightLossActivity.activityTime)*60+" minutes");
 
 		}
 	}
@@ -279,23 +276,24 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 						analyse = new WalkingAnalyse(context);
 						analyse.enterActivity(time, distance, calories.getCalories()); //this is what to do whenever inserting a new activity
 						recommend = new WalkingRecommend(context);
-						recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" meters");
-					
+						//recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" meters");
+						recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+" "+R.string.text_view_recommendation_distance_enter);
 					}
 					if(MainActivity.activityOption.equals(runnerOption)){
 						MonitorObserver.updateRun(context);
 						analyse = new RunningAnalyse(context);
 						analyse.enterActivity(time, distance, calories.getCalories());
 						recommend = new RunningRecommend(context);
-						recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" minutes");
-						
+						//recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" minutes");
+						recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+" "+R.string.text_view_recommendation_time_enter);
 					}	
 					if(MainActivity.activityOption.equals(weightLossOption)){
 						MonitorObserver.updateWeightLoss();
 						analyse = new WeighLossAnalyse(context);
 						analyse.enterActivity(time, distance, calories.getCalories());
 						recommend = new WeightLossRecommend(context);
-						recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" calories");
+						//recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" calories");
+						recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+R.string.text_view_recommendation_calories_enter);
 					}
 			}
 		});
@@ -326,9 +324,6 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 				//else
 				//	stepsTextView.setText("Steps: "+String.valueOf(numSteps)+"\nDistance: "+distance+"\nCalories Burned: "+calories.getCalories());
 			}
-			xTextView.setText(String.valueOf(x));
-			yTextView.setText(String.valueOf(y));
-			zTextView.setText(String.valueOf(z));
 			
 			previousY = y;
 

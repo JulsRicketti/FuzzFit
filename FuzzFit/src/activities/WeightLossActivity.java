@@ -136,22 +136,21 @@ public class WeightLossActivity extends Activity {
 			public void onClick(View v) {
 				
 				wlEnterActivityButton.setEnabled(true);
-				wlSwitchExerciseButton.setEnabled(true);
 				float calorieConsumptionValue=0;
 				if(!calorieConsumption.equals("")){
 					calorieConsumptionValue = Float.parseFloat(calorieConsumption);	
 					if(calorieConsumptionValue<1500){
-						Toast.makeText(getApplicationContext(), "For a healthy weight loss please consume over 1500 calories daily\n (Please consult a nutritionist if necessary)\n Only do these exercises when your consumption is over 1500 calories.", Toast.LENGTH_LONG).show();
-						caloriesRecommendationTextView.setText("Please consume more calories");
+						Toast.makeText(getApplicationContext(), getString(R.string.low_calorie_message), Toast.LENGTH_LONG).show();
+						caloriesRecommendationTextView.setText(getString(R.string.consume_more_calories_message));
 						return;
 					}
 					if(calorieConsumptionValue>2500){
-						Toast.makeText(getApplicationContext(), "For possibility of maximum weight loss without body damage, please consume under 2500 calories daily\n (Please consult a nutritionist if necessary)", Toast.LENGTH_LONG).show();
+						Toast.makeText(getApplicationContext(), R.string.high_calorie_message, Toast.LENGTH_LONG).show();
 						
 					}
 				}
 				else{ //if the user doesnt specify, we assume we are working with 2000 calories daily 
-					Toast.makeText(getApplicationContext(), "By default it will be assumed your intake is of 2000 calories.\n (Please consult a nutritionist if necessary)", Toast.LENGTH_LONG).show();
+					Toast.makeText(getApplicationContext(), R.string.default_calorie_message, Toast.LENGTH_LONG).show();
 					calorieConsumptionValue = 2000;
 				}
 				if(calorieConsumptionValue>1500){
@@ -167,7 +166,7 @@ public class WeightLossActivity extends Activity {
 				activityTime = 1; //(default is 1 hour)
 				activityVelocity = caloriesHandler.calculateActivityVelocity(caloriesToLose, activityTime); //comes in km/h
 				activityDistance = activityVelocity*(activityTime);
-				wlExerciseOptionTextView.setText("Distance: "+activityDistance+" km\nTime: "+activityTime);
+				wlExerciseOptionTextView.setText(getString(R.string.weight_loss_distance)+activityDistance+getString(R.string.weight_loss_distance_unit)+"\n"+getString(R.string.weight_loss_time)+activityTime+getString(R.string.weight_loss_time_unit));
 				adjustExerciseTimeEditText.setEnabled(true);
 				MonitorObserver.updateWeightLoss(); //update the observer so we know the values we are monitoring
 
@@ -204,7 +203,8 @@ public class WeightLossActivity extends Activity {
 				activityTime = (Float.parseFloat(adjustExerciseTime))/60; 
 				activityVelocity = caloriesHandler.calculateActivityVelocity(caloriesToLose, activityTime); //comes in km/h
 				activityDistance = activityVelocity*(activityTime);
-				wlExerciseOptionTextView.setText("Distance: "+activityDistance+" km\nTime: "+activityTime*60 +"minutes");
+				wlExerciseOptionTextView.setText(getString(R.string.weight_loss_distance)+activityDistance+getString(R.string.weight_loss_distance_unit)+"\n"+getString(R.string.weight_loss_time)+activityTime+getString(R.string.weight_loss_time_unit));
+				//wlExerciseOptionTextView.setText("Distance: "+activityDistance+" km\nTime: "+activityTime*60 +"minutes");
 
 			}
 		});

@@ -27,8 +27,6 @@ public class MainActivity extends Activity {
 	
 	public static String activityOption =""; //will always let me know which kind of activity I am going for.
 	
-
-	
 	//Stuff for the forms:
 	Button walkerButton;
 	Button runnerButton;
@@ -56,6 +54,7 @@ public class MainActivity extends Activity {
 		//implement function that forces user to fil out his/her profile before starting anything when used
 		//for the first time!
 	//	User user = new User(this, "24", "61", "164", "Female");
+
 				
 		userProfileButton = (Button) findViewById(R.id.userProfileButton);
 		

@@ -3,14 +3,16 @@
 
     <string name="app_name">FuzzFit</string>
     <string name="action_settings">Settings</string>
-   <!--  MainActivity   -->
+    <!--  MainActivity   -->
+    <!--  XML   -->
     <string name="register_update_user">Register/Update</string>
     <string name="walker_main">Walker</string>
     <string name="runner_main">Runner</string>
     <string name="weight_loss_main">Weight Loss</string>
     <string name="report_main">Report</string>
-
+   
     <!--  RegisterUserActivity   -->
+    <!--  XML   -->
     <string name="age_register_user">Age: </string>
     <string name="weight_register_user">Weight (kg): </string>
     <string name="height_register_user">Height (cm): </string>
@@ -18,23 +20,33 @@
     <string name="finish_register_user">Finisht</string>
     
     <!--  EnterActivityActivity   -->
-    <string name="recommendation_enter">Recommendation</string>
+    <!--  XML   -->
+    <string name="recommendation_enter">Recommendation:  </string>
     <string name="time_recommendation_enter">Time (minutes):</string>
     <string name="distance_recommendation_enter">Distance (meters):</string>
     <string name="change_recommendation_enter">Change recommendation:</string>
     <string name="change_button_recommendation_enter">Change</string>
     <string name="enter_button_recommendation_enter">Enter</string>
     <string name="open_pedometer_button_recommendation_enter">Open Pedometer</string>
+    <!--  Java   -->
+    <string name="text_view_next_recommendation_enter">Next Recommendation: </string>
+	<string name="text_view_recommendation_time_enter">minutes</string>
+    <string name="text_view_recommendation_distance_enter">meters</string>
+    <string name="text_view_recommendation_distance_km_enter">km in </string>        
+ 	<string name="text_view_recommendation_calories_enter"> calories</string>
     
     <!--  PedometerActivity   -->
+    <!--  XML   -->
     <string name="recommendation_pedometer">Recommendation</string>
     <string name="reset_steps_button_pedometer">Reset Steps</string>
     <string name="start_button_pedometer">Start</string>
     <string name="pause_button_pedometer">Pause</string>
     <string name="finish_button_pedometer">Finish</string>
     <string name="sensitivity_bar_pedometer">Sensitivity</string>
-
+	<!--  Java   -->
+    
     <!--  WeightLossActivity   -->
+    <!--  XML   -->
     <string name="weight_loss_message">Calorie consumption of the day</string>
     <string name="weight_loss_get_recommendation">Get Recommendation</string>
     <string name="weight_loss_calories_to_burn">Calories to Burn</string>
@@ -42,16 +54,41 @@
     <string name="weight_loss_exercise_time">Adjust Exercise Time (minutes)</string>
     <string name="weight_loss_exercise_time_button">Adjust Exercise</string>
     <string name="weight_loss_exercise_option">Exercise Option</string>
-    
+    <!--  Java   -->
+    <string name="low_calorie_message">"For a healthy weight loss please consume over 1500 calories daily. (Please consult a nutritionist if necessary) Only do these exercises when your consumption is over 1500 calories.</string>
+    <string name="high_calorie_message">"For possibility of maximum weight loss without body damage, please consume under 2500 calories daily. (Please consult a nutritionist if necessary)</string>
+    <string name="default_calorie_message">By default it will be assumed your intake is of 2000 calories. (Please consult a nutritionist if necessary)</string>
+    <string name="consume_more_calories_message">Please consume more calories</string>
+    <string name="weight_loss_distance">Distance: </string>
+    <string name="weight_loss_distance_unit">km </string>
+    <string name="weight_loss_time">Time: </string>
+    <string name="weight_loss_time_unit"> minutes </string>
     <!--  ReportListViewActivity   -->
+    <!--  XML   -->
     <string name="export_data_report">Export Data</string>
     <string name="current_records_report">Current Records:</string>
     <string name="illustrate_progress_button_report">Illustrate Progress</string>
+    <!--  Java   -->
+    <string name="toast_activity_date">Activity Date: </string>
+    <string name="toast_activity_recommendation">Activity Recommendation: </string>
+    <string name="toast_activity_distance">Activity Distance: </string>
+    <string name="toast_activity_distance_unit"> meters </string>
+    <string name="toast_activity_time">Activity Time: </string>
+    <string name="toast_activity_time_unit"> minutes </string>
+    <string name="toast_activity_average_velocity">Activity Average Velocity: </string>
+    <string name="toast_activity_average_velocity_unit"> km/h </string>
+    <string name="toast_activity_monitor">Monitor: </string>
+    <string name="toast_activity_calories">Activity Calories: </string>
+    <string name="record_distance">Record distance: </string>
+    <string name="record_time">Record time: </string>
+    <string name="record_average_velocity">Record average velocity: </string>
+    <string name="record_calories">Record burned calories: </string>
     
     <!--  ReportListViewActivity   -->
+    <!--  XML   -->
     <string name="select_report_menu">Please select the report you wish to view.</string>
     <string name="walker_report_menu">Walker</string>
     <string name="runner_report_menu">Runner</string>
     <string name="weight_loss_report_menu">Weight Loss</string>
-    
+    <!--  Java   -->
 </resources>

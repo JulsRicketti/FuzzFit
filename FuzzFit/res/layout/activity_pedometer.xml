@@ -59,6 +59,8 @@
         android:layout_height="wrap_content"
         android:text="@string/finish_button_pedometer" />
 
+
+
         <TextView
             android:id="@+id/stepsTextView"
             android:layout_width="wrap_content"
@@ -68,12 +70,18 @@
             android:text="---"
             android:textAppearance="?android:attr/textAppearanceLarge" />
 
+        		<TextView
+	        android:id="@+id/seekBarTextView"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:text="@string/seek_bar_pedometer" />
         <SeekBar
             android:id="@+id/seekBar1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content" 
             android:max="20"
             android:layout_span="4" />
+		
 
         <TextView
             android:id="@+id/sensitivityTextView"
@@ -82,6 +90,8 @@
             android:layout_span ="4"
 			android:gravity="center_vertical|center_horizontal"
             android:text="@string/sensitivity_bar_pedometer" />
+        
+
     
 
 

@@ -43,7 +43,11 @@
     <string name="pause_button_pedometer">Pause</string>
     <string name="finish_button_pedometer">Finish</string>
     <string name="sensitivity_bar_pedometer">Sensitivity</string>
+    <string name="seek_bar_pedometer">Adjust Pedometer Sensitivity Using the Bar Below:</string>
 	<!--  Java   -->
+    <string name="estimated_steps">Estimated Steps:</string>
+    <string name="estimated_distance">Estimated Distance (meters):</string>
+    <string name="estimated_calories">Estimated Calories Burned: </string>
     
     <!--  WeightLossActivity   -->
     <!--  XML   -->

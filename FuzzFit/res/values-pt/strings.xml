@@ -39,7 +39,12 @@
     <string name="pause_button_pedometer">Pausar</string>
     <string name="finish_button_pedometer">Terminar</string>
     <string name="sensitivity_bar_pedometer">Sensitividade</string>
-
+    <string name="seek_bar_pedometer">Ajuste a sensitividade do pedômetro utilizando a barra abaixo:</string>
+    <!--  Java   -->
+    <string name="estimated_steps">Estimativa de Passos:</string>
+    <string name="estimated_distance">Estimativa de Distância (metros):</string>
+    <string name="estimated_calories">Estimativa de Calorias Queimadas: </string>
+    
     <!--  WeightLossActivity   -->
     <string name="weight_loss_message">Consumo diário de calorias</string>
     <string name="weight_loss_get_recommendation">Pegar recomendação</string>

@@ -319,10 +319,8 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 			if(Math.abs(currentY-previousY) > threshould){
 				numSteps++;
 				distance+=strideLength/100; //we convert that to meters!
-				//if(!MainActivity.activityOption.equals(weightLossOption))
-					stepsTextView.setText("Steps: "+String.valueOf(numSteps)+"\nDistance: "+distance+"\nCalories Burned: "+calories.getCalories());
-				//else
-				//	stepsTextView.setText("Steps: "+String.valueOf(numSteps)+"\nDistance: "+distance+"\nCalories Burned: "+calories.getCalories());
+				stepsTextView.setText(getString(R.string.estimated_steps)+" "+String.valueOf(numSteps)+"\n"+ getString(R.string.estimated_distance) +distance+"\n"+getString(R.string.estimated_calories)+calories.getCalories());
+				
 			}
 			
 			previousY = y;

@@ -39,6 +39,7 @@ public class EnterActivityActivity extends Activity {
 	final String weightLossTitle = "Weight Loss Program";
 	
 	TextView recommendationTextView;
+	TextView changeRecommendationtextView;
 	
 	EditText distanceEditText;
 	EditText timeEditText;
@@ -74,6 +75,7 @@ public class EnterActivityActivity extends Activity {
 		context = this;
 		
 		recommendationTextView = (TextView) findViewById(R.id.recommendationTextView);
+		changeRecommendationtextView = (TextView) findViewById(R.id.changeRecommendationtextView);
 		
 		distanceEditText = (EditText) findViewById(R.id.distanceEditText);
 		distanceEditText.addTextChangedListener(distanceTextWatcher);
@@ -100,6 +102,11 @@ public class EnterActivityActivity extends Activity {
 			recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" minutes");
 		}
 		if(MainActivity.activityOption.equals(weightLossOption)){
+			//we need to make the adjustment options invisible
+			changeRecommendationtextView.setVisibility(View.GONE);
+			changeRecommendationButton.setVisibility(View.GONE);
+			changeRecommendationEditText.setVisibility(View.GONE);
+			
 			recommendationTextView.setText("Recommendation: "+WeightLossActivity.activityDistance+ "km in "+(WeightLossActivity.activityTime)*60+" minutes");
 		}
 	}
@@ -133,8 +140,9 @@ public class EnterActivityActivity extends Activity {
 					
 				}
 				if(MainActivity.activityOption.equals(weightLossOption)){
-					//send it in to analyse and go straight into registering it
-					//monitor is optional?
+
+					
+					
 					MonitorObserver.updateWeightLoss();
 					analyse = new WeighLossAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());

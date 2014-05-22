@@ -34,8 +34,10 @@ public final class R {
     }
     public static final class id {
         public static final int RelativeLayout1=0x7f090039;
-        public static final int action_settings=0x7f090041;
+        public static final int action_settings=0x7f090043;
         public static final int activityEnterButton=0x7f090007;
+        public static final int adjustExerciseTimeEditText=0x7f090040;
+        public static final int adjustTimeTextView=0x7f09003f;
         public static final int ageRegisterEditText=0x7f090022;
         public static final int ageRegisterTextView=0x7f09001f;
         public static final int caloriesRecommendationTextView=0x7f09003d;
@@ -91,11 +93,11 @@ public final class R {
         public static final int weightRegisterTextView=0x7f090020;
         public static final int whichReportTextView=0x7f09002f;
         public static final int wlCalorieConsumptionEditText=0x7f09003b;
-        public static final int wlEnterActivityButton=0x7f090040;
-        public static final int wlExerciseOptionTextView=0x7f09003f;
+        public static final int wlEnterActivityButton=0x7f09003e;
+        public static final int wlExerciseOptionTextView=0x7f090042;
         public static final int wlMessageTextView=0x7f09003a;
         public static final int wlRecommendationButton=0x7f09003c;
-        public static final int wlSwitchExerciseButton=0x7f09003e;
+        public static final int wlSwitchExerciseButton=0x7f090041;
         public static final int xTextView=0x7f090013;
         public static final int yTextView=0x7f090014;
         public static final int zTextView=0x7f090015;

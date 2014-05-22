@@ -37,6 +37,8 @@ public class WeightLossActivity extends Activity {
 	TextView caloriesRecommendationTextView;
 	TextView wlExerciseOptionTextView;
 	
+	EditText adjustExerciseTimeEditText;
+	String adjustExerciseTime="";
 	EditText wlCalorieConsumptionEditText;
 	String calorieConsumption="";
 	
@@ -58,6 +60,9 @@ public class WeightLossActivity extends Activity {
 		wlCalorieConsumptionEditText = (EditText) findViewById(R.id.wlCalorieConsumptionEditText);
 		wlCalorieConsumptionEditText.addTextChangedListener(calorieConsumptionTextWatcher);
 		
+		adjustExerciseTimeEditText = (EditText) findViewById(R.id.adjustExerciseTimeEditText);
+		adjustExerciseTimeEditText.addTextChangedListener(adjustExerciseTimeTextWatcher);
+		
 		wlRecommendationButton = (Button) findViewById(R.id.wlRecommendationButton);
 		wlSwitchExerciseButton = (Button) findViewById(R.id.wlSwitchExerciseButton);
 		wlEnterActivityButton = (Button) findViewById(R.id.wlEnterActivityButton);
@@ -71,6 +76,32 @@ public class WeightLossActivity extends Activity {
 		wlSwitchExerciseButton.setEnabled(false);
 		
 	}
+	
+	TextWatcher adjustExerciseTimeTextWatcher = new TextWatcher() {
+		
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {
+			// TODO Auto-generated method stub
+			adjustExerciseTime = s.toString();
+			if(adjustExerciseTime.equals(""))
+				wlSwitchExerciseButton.setEnabled(false);
+			else
+				wlSwitchExerciseButton.setEnabled(true);
+		}
+		
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count,
+				int after) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void afterTextChanged(Editable s) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
 	
 	TextWatcher calorieConsumptionTextWatcher = new TextWatcher() {
 		
@@ -96,6 +127,9 @@ public class WeightLossActivity extends Activity {
 	
 	int variationNumber =0; //used to get different variations of the amount of calories
 	void setButtons(){
+		wlSwitchExerciseButton.setEnabled(false);
+		adjustExerciseTimeEditText.setEnabled(false);
+		
 		wlRecommendationButton.setOnClickListener(new OnClickListener() {
 			
 			@Override
@@ -134,7 +168,7 @@ public class WeightLossActivity extends Activity {
 				activityVelocity = caloriesHandler.calculateActivityVelocity(caloriesToLose, activityTime); //comes in km/h
 				activityDistance = activityVelocity*(activityTime);
 				wlExerciseOptionTextView.setText("Distance: "+activityDistance+" km\nTime: "+activityTime);
-
+				adjustExerciseTimeEditText.setEnabled(true);
 				MonitorObserver.updateWeightLoss(); //update the observer so we know the values we are monitoring
 
 			}
@@ -145,29 +179,29 @@ public class WeightLossActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				boolean entered =false;
-				activityTime=1;
-				if(variationNumber==0 && !entered){ //30 minutes
-					activityTime = activityTime/2;
-					variationNumber=1;
-					entered=true;
-				}
-				if(variationNumber==1 && !entered){ //80 minutes
-					activityTime += activityTime/3;
-					variationNumber=2;
-					entered=true;
-				}
-				if(variationNumber==2&& !entered){ //120 minutes
-					activityTime += activityTime;
-					variationNumber=3;
-					entered=true;
-				}
-				if(variationNumber==3&& !entered){ //60 minutes
-					activityTime = 1;
-					variationNumber=0;
-					entered=true;
-				}
-				
+//				boolean entered =false;
+//				activityTime=1;
+//				if(variationNumber==0 && !entered){ //30 minutes
+//					activityTime = activityTime/2;
+//					variationNumber=1;
+//					entered=true;
+//				}
+//				if(variationNumber==1 && !entered){ //80 minutes
+//					activityTime += activityTime/3;
+//					variationNumber=2;
+//					entered=true;
+//				}
+//				if(variationNumber==2&& !entered){ //120 minutes
+//					activityTime += activityTime;
+//					variationNumber=3;
+//					entered=true;
+//				}
+//				if(variationNumber==3&& !entered){ //60 minutes
+//					activityTime = 1;
+//					variationNumber=0;
+//					entered=true;
+//				}
+				activityTime = (Float.parseFloat(adjustExerciseTime))/60; 
 				activityVelocity = caloriesHandler.calculateActivityVelocity(caloriesToLose, activityTime); //comes in km/h
 				activityDistance = activityVelocity*(activityTime);
 				wlExerciseOptionTextView.setText("Distance: "+activityDistance+" km\nTime: "+activityTime*60 +"minutes");

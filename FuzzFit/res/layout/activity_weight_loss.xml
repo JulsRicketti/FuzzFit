@@ -53,32 +53,49 @@
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <Button
-        android:id="@+id/wlSwitchExerciseButton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/wlExerciseOptionTextView"
-        android:layout_alignBottom="@+id/wlExerciseOptionTextView"
-        android:layout_alignParentRight="true"
-        android:text="Switch Exercise" />
-
-    <TextView
-        android:id="@+id/wlExerciseOptionTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/wlCalorieConsumptionEditText"
-        android:layout_below="@+id/caloriesRecommendationTextView"
-        android:layout_marginTop="42dp"
-        android:text="Exercise to Do"
-        android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
         android:id="@+id/wlEnterActivityButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/caloriesRecommendationTextView"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="35dp"
         android:text="Enter Activity" />
+
+    <TextView
+        android:id="@+id/adjustTimeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/adjustExerciseTimeEditText"
+        android:layout_below="@+id/caloriesRecommendationTextView"
+        android:layout_marginTop="20dp"
+        android:text="Adjust Exercise Time (minutes)" />
+
+    <Button
+        android:id="@+id/wlSwitchExerciseButton"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/wlMessageTextView"
+        android:layout_below="@+id/adjustTimeTextView"
+        android:layout_marginTop="15dp"
+        android:text="Adjust Exercise" />
+
+    <EditText
+        android:id="@+id/adjustExerciseTimeEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/wlSwitchExerciseButton"
+        android:layout_alignBottom="@+id/wlSwitchExerciseButton"
+        android:layout_alignRight="@+id/wlCalorieConsumptionEditText"
+        android:ems="10"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/wlExerciseOptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/wlSwitchExerciseButton"
+        android:layout_marginTop="18dp"
+        android:layout_toLeftOf="@+id/wlSwitchExerciseButton"
+        android:text="Exercise Option" />
 
 </RelativeLayout>

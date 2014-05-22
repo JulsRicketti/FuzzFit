@@ -50,23 +50,7 @@
         android:layout_marginTop="30dp"
         android:text="Distance (m):" />
 
-    <Button
-        android:id="@+id/activityEnterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/pedometerButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="24dp"
-        android:text="Enter" />
 
-    <Button
-        android:id="@+id/pedometerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="69dp"
-        android:text="Open Pedometer" />
 
     <EditText
         android:id="@+id/distanceEditText"
@@ -76,5 +60,51 @@
         android:layout_alignTop="@+id/distanceTextView"
         android:ems="10"
         android:inputType="number" />
+
+    <EditText
+        android:id="@+id/changeRecommendationEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/changeRecommendationtextView"
+        android:layout_alignBottom="@+id/changeRecommendationtextView"
+        android:layout_alignParentRight="true"
+        android:layout_toRightOf="@+id/activityEnterButton"
+        android:ems="3"
+        android:inputType="number"
+        android:maxLength="3"/>
+
+    <Button
+        android:id="@+id/activityEnterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pedometerButton"
+        android:layout_centerHorizontal="true"
+        android:text="Enter" />
+
+    <Button
+        android:id="@+id/pedometerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Open Pedometer" />
+
+    <TextView
+        android:id="@+id/changeRecommendationtextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/changeRecommendationButton"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="28dp"
+        android:text="Change Recommendation :" />
+
+    <Button
+        android:id="@+id/changeRecommendationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/activityEnterButton"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp"
+        android:text="Change" />
 
 </RelativeLayout>

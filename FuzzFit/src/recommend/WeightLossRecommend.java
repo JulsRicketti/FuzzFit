@@ -56,8 +56,14 @@ public class WeightLossRecommend implements Recommend{
 	}
 
 	@Override
-	public void updateRecommendation() {
-		// TODO Auto-generated method stub
+	public void updateRecommendation(float newRecommendation) {
+		this.currentCaloriesRecommendation = newRecommendation;
+		String lastDate = mediator.getActivityDateHistory().get(mediator.getActivityDateHistory().size()-1);
+		String lastDistance= mediator.getActivityDistanceHistory().get(mediator.getActivityDistanceHistory().size()-1);
+		String lastTime= mediator.getActivityTimeHistory().get(mediator.getActivityTimeHistory().size()-1);
+		String lastCalories= mediator.getCalorieHistory().get(mediator.getCalorieHistory().size()-1);
+		
+		mediator.updateWalkerEntry(Float.toString(this.currentCaloriesRecommendation), lastDate, lastDistance, lastTime, lastCalories);
 		
 	}
 

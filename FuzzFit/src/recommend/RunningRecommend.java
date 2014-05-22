@@ -84,8 +84,14 @@ public class RunningRecommend implements Recommend {
 	}
 
 	@Override
-	public void updateRecommendation() {
-		// TODO Auto-generated method stub
+	public void updateRecommendation(float newRecommendation) {
+		this.currentTimeRecommendation =newRecommendation;
+		String lastDate = mediator.getActivityDateHistory().get(mediator.getActivityDateHistory().size()-1);
+		String lastDistance= mediator.getActivityDistanceHistory().get(mediator.getActivityDistanceHistory().size()-1);
+		String lastTime= mediator.getActivityTimeHistory().get(mediator.getActivityTimeHistory().size()-1);
+		String lastCalories= mediator.getCalorieHistory().get(mediator.getCalorieHistory().size()-1);
+		//we need to update our db entry
+		mediator.updateRunnerEntry(Float.toString(this.currentTimeRecommendation), lastDate, lastDistance, lastTime, lastCalories);
 		
 	}
 

@@ -67,23 +67,12 @@ public class RunningAnalyse implements Analyse{
 	public void enterActivity(float time, float distance, float calories) {
 		this.time =time;
 		this.distance =distance;
-		this.velocity = velocity;
 		
 		String date = getCurrentDate().toString().substring(0, 10);
 		try{
-			//if(!isSameDay()){
-				monitorResult = Float.parseFloat(mediator.monitorRunner(time, distance, 0));			 
-				analyse();
-				mediator.buildRunnerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
-			//}
-			//else{
-				//we  only consider things in one run!!
-//				distance += Float.parseFloat(mediator.getLastActivityDistance());
-//				time += Float.parseFloat(mediator.getLastActivityTime());
-//				monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance)); //here on try number 2, everything is fine
-//				analyse();
-//				mediator.updateWalkerEntry(recommend.recommend(context),date, Float.toString(distance), Float.toString(time));
-			//} 
+			monitorResult = Float.parseFloat(mediator.monitorRunner(time, distance, 0));			 
+			analyse();
+			mediator.buildRunnerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
 		}
 		catch(ArrayIndexOutOfBoundsException e){
 			monitorResult = Float.parseFloat(mediator.monitorRunner(time, distance, 0));

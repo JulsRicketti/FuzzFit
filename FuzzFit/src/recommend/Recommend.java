@@ -14,5 +14,5 @@ public interface Recommend {
 	void increaseRecommendation();
 	void decreaseRecommendation();
 	void maintainRecommendation();
-	void updateRecommendation();
+	void updateRecommendation(float newRecommendation);
 }

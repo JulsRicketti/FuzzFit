@@ -45,8 +45,12 @@ public class EnterActivityActivity extends Activity {
 	String distanceString="";
 	String timeString="";
 	
+	EditText changeRecommendationEditText;
+	String changeRecommendationString="";
+	
 	Button enterButton;
 	Button pedometerButton;
+	Button changeRecommendationButton;
 	
 	Recommend recommend;
 	Analyse analyse;
@@ -76,10 +80,14 @@ public class EnterActivityActivity extends Activity {
 		timeEditText = (EditText) findViewById(R.id.timeEditText);
 		timeEditText.addTextChangedListener(timeTextWatcher);
 		
+		changeRecommendationEditText = (EditText) findViewById(R.id.changeRecommendationEditText);
+		changeRecommendationEditText.addTextChangedListener(changeRecommendationTextWatcher);
+		
 		calorieHandler = new CalorieHandler(context);
 		
 		enterButton = (Button) findViewById(R.id.activityEnterButton);
 		pedometerButton = (Button) findViewById(R.id.pedometerButton);
+		changeRecommendationButton =(Button) findViewById(R.id.changeRecommendationButton);
 		setButtons();
 		
 		//we need to set the kind of activity we are doing here:
@@ -97,6 +105,7 @@ public class EnterActivityActivity extends Activity {
 	}
 
 	void setButtons(){
+		changeRecommendationButton.setEnabled(false);//becomes true only if the change text field is not empty
 		enterButton.setEnabled(false);
 		
 		enterButton.setOnClickListener(new OnClickListener() {
@@ -144,8 +153,50 @@ public class EnterActivityActivity extends Activity {
 				
 			}
 		});
+		
+		changeRecommendationButton.setOnClickListener( new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				recommend.updateRecommendation(Float.parseFloat(changeRecommendationString));
+				if(MainActivity.activityOption.equals(walkerOption)){
+					recommendationTextView.setText("Recommendation: "+recommend.recommend(context)+" meters");			
+				}
+				if(MainActivity.activityOption.equals(runnerOption)){
+					recommendationTextView.setText("Recommendation: "+recommend.recommend(context)+" minutes");
+				}
+			}
+		});
 	}
 	
+	TextWatcher changeRecommendationTextWatcher = new TextWatcher() {
+		
+		@Override
+		public void onTextChanged(CharSequence s, int start, int before, int count) {
+			// TODO Auto-generated method stub
+			changeRecommendationString = s.toString();
+			if(changeRecommendationString.equals("")){
+				changeRecommendationButton.setEnabled(false);
+			}
+			else{
+				changeRecommendationButton.setEnabled(true);
+			}
+			
+		}
+		
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count,
+				int after) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+		@Override
+		public void afterTextChanged(Editable s) {
+			// TODO Auto-generated method stub
+			
+		}
+	};
 	
 	TextWatcher distanceTextWatcher = new TextWatcher() {
 		

@@ -15,7 +15,7 @@
         android:layout_alignRight="@+id/enterTestButton"
         android:layout_below="@+id/enterTestButton"
         android:layout_marginTop="55dp"
-        android:text="Runner" />
+        android:text="@string/runner_main" />
 
     <Button
         android:id="@+id/enterTestButton"
@@ -24,7 +24,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="51dp"
-        android:text="Walker" />
+        android:text="@string/walker_main" />
 
     <Button
         android:id="@+id/weightLossButton"
@@ -33,7 +33,7 @@
         android:layout_below="@+id/runnerButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:text="Weight Loss" />
+        android:text="@string/weight_loss_main" />
 
     <Button
         android:id="@+id/userProfileButton"
@@ -41,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
         android:layout_alignParentTop="true"
-        android:text="Register/Update" />
+        android:text="@string/register_update_user" />
 
     <Button
         android:id="@+id/reportButton"
@@ -50,7 +50,7 @@
         android:layout_alignParentBottom="true"
         android:layout_alignRight="@+id/userProfileButton"
         android:layout_marginBottom="38dp"
-        android:text="Report" />
+        android:text="@string/report_main" />
 
     <Button
         android:id="@+id/deleteDBButton"

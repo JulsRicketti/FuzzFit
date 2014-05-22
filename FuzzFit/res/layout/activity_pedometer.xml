@@ -13,7 +13,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Recommendation"
+        android:text="@string/recommendation_pedometer"
         android:textAppearance="?android:attr/textAppearanceLarge" />
   
     <TableRow
@@ -73,25 +73,25 @@
       android:layout_marginTop="88dp"
       android:layout_span="4"
       android:gravity="center"
-      android:text="Reset Steps" />
+      android:text="@string/reset_steps_button_pedometer" />
     
     <Button
         android:id="@+id/startPedometerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Start" />
+        android:text="@string/start_button_pedometer" />
 
     <Button
         android:id="@+id/pausePedometerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pause" />
+        android:text="@string/pause_button_pedometer" />
 
     <Button
         android:id="@+id/finishPedometerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Finish" />
+        android:text="@string/finish_button_pedometer" />
 
         <TextView
             android:id="@+id/stepsTextView"
@@ -115,7 +115,7 @@
             android:layout_height="wrap_content"
             android:layout_span ="4"
 			android:gravity="center_vertical|center_horizontal"
-            android:text="TextView" />
+            android:text="@string/sensitivity_bar_pedometer" />
     
 
 

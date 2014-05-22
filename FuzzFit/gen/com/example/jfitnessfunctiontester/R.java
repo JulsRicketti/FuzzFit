@@ -127,16 +127,65 @@ public final class R {
     }
     public static final class string {
         public static final int action_settings=0x7f060001;
+        /**   RegisterUserActivity   
+  RegisterUserActivity   
+         */
+        public static final int age_register_user=0x7f060007;
         public static final int app_name=0x7f060000;
-        public static final int hello_world=0x7f060002;
-        public static final int title_activity_pedometer=0x7f060006;
-        public static final int title_activity_register_user=0x7f060007;
-        public static final int title_activity_report_list_view=0x7f060009;
-        public static final int title_activity_report_menu=0x7f060008;
-        public static final int title_activity_running=0x7f060004;
-        public static final int title_activity_view_graph=0x7f06000a;
-        public static final int title_activity_walking=0x7f060003;
-        public static final int title_activity_weight_loss=0x7f060005;
+        public static final int change_button_recommendation_enter=0x7f060010;
+        public static final int change_recommendation_enter=0x7f06000f;
+        public static final int current_records_report=0x7f060021;
+        public static final int distance_recommendation_enter=0x7f06000e;
+        public static final int enter_button_recommendation_enter=0x7f060011;
+        /**   ReportListViewActivity   
+  ReportListViewActivity   
+         */
+        public static final int export_data_report=0x7f060020;
+        public static final int finish_button_pedometer=0x7f060017;
+        public static final int finish_register_user=0x7f06000b;
+        public static final int height_register_user=0x7f060009;
+        public static final int illustrate_progress_button_report=0x7f060022;
+        public static final int open_pedometer_button_recommendation_enter=0x7f060012;
+        public static final int pause_button_pedometer=0x7f060016;
+        /**   EnterActivityActivity   
+  EnterActivityActivity   
+         */
+        public static final int recommendation_enter=0x7f06000c;
+        /**   PedometerActivity   
+  PedometerActivity   
+         */
+        public static final int recommendation_pedometer=0x7f060013;
+        /**   MainActivity   
+  MainActivity   
+         */
+        public static final int register_update_user=0x7f060002;
+        public static final int report_main=0x7f060006;
+        public static final int reset_steps_button_pedometer=0x7f060014;
+        public static final int runner_main=0x7f060004;
+        public static final int runner_report_menu=0x7f060025;
+        /**   ReportListViewActivity   
+  ReportListViewActivity   
+         */
+        public static final int select_report_menu=0x7f060023;
+        public static final int sensitivity_bar_pedometer=0x7f060018;
+        public static final int sex_register_user=0x7f06000a;
+        public static final int start_button_pedometer=0x7f060015;
+        public static final int time_recommendation_enter=0x7f06000d;
+        public static final int walker_main=0x7f060003;
+        public static final int walker_report_menu=0x7f060024;
+        public static final int weight_loss_calories_to_burn=0x7f06001b;
+        public static final int weight_loss_enter_activity=0x7f06001c;
+        public static final int weight_loss_exercise_option=0x7f06001f;
+        public static final int weight_loss_exercise_time=0x7f06001d;
+        public static final int weight_loss_exercise_time_button=0x7f06001e;
+        public static final int weight_loss_get_recommendation=0x7f06001a;
+        public static final int weight_loss_main=0x7f060005;
+        /**   WeightLossActivity   
+  WeightLossActivity   
+         */
+        public static final int weight_loss_message=0x7f060019;
+        public static final int weight_loss_report_menu=0x7f060026;
+        public static final int weight_register_user=0x7f060008;
     }
     public static final class style {
         /** 

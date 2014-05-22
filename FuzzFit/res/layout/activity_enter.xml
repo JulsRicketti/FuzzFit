@@ -15,7 +15,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="29dp"
-        android:text="Recommendation"
+        android:text="@string/recommendation_enter"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
@@ -25,7 +25,7 @@
         android:layout_below="@+id/recommendationTextView"
         android:layout_marginTop="48dp"
         android:layout_toLeftOf="@+id/recommendationTextView"
-        android:text="Time (min): " />
+        android:text="@string/time_recommendation_enter" />
 
     <EditText
         android:id="@+id/timeEditText"
@@ -48,7 +48,7 @@
         android:layout_alignLeft="@+id/timeTextView"
         android:layout_below="@+id/timeEditText"
         android:layout_marginTop="30dp"
-        android:text="Distance (m):" />
+        android:text="@string/distance_recommendation_enter" />
 
 
 
@@ -79,7 +79,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/pedometerButton"
         android:layout_centerHorizontal="true"
-        android:text="Enter" />
+        android:text="@string/enter_button_recommendation_enter" />
 
     <Button
         android:id="@+id/pedometerButton"
@@ -87,7 +87,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Open Pedometer" />
+        android:text="@string/open_pedometer_button_recommendation_enter" />
 
     <TextView
         android:id="@+id/changeRecommendationtextView"
@@ -96,7 +96,7 @@
         android:layout_above="@+id/changeRecommendationButton"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="28dp"
-        android:text="Change Recommendation :" />
+        android:text="@string/change_recommendation_enter" />
 
     <Button
         android:id="@+id/changeRecommendationButton"
@@ -105,6 +105,6 @@
         android:layout_above="@+id/activityEnterButton"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
-        android:text="Change" />
+        android:text="@string/change_button_recommendation_enter" />
 
 </RelativeLayout>

@@ -22,13 +22,6 @@
         </ListView>
 
     </LinearLayout>
-    
-      <TextView
-       android:id="@+id/tv_title"
-       android:layout_width="fill_parent"
-       android:layout_height="wrap_content"
-       android:text="Time Series Demo"
-       android:gravity="center_horizontal" />
  
     <LinearLayout
         android:orientation="horizontal"

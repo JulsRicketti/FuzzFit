@@ -3,14 +3,55 @@
 
     <string name="app_name">FuzzFit</string>
     <string name="action_settings">Settings</string>
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_walking">WalkingActivity</string>
-    <string name="title_activity_running">RunningActivity</string>
-    <string name="title_activity_weight_loss">WeightLossActivity</string>
-    <string name="title_activity_pedometer">PedometerActivity</string>
-    <string name="title_activity_register_user">RegisterUserActivity</string>
-    <string name="title_activity_report_menu">ReportMenuActivity</string>
-    <string name="title_activity_report_list_view">ReportListViewActivity</string>
-    <string name="title_activity_view_graph">ViewGraphActivity</string>
+   <!--  MainActivity   -->
+    <string name="register_update_user">Register/Update</string>
+    <string name="walker_main">Walker</string>
+    <string name="runner_main">Runner</string>
+    <string name="weight_loss_main">Weight Loss</string>
+    <string name="report_main">Report</string>
 
+    <!--  RegisterUserActivity   -->
+    <string name="age_register_user">Age: </string>
+    <string name="weight_register_user">Weight (kg): </string>
+    <string name="height_register_user">Height (cm): </string>
+    <string name="sex_register_user">Select sex</string>
+    <string name="finish_register_user">Finisht</string>
+    
+    <!--  EnterActivityActivity   -->
+    <string name="recommendation_enter">Recommendation</string>
+    <string name="time_recommendation_enter">Time (minutes):</string>
+    <string name="distance_recommendation_enter">Distance (meters):</string>
+    <string name="change_recommendation_enter">Change recommendation:</string>
+    <string name="change_button_recommendation_enter">Change</string>
+    <string name="enter_button_recommendation_enter">Enter</string>
+    <string name="open_pedometer_button_recommendation_enter">Open Pedometer</string>
+    
+    <!--  PedometerActivity   -->
+    <string name="recommendation_pedometer">Recommendation</string>
+    <string name="reset_steps_button_pedometer">Reset Steps</string>
+    <string name="start_button_pedometer">Start</string>
+    <string name="pause_button_pedometer">Pause</string>
+    <string name="finish_button_pedometer">Finish</string>
+    <string name="sensitivity_bar_pedometer">Sensitivity</string>
+
+    <!--  WeightLossActivity   -->
+    <string name="weight_loss_message">Calorie consumption of the day</string>
+    <string name="weight_loss_get_recommendation">Get Recommendation</string>
+    <string name="weight_loss_calories_to_burn">Calories to Burn</string>
+    <string name="weight_loss_enter_activity">Enter Activity</string>
+    <string name="weight_loss_exercise_time">Adjust Exercise Time (minutes)</string>
+    <string name="weight_loss_exercise_time_button">Adjust Exercise</string>
+    <string name="weight_loss_exercise_option">Exercise Option</string>
+    
+    <!--  ReportListViewActivity   -->
+    <string name="export_data_report">Export Data</string>
+    <string name="current_records_report">Current Records:</string>
+    <string name="illustrate_progress_button_report">Illustrate Progress</string>
+    
+    <!--  ReportListViewActivity   -->
+    <string name="select_report_menu">Please select the report you wish to view.</string>
+    <string name="walker_report_menu">Walker</string>
+    <string name="runner_report_menu">Runner</string>
+    <string name="weight_loss_report_menu">Weight Loss</string>
+    
 </resources>

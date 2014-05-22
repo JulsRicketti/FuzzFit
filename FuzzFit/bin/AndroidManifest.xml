@@ -24,36 +24,28 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="activities.EnterActivityActivity"
-            android:label="@string/title_activity_walking" >
+            android:name="activities.EnterActivityActivity" >
         </activity>
         <activity
-            android:name="activities.RunningActivity"
-            android:label="@string/title_activity_running" >
+            android:name="activities.RunningActivity" >
         </activity>
         <activity
-            android:name="activities.WeightLossActivity"
-            android:label="@string/title_activity_weight_loss" >
+            android:name="activities.WeightLossActivity">
         </activity>
         <activity
-            android:name="activities.PedometerActivity"
-            android:label="@string/title_activity_pedometer" >
+            android:name="activities.PedometerActivity">
         </activity>
         <activity
-            android:name="activities.RegisterUserActivity"
-            android:label="@string/title_activity_register_user" >
+            android:name="activities.RegisterUserActivity">
         </activity>
         <activity
-            android:name="activities.ReportMenuActivity"
-            android:label="@string/title_activity_report_menu" >
+            android:name="activities.ReportMenuActivity" >
         </activity>
         <activity
-            android:name="activities.ReportListViewActivity"
-            android:label="@string/title_activity_report_list_view" >
+            android:name="activities.ReportListViewActivity">
         </activity>
         <activity
-            android:name="com.example.jfitnessfunctiontester.ViewGraphActivity"
-            android:label="@string/title_activity_view_graph" >
+            android:name="com.example.jfitnessfunctiontester.ViewGraphActivity" >
         </activity>
     </application>
 

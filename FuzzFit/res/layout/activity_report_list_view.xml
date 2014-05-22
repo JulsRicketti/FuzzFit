@@ -29,7 +29,7 @@
         android:layout_below="@+id/linearLayout1"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="Illustrate Progress" />
+        android:text="@string/illustrate_progress_button_report" />
     <Button
         android:id="@+id/exportDatabaseButton"
         android:layout_width="wrap_content"
@@ -37,14 +37,14 @@
         android:layout_below="@+id/plotsButton"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="24dp"
-        android:text="Export Data" />
+        android:text="@string/export_data_report" />
     <TextView
         android:id="@+id/currentRecordsTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/exportDatabaseButton"        
         android:layout_centerHorizontal="true"
-        android:text="Current Records:"
+        android:text="@string/current_records_report"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView

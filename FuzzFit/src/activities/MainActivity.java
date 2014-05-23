@@ -12,6 +12,7 @@ import recommend.Recommend;
 import analyse.Analyse;
 import android.app.Activity;
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
@@ -47,13 +48,9 @@ public class MainActivity extends Activity {
 	Recommend recommend;
 	Analyse analyse;
 	
-	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		//implement function that forces user to fil out his/her profile before starting anything when used
-		//for the first time!
-	//	User user = new User(this, "24", "61", "164", "Female");
 
 				
 		userProfileButton = (Button) findViewById(R.id.userProfileButton);

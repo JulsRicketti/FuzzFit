@@ -24,16 +24,19 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="activities.EnterActivityActivity" >
+            android:name="activities.EnterActivityActivity" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="activities.RunningActivity" >
         </activity>
         <activity
-            android:name="activities.WeightLossActivity">
+            android:name="activities.WeightLossActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
-            android:name="activities.PedometerActivity">
+            android:name="activities.PedometerActivity"
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="activities.RegisterUserActivity">

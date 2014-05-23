@@ -28,9 +28,12 @@ import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
+import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -47,7 +50,7 @@ import android.os.Build;
 
 public class PedometerActivity extends Activity implements SensorEventListener{
 	
-	static final int CALORIE_UPDATE_INTERVAL = 60000;
+	static final int CALORIE_UPDATE_INTERVAL = 10000;
 	CalorieHandler calories;
 	
 	static final String walkerOption = "WALKER";
@@ -67,6 +70,10 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	float height = 1.64f;
 	float distance=0;
 
+	//variables for the sounds:
+	MediaPlayer minuteSound;
+	MediaPlayer goFasterSound;
+	
 	
 	TextView sensitivityTextView; //display field of sensitivity 
 	TextView stepsTextView; //display for steps
@@ -107,6 +114,9 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_pedometer);
+		
+		minuteSound = MediaPlayer.create(this, R.raw.minute_beep);
+		goFasterSound = MediaPlayer.create(this, R.raw.go_faster);
 		
 		//set screen title
 		if(MainActivity.activityOption.equals(walkerOption))
@@ -173,6 +183,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 			//recommendationTextView.setText("Recommendation: "+WeightLossActivity.activityDistance+ "km in "+(WeightLossActivity.activityTime)*60+" minutes");
 
 		}
+		
 	}
 	
 //calls the calorie counter function
@@ -182,6 +193,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		  public void run() {
 			  calculateCalories();
 			  handler.postDelayed(timedTask, CALORIE_UPDATE_INTERVAL);
+			  minuteSound.start();
 		  }
 	 };
 
@@ -207,6 +219,9 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 
 	void calculateCalories(){
 		setCurrentDistance();
+		//beep telling you to speed up a bit
+		if(calculateVelocity()<1)
+			goFasterSound.start();
 		calories.calculateCalories(calculateVelocity(), 1); //here we need to give the time in minutes
 	}
 	 

@@ -8,67 +8,87 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".MainActivity" >
 
-    <Button
-        android:id="@+id/runnerButton"
+    <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/enterTestButton"
-        android:layout_below="@+id/enterTestButton"
-        android:layout_marginTop="55dp"
-        android:text="@string/runner_main" />
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/enterTestButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="51dp"
-        android:text="@string/walker_main" />
+        <Button
+            android:id="@+id/insertDataButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button" />
 
-    <Button
-        android:id="@+id/weightLossButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/runnerButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="70dp"
-        android:text="@string/weight_loss_main" />
+        <Button
+            android:id="@+id/deleteDBButton"
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete DB" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/userProfileButton"
+    <LinearLayout
+        android:id="@+id/linearLayout3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:text="@string/register_update_user" />
+        android:layout_alignTop="@+id/linearLayout1"
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/reportButton"
+        <Button
+            android:id="@+id/userProfileButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/register_update_user" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignRight="@+id/userProfileButton"
-        android:layout_marginBottom="38dp"
-        android:text="@string/report_main" />
+        android:layout_alignRight="@+id/linearLayout2"
+        android:layout_marginBottom="18dp"
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/deleteDBButton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/enterTestButton"
-        android:layout_marginTop="21dp"
-        android:text="Delete DB" />
+        <Button
+            android:id="@+id/reportButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/report_main" />
+    </LinearLayout>
 
-    <Button
-        android:id="@+id/insertDataButton"
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/deleteDBButton"
-        android:layout_centerVertical="true"
-        android:text="Button" />
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_below="@+id/linearLayout3"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/enterTestButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="51dp"
+            android:text="@string/walker_main" />
+
+        <Button
+            android:id="@+id/runnerButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="55dp"
+            android:text="@string/runner_main" />
+
+        <Button
+            android:id="@+id/weightLossButton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="70dp"
+            android:layout_weight="0.28"
+            android:text="@string/weight_loss_main" />
+    </LinearLayout>
 
 </RelativeLayout>

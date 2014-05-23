@@ -50,7 +50,7 @@ import android.os.Build;
 
 public class PedometerActivity extends Activity implements SensorEventListener{
 	
-	static final int CALORIE_UPDATE_INTERVAL = 10000;
+	static final int CALORIE_UPDATE_INTERVAL = 60000;
 	CalorieHandler calories;
 	
 	static final String walkerOption = "WALKER";
@@ -164,7 +164,6 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		numSteps =0;
 		
 		acceleration = 0.00f;
-		 handler.post(timedTask); //to calculate the calories
 		//setting stuff related to physical activies:
 		recommendationTextView =(TextView) findViewById(R.id.pedometerRecommendationTextView);
 		if(MainActivity.activityOption.equals(walkerOption)){
@@ -252,6 +251,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 				pausePedometerButton.setEnabled(true);
 				finishPedometerButton.setEnabled(true);
 				resetButton.setEnabled(true);
+				handler.post(timedTask); //start handler (to calculate calories & other stuff)
 				
 				//check to see if it's better to be put here
 //				if(MainActivity.activityOption.equals(weightLossOption))
@@ -266,6 +266,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 				sensorManager.unregisterListener(sensorEventListener);
 				timeWhenStopped = chronometer.getBase() - SystemClock.elapsedRealtime();
 				chronometer.stop();
+				handler.removeCallbacks(timedTask);
 				startPedometerButton.setEnabled(true);
 				pausePedometerButton.setEnabled(false);
 				
@@ -280,6 +281,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 					sensorManager.unregisterListener(sensorEventListener);
 					timeWhenStopped = chronometer.getBase() - SystemClock.elapsedRealtime();
 					chronometer.stop();
+					handler.removeCallbacks(timedTask);
 				    
 					resetButton.setEnabled(false);
 					startPedometerButton.setEnabled(false);

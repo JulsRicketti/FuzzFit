@@ -34,11 +34,14 @@ public class CalorieHandler {
 	
 	public void calculateCalories(float velocity, float time){
 		met = defineMET(velocity);
-		calories += Float.parseFloat(user.getWeight())*(time)*met; //time comes in minutes!
+		time = time/60; //we need to convert the time to hours (it comes in minutes)
+		calories += Float.parseFloat(user.getWeight())*(time)*met;
 	}
 
 	//(in km/h)
 	float defineMET(float velocity){
+		if(velocity==0)
+			return 0;
 		if(velocity<3.2)
 			return (float) 2.0;
 		if(velocity>=3.2 && velocity<4.5)

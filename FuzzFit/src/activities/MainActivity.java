@@ -182,19 +182,19 @@ public class MainActivity extends Activity {
 				db.insertActivity(DatabaseAdapter.WALKER_HISTORY_TABLE, "785", "2014-05-10", "231", "60", "13", "96", "100");
 				
 				//runner
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-01", "1400", "10", "13", "96", "100");
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-01", "1000", "15", "13", "96", "100");
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-01", "1000", "15", "13", "96", "100");
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-01", "1300", "15", "13", "96", "100");
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-02", "900", "15", "13", "91", "130");
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-03", "800", "20", "13", "96", "100");
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-04", "1000", "20", "13", "96", "100");
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-05", "900", "25", "13", "96", "100");
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-06", "1123", "30", "13", "96", "100");
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-07", "911", "30", "13", "96", "100");
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-08", "800", "30", "13", "96", "100");
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-09", "1500", "35", "13", "96", "100");				
-				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "785", "2014-05-10", "1400", "35", "13", "96", "100");
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "10", "2014-05-01", "1400", "10", "13", "96", "100");
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "15", "2014-05-01", "1000", "15", "13", "96", "100");
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "15", "2014-05-01", "1000", "15", "13", "96", "100");
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "20", "2014-05-01", "1300", "15", "13", "96", "100");
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "20", "2014-05-02", "900", "15", "13", "91", "130");
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "20", "2014-05-03", "800", "20", "13", "96", "100");
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "25", "2014-05-04", "1000", "20", "13", "96", "100");
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "25", "2014-05-05", "900", "25", "13", "96", "100");
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "30", "2014-05-06", "1123", "30", "13", "96", "100");
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "30", "2014-05-07", "911", "30", "13", "96", "100");
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "30", "2014-05-08", "800", "30", "13", "96", "100");
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "30", "2014-05-09", "1500", "35", "13", "96", "100");				
+				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "30", "2014-05-10", "1400", "35", "13", "96", "100");
 				
 				//weightloss
 				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-01", "1000", "10", "13", "96", "100");

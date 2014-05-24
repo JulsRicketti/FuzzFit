@@ -76,6 +76,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	//variables for the sounds:
 	MediaPlayer minuteSound;
 	MediaPlayer goFasterSound;
+	MediaPlayer timerEndedSound; //(for the end of the timer)
 	
 	
 	TextView sensitivityTextView; //display field of sensitivity 
@@ -122,6 +123,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		
 		minuteSound = MediaPlayer.create(this, R.raw.minute_beep);
 		goFasterSound = MediaPlayer.create(this, R.raw.go_faster);
+		timerEndedSound = MediaPlayer.create(this, R.raw.applause);
 		
 		//set screen title
 		if(MainActivity.activityOption.equals(walkerOption))
@@ -417,6 +419,8 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		
 	}
 	
+	
+	//class for the timer
 	@TargetApi(Build.VERSION_CODES.GINGERBREAD)  
 	@SuppressLint("NewApi")
 	public class CounterClass extends CountDownTimer 
@@ -428,6 +432,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		@Override 
 		public void onFinish() { 
 			countDownTextView.setText("Completed."); 
+			timerEndedSound.start(); //we need to make the sound the indicate the person that its done
 		} 
 		
 		@SuppressLint("NewApi") 

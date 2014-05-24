@@ -126,8 +126,9 @@ public final class R {
         public static final int weight_loss=0x7f090008;
     }
     public static final class raw {
-        public static final int go_faster=0x7f040000;
-        public static final int minute_beep=0x7f040001;
+        public static final int applause=0x7f040000;
+        public static final int go_faster=0x7f040001;
+        public static final int minute_beep=0x7f040002;
     }
     public static final class string {
         public static final int action_settings=0x7f070001;

@@ -2,6 +2,7 @@ package activities;
 
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 import others.CalorieHandler;
 import others.User;
@@ -22,6 +23,8 @@ import analyse.Analyse;
 import analyse.RunningAnalyse;
 import analyse.WalkingAnalyse;
 import analyse.WeighLossAnalyse;
+import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
 import android.hardware.Sensor;
@@ -77,6 +80,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	
 	TextView sensitivityTextView; //display field of sensitivity 
 	TextView stepsTextView; //display for steps
+	TextView  countDownTextView; //the count down timer's text view
 	
 	Chronometer chronometer;
 	long timeWhenStopped =0;
@@ -109,6 +113,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	int aprovado =100;
 	private Handler handler = new Handler();
 	 	
+	CounterClass timer; //the runner's timer
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -151,6 +156,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		
 		sensitivityTextView = (TextView) findViewById(R.id.sensitivityTextView);
 		stepsTextView = (TextView) findViewById(R.id.stepsTextView);
+		countDownTextView = (TextView) findViewById(R.id.countDownTextView);
 		
 		seekBar = (SeekBar) findViewById(R.id.seekBar1);
 		seekBar.setProgress(10);
@@ -169,18 +175,21 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		if(MainActivity.activityOption.equals(walkerOption)){
 			recommend = new WalkingRecommend(this);
 			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(this)+" "+getString(R.string.text_view_recommendation_distance_enter));
+			countDownTextView.setVisibility(View.GONE); //the timer is only visible in the runner method
 			//	recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" meters");			
 		}
 		if(MainActivity.activityOption.equals(runnerOption)){
 			recommend = new RunningRecommend(this);
 			recommendationTextView.setText(getString(R.string.recommendation_enter)+recommend.recommend(this)+getString(R.string.text_view_recommendation_time_enter));
 			//recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" minutes");
+			int auxTimer = (int)(Float.parseFloat(recommend.recommend(this)))*60000;
+			timer = new CounterClass(auxTimer,1000);
 		}
 		if(MainActivity.activityOption.equals(weightLossOption)){
 			//We need to estimate velocity and calories every minute or so
 			recommendationTextView.setText(getString(R.string.recommendation_enter)+WeightLossActivity.activityDistance+" "+ getString(R.string.text_view_recommendation_distance_km_enter)+" "+(WeightLossActivity.activityTime)*60+getString(R.string.text_view_recommendation_time_enter));
 			//recommendationTextView.setText("Recommendation: "+WeightLossActivity.activityDistance+ "km in "+(WeightLossActivity.activityTime)*60+" minutes");
-
+			countDownTextView.setVisibility(View.GONE);  //the timer is only visible in the runner method
 		}
 		
 	}
@@ -245,6 +254,9 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 			@Override
 			public void onClick(View v) {
 				enableAccelerometerListening();
+				
+				if(MainActivity.activityOption.equals(runnerOption))
+					timer.start();
 				chronometer.setBase(SystemClock.elapsedRealtime() + timeWhenStopped);
 				chronometer.start();
 				startPedometerButton.setEnabled(false);
@@ -263,12 +275,17 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 			
 			@Override
 			public void onClick(View v) {
+			//figure out a way to pause the timer
+				//	if(MainActivity.activityOption.equals(runnerOption))
+				//	timer.
+				
 				sensorManager.unregisterListener(sensorEventListener);
 				timeWhenStopped = chronometer.getBase() - SystemClock.elapsedRealtime();
 				chronometer.stop();
 				handler.removeCallbacks(timedTask);
 				startPedometerButton.setEnabled(true);
 				pausePedometerButton.setEnabled(false);
+				
 				
 			}
 		});
@@ -399,4 +416,29 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@TargetApi(Build.VERSION_CODES.GINGERBREAD)  
+	@SuppressLint("NewApi")
+	public class CounterClass extends CountDownTimer 
+	{ 
+		public CounterClass(long millisInFuture, long countDownInterval) { 
+			super(millisInFuture, countDownInterval); 
+		} 
+		
+		@Override 
+		public void onFinish() { 
+			countDownTextView.setText("Completed."); 
+		} 
+		
+		@SuppressLint("NewApi") 
+		@TargetApi(Build.VERSION_CODES.GINGERBREAD) 
+		@Override public void onTick(long millisUntilFinished) { 
+			long millis = millisUntilFinished; 
+			String hms = String.format("%02d:%02d:%02d", TimeUnit.MILLISECONDS.toHours(millis), 
+					TimeUnit.MILLISECONDS.toMinutes(millis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(millis)), 
+					TimeUnit.MILLISECONDS.toSeconds(millis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(millis))); 
+			System.out.println(hms); 
+			countDownTextView.setText(hms); 
+		} 
+	} 
 }

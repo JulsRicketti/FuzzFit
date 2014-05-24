@@ -20,7 +20,15 @@
         android:id="@+id/chronometerChronometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chronometer" />
+        android:text="Chronometer"
+        android:textStyle="bold" android:textSize="50sp" />
+
+    <TextView
+        android:id="@+id/countDownTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Count down Timer" 
+        android:textStyle="bold" android:textSize="50sp"/>
 
     <TableRow
         android:id="@+id/tableRow2"
@@ -90,9 +98,5 @@
             android:layout_span ="4"
 			android:gravity="center_vertical|center_horizontal"
             android:text="@string/sensitivity_bar_pedometer" />
-        
-
-    
-
 
 </TableLayout>

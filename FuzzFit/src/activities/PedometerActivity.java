@@ -116,6 +116,8 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	 	
 	CounterClass timer; //the runner's timer
 	
+	float timeTimerAux=0; //to remind them how much time it went whenever the timer ended.
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -185,7 +187,9 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 			recommendationTextView.setText(getString(R.string.recommendation_enter)+recommend.recommend(this)+getString(R.string.text_view_recommendation_time_enter));
 			//recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" minutes");
 			int auxTimer = (int)(Float.parseFloat(recommend.recommend(this)))*60000;
+			timeTimerAux = auxTimer;
 			timer = new CounterClass(auxTimer,1000);
+			chronometer.setVisibility(View.GONE);
 		}
 		if(MainActivity.activityOption.equals(weightLossOption)){
 			//We need to estimate velocity and calories every minute or so
@@ -295,7 +299,8 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+
+				finishPedometerButton.setEnabled(false);
 				   float time = (SystemClock.elapsedRealtime() - chronometer.getBase())/60000;
 					sensorManager.unregisterListener(sensorEventListener);
 					timeWhenStopped = chronometer.getBase() - SystemClock.elapsedRealtime();
@@ -313,7 +318,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 						analyse.enterActivity(time, distance, calories.getCalories()); //this is what to do whenever inserting a new activity
 						recommend = new WalkingRecommend(context);
 						//recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" meters");
-						recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+" "+R.string.text_view_recommendation_distance_enter);
+						recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_distance_enter));
 					}
 					if(MainActivity.activityOption.equals(runnerOption)){
 						MonitorObserver.updateRun(context);
@@ -321,7 +326,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 						analyse.enterActivity(time, distance, calories.getCalories());
 						recommend = new RunningRecommend(context);
 						//recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" minutes");
-						recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+" "+R.string.text_view_recommendation_time_enter);
+						recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_time_enter));
 					}	
 					if(MainActivity.activityOption.equals(weightLossOption)){
 						MonitorObserver.updateWeightLoss();
@@ -329,7 +334,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 						analyse.enterActivity(time, distance, calories.getCalories());
 						recommend = new WeightLossRecommend(context);
 						//recommendationTextView.setText("Next Recommendation: "+recommend.recommend(context)+" calories");
-						recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+R.string.text_view_recommendation_calories_enter);
+						recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+getString(R.string.text_view_recommendation_calories_enter));
 					}
 			}
 		});
@@ -433,6 +438,13 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		public void onFinish() { 
 			countDownTextView.setText("Completed."); 
 			timerEndedSound.start(); //we need to make the sound the indicate the person that its done
+			
+			//send all the stuff to the database when it ends:
+			MonitorObserver.updateWalk(context); 
+			analyse = new WalkingAnalyse(context);
+			analyse.enterActivity(timeTimerAux, distance, calories.getCalories()); //this is what to do whenever inserting a new activity
+			recommend = new WalkingRecommend(context);
+			recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+" "+R.string.text_view_recommendation_distance_enter);
 		} 
 		
 		@SuppressLint("NewApi") 

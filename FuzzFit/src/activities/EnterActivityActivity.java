@@ -129,7 +129,7 @@ public class EnterActivityActivity extends Activity {
 					analyse = new WalkingAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories()); //this is what to do whenever inserting a new activity
 					recommend = new WalkingRecommend(context);
-					recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+" "+R.string.text_view_recommendation_distance_enter);
+					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_distance_enter));
 				
 				}
 				if(MainActivity.activityOption.equals(runnerOption)){
@@ -137,7 +137,7 @@ public class EnterActivityActivity extends Activity {
 					analyse = new RunningAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());
 					recommend = new RunningRecommend(context);
-					recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+" "+R.string.text_view_recommendation_time_enter);
+					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_time_enter));
 					
 				}
 				if(MainActivity.activityOption.equals(weightLossOption)){
@@ -148,7 +148,7 @@ public class EnterActivityActivity extends Activity {
 					analyse = new WeighLossAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());
 					recommend = new WeightLossRecommend(context);
-					recommendationTextView.setText(R.string.text_view_next_recommendation_enter+recommend.recommend(context)+R.string.text_view_recommendation_calories_enter);
+					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+getString(R.string.text_view_recommendation_calories_enter));
 				}
 			}
 		});
@@ -169,10 +169,10 @@ public class EnterActivityActivity extends Activity {
 			public void onClick(View v) {
 				recommend.updateRecommendation(Float.parseFloat(changeRecommendationString));
 				if(MainActivity.activityOption.equals(walkerOption)){
-					recommendationTextView.setText(R.string.recommendation_enter+recommend.recommend(context)+R.string.text_view_recommendation_distance_enter);			
+					recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(context)+" "+getString(+R.string.text_view_recommendation_distance_enter));			
 				}
 				if(MainActivity.activityOption.equals(runnerOption)){
-					recommendationTextView.setText(R.string.recommendation_enter+recommend.recommend(context)+R.string.text_view_recommendation_time_enter);
+					recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_time_enter));
 				}
 			}
 		});

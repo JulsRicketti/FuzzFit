@@ -188,7 +188,7 @@ public class Mediator {
 	public void buildRunnerEntry(String recommendation, String activityDate, String activityDistance, String activityTime, String calories){
 		float averageVelocity = (Float.parseFloat(activityDistance))/(Float.parseFloat(activityTime)/60);
 		averageVelocity *=3.6; //convert to km/h
-		history.insert(DatabaseAdapter.RUNNER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,Float.toString(averageVelocity), getMonitorHistory().get(getMonitorHistory().size()-1), calories);
+		history.insert(DatabaseAdapter.RUNNER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,Float.toString(averageVelocity), getMonitorResult(), calories);
 	}
 	
 	

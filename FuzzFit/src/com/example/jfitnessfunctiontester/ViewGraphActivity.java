@@ -46,7 +46,7 @@ public class ViewGraphActivity extends Activity {
 	
 	private GraphicalView mChart;
 	
-	Button exportGraphButton;
+//	Button exportGraphButton; //(at the moment, its deleted)
 	
 	History history;
 	ArrayList<String> dates;
@@ -70,7 +70,7 @@ public class ViewGraphActivity extends Activity {
 			setTitle(weightLossTitle+ " Chart");
 
 		
-		exportGraphButton =(Button) findViewById(R.id.exportGraphButton);
+//		exportGraphButton =(Button) findViewById(R.id.exportGraphButton);
 		setButtons();
 		
 		history = new History(context);
@@ -106,10 +106,10 @@ public class ViewGraphActivity extends Activity {
 	LinearLayout chartContainer;
 	
 	void setButtons(){
-		exportGraphButton.setOnClickListener(new OnClickListener() {
+//		exportGraphButton.setOnClickListener(new OnClickListener() {
 			
-			@Override
-			public void onClick(View v) {
+//			@Override
+//			public void onClick(View v) {
 //				bmImage = (ImageView)findViewById(R.id.image);
 //
 //				chartContainer.setDrawingCacheEnabled(true);
@@ -126,8 +126,8 @@ public class ViewGraphActivity extends Activity {
 //
 //			      bmImage.setImageBitmap(b);
 				
-			}
-		});
+//			}
+//		});
 	}
 
 	private void openChart(){
@@ -210,11 +210,14 @@ public class ViewGraphActivity extends Activity {
 	        XYMultipleSeriesRenderer multiRenderer = new XYMultipleSeriesRenderer();
 	 
 	        multiRenderer.setChartTitle("Improvement Chart");
-	        multiRenderer.setChartTitleTextSize(20);
+	        multiRenderer.setChartTitleTextSize(40);
+	        multiRenderer.setLabelsColor(Color.BLACK);
 	        multiRenderer.setXTitle("Days");
+	        multiRenderer.setXLabelsColor(Color.BLACK);
 	        multiRenderer.setAxisTitleTextSize(20);
 	        multiRenderer.setLegendTextSize(25);
 	        multiRenderer.setYTitle("Count");
+	        multiRenderer.setYLabelsColor(0,Color.BLACK);
 	        multiRenderer.setLabelsTextSize(30);
 	        multiRenderer.setZoomButtonsVisible(true);
 	        multiRenderer.setBackgroundColor(Color.parseColor("#F5F5F5"));
@@ -224,11 +227,13 @@ public class ViewGraphActivity extends Activity {
 	        multiRenderer.setPointSize(10.0f);
 	        multiRenderer.setMargins(new int[] { 50, 50, 50, 22 }); //thing that fixes the legend (the 3rd one is the one to change)
 	        
+	        
 	        multiRenderer.addSeriesRenderer(distanceRenderer);
 	        multiRenderer.addSeriesRenderer(timeRenderer);
 	        multiRenderer.addSeriesRenderer(velocityRenderer);
 	        multiRenderer.addSeriesRenderer(caloriesRenderer);
 
+	        
 	 
 	        // Getting a reference to LinearLayout of the MainActivity Layout
 	        chartContainer = (LinearLayout) findViewById(R.id.chart_container);

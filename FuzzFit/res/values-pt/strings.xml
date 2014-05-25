@@ -44,6 +44,7 @@
     <string name="estimated_steps">Estimativa de Passos:</string>
     <string name="estimated_distance">Estimativa de Distância (metros):</string>
     <string name="estimated_calories">Estimativa de Calorias Queimadas: </string>
+    <string name="inturrupted_timer"> Interrompido </string>
     
     <!--  WeightLossActivity   -->
     <string name="weight_loss_message">Consumo diário de calorias</string>

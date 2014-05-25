@@ -48,6 +48,7 @@
     <string name="estimated_steps">Estimated Steps:</string>
     <string name="estimated_distance">Estimated Distance (meters):</string>
     <string name="estimated_calories">Estimated Calories Burned: </string>
+    <string name="inturrupted_timer"> Inturrupted </string>
     
     <!--  WeightLossActivity   -->
     <!--  XML   -->
@@ -67,6 +68,7 @@
     <string name="weight_loss_distance_unit">km </string>
     <string name="weight_loss_time">Time: </string>
     <string name="weight_loss_time_unit"> minutes </string>
+    
     <!--  ReportListViewActivity   -->
     <!--  XML   -->
     <string name="export_data_report">Export Data</string>

@@ -8,36 +8,69 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".ViewGraphActivity" >
 
- 
     <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal" >
-
-        <ListView
-            android:id="@android:id/list"
-            android:layout_width="wrap_content"
-            android:layout_height="400dp" >
-        </ListView>
-
-    </LinearLayout>
- 
-    <LinearLayout
-        android:orientation="horizontal"
         android:id="@+id/chart_container"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/tv_title" >
- 
+        android:layout_below="@id/tv_title"
+        android:orientation="horizontal">
     </LinearLayout>
 
-    <Button
-        android:id="@+id/exportGraphButton"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/checkbox_container"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="Export" />
+        android:orientation="vertical"
+        android:layout_below = "@+id/chart_container" >
+
+        <TextView
+            android:id="@+id/checkBoxTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="View which lines:" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="103dp"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/checkBox1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Distance" />
+
+            <CheckBox
+                android:id="@+id/checkBox2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="28dp"
+                android:text="Time" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="271dp"
+            android:layout_height="34dp"
+            android:layout_marginTop="34dp"
+            android:orientation="horizontal" >
+
+            <CheckBox
+                android:id="@+id/checkBox3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Velocity" />
+            
+            <CheckBox
+                android:id="@+id/checkBox4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="28dp"
+                android:text="Calories" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

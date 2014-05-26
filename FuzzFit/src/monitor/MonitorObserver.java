@@ -38,11 +38,7 @@ public class MonitorObserver {
 		History history = new History(context);
 		
 		//we also need to find the necessary distance.
-		if(user.getSex().equals("Male"))
-			averageHumanSpeed = (float) 3.8;
-		else
-			averageHumanSpeed = (float) 2.9;
-
+		averageHumanSpeed = user.getAverageRunningSpeed();
 		
 		if(!history.isRunnerEmpty()){
 			currentRunningTime = Float.parseFloat(history.getRunnerHistory().getRecommendation().get(history.getRunnerHistory().getRecommendation().size()-1)); //minutes

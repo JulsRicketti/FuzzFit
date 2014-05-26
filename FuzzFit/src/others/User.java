@@ -69,4 +69,46 @@ public class User {
 		this.sex = sex;
 	}
 	
+	
+	public float getAverageWalkingSpeed(){ //in km/h
+		int age = Integer.parseInt(this.age);
+		if(this.sex.equals("Male")){
+			if(age<20)
+				return (float)5.0148;
+			if(age<30)
+				return (float)5.2488;
+			if(age<40)
+				return (float)5.2632;
+			if(age<50)
+				return (float)5.0148;
+			if(age<60)
+				return (float)4.8924;
+			if(age>=60)
+				return (float)4.788;
+		}
+		else{
+			if(age<20)
+				return (float)5.0652;
+			if(age<30)
+				return (float)5.094;
+			if(age<40)
+				return (float)5.0076;
+			if(age<50)
+				return (float)5.022;
+			if(age<60)
+				return (float)4.6656;
+			if(age>=60)
+				return (float)4.5792;
+		}
+			
+		return 0;
+	}
+	
+	public float getAverageRunningSpeed(){ //(in m/s)
+		//we also need to find the necessary distance.
+		if(this.sex.equals("Male"))
+			return (float) 3.8;
+		else
+			return (float) 2.9;
+	}
 }

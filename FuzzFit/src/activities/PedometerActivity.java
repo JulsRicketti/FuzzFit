@@ -118,6 +118,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	
 	float timeTimerAux=0; //to remind them how much time it went whenever the timer ended.
 	
+	User user;
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -140,10 +141,10 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		calories.setCalories(0);
 		
 		context = this;
-		User user = new User(this);
+		user = new User(this);
 
 		
-		if(user.getSex()=="Male")
+		if(user.getSex().equals("Male"))
 			strideLength = Float.parseFloat(user.getHeight())*maleStrideLengthConstant;
 		else
 			strideLength = Float.parseFloat(user.getHeight())*femaleStrideLengthConstant;
@@ -233,13 +234,14 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 
 	void calculateCalories(){
 		setCurrentDistance();
-		//beep telling you to speed up a bit
+		//whip telling you to speed up a bit
 		if(MainActivity.activityOption.equals(walkerOption)){
-		if(calculateVelocity()<1) //use the average walking speed for a person
+		if(calculateVelocity()<user.getAverageWalkingSpeed()) //use the average walking speed for a person
 			goFasterSound.start();
 		}
 		else{ //we will use the same rule for both runner and weightloss
-			if(calculateVelocity()<1)//either use the half of the average running speed OR the running speed
+			float averageRunningSpeed = (float) ((user.getAverageRunningSpeed())*3.6); //(convert it to km/h)
+			if(calculateVelocity()<averageRunningSpeed)//either use the half of the average running speed OR the running speed
 				goFasterSound.start();
 			
 		}

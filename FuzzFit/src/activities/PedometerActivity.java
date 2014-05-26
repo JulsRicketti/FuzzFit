@@ -234,8 +234,15 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	void calculateCalories(){
 		setCurrentDistance();
 		//beep telling you to speed up a bit
-		if(calculateVelocity()<1)
+		if(MainActivity.activityOption.equals(walkerOption)){
+		if(calculateVelocity()<1) //use the average walking speed for a person
 			goFasterSound.start();
+		}
+		else{ //we will use the same rule for both runner and weightloss
+			if(calculateVelocity()<1)//either use the half of the average running speed OR the running speed
+				goFasterSound.start();
+			
+		}
 		calories.calculateCalories(calculateVelocity(), 1); //here we need to give the time in minutes
 	}
 	 

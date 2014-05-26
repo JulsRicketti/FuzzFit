@@ -30,6 +30,7 @@ import android.view.View;
 import android.view.View.MeasureSpec;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
@@ -56,10 +57,14 @@ public class ViewGraphActivity extends Activity {
 	ArrayList<String> caloriesData;
 	Context context = this;
 	
+	CheckBox checkBox1, checkBox2, checkBox3, checkBox4;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_view_graph);
+		
+
 		
 		//set screen title
 		if(ReportMenuActivity.reportOption.equals(walkerOption))
@@ -100,10 +105,39 @@ public class ViewGraphActivity extends Activity {
 
 	    }
 		openChart();
+		
+		//setting the checkboxes (by default all of them are checked)
+		checkBox1 = (CheckBox) findViewById(R.id.checkBox1);
+		checkBox1.setChecked(true);
+		checkBox2 = (CheckBox) findViewById(R.id.checkBox2);
+		checkBox2.setChecked(true);
+		checkBox3 = (CheckBox) findViewById(R.id.checkBox3);
+		checkBox3.setChecked(true);
+		checkBox4 = (CheckBox) findViewById(R.id.checkBox4);
+		checkBox4.setChecked(true);
+		setCheckBoxes();
 	}
 
 	ImageView bmImage; 
 	LinearLayout chartContainer;
+	
+	void setCheckBoxes(){
+		checkBox1.setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if(((CheckBox)v).isChecked()){
+					multiRenderer.addSeriesRenderer(distanceRenderer);
+//					distanceRenderer.setColor(Color.parseColor("#990000")); //(making transparent method)
+				}
+				else{
+					//distanceRenderer.setColor(Color.TRANSPARENT); //(making transparent method)
+					multiRenderer.removeSeriesRenderer(distanceRenderer);
+					
+				}
+			}
+		});
+	}
 	
 	void setButtons(){
 //		exportGraphButton.setOnClickListener(new OnClickListener() {
@@ -129,7 +163,12 @@ public class ViewGraphActivity extends Activity {
 //			}
 //		});
 	}
-
+	XYMultipleSeriesDataset dataSet;
+	XYMultipleSeriesRenderer multiRenderer; //need to keep it out so the checkboxes can see it
+	XYSeriesRenderer distanceRenderer;
+	XYSeriesRenderer timeRenderer;
+	XYSeriesRenderer velocityRenderer;
+	XYSeriesRenderer caloriesRenderer;
 	private void openChart(){
 		 
 	        Date[] dt = new Date[dates.size()];
@@ -166,14 +205,14 @@ public class ViewGraphActivity extends Activity {
 	        }
 	 
 	        // Creating a dataSet to hold each series
-	        XYMultipleSeriesDataset dataSet = new XYMultipleSeriesDataset();
+	        dataSet = new XYMultipleSeriesDataset();
 	        dataSet.addSeries(distanceSeries);
 	        dataSet.addSeries(timeSeries);
 	        dataSet.addSeries(velocitySeries);
 	        dataSet.addSeries(caloriesSeries);
 	 
 	        // Creating XYSeriesRenderer to customize distanceSeries
-	        XYSeriesRenderer distanceRenderer = new XYSeriesRenderer();
+	        distanceRenderer = new XYSeriesRenderer();
 	        distanceRenderer.setColor(Color.parseColor("#990000"));
 	        distanceRenderer.setPointStyle(PointStyle.DIAMOND);
 	        distanceRenderer.setFillPoints(true);
@@ -182,7 +221,7 @@ public class ViewGraphActivity extends Activity {
 	        distanceRenderer.setChartValuesTextSize(20);
 	 
 	        // Creating XYSeriesRenderer to customize timeSeries
-	        XYSeriesRenderer timeRenderer = new XYSeriesRenderer();
+	        timeRenderer = new XYSeriesRenderer();
 	        timeRenderer.setColor(Color.parseColor("#0000AA"));
 	        timeRenderer.setPointStyle(PointStyle.CIRCLE);
 	        timeRenderer.setFillPoints(true);
@@ -190,7 +229,7 @@ public class ViewGraphActivity extends Activity {
 	        timeRenderer.setDisplayChartValues(true);
 	        timeRenderer.setChartValuesTextSize(20);
 	        
-	        XYSeriesRenderer velocityRenderer = new XYSeriesRenderer();
+	        velocityRenderer = new XYSeriesRenderer();
 	        velocityRenderer.setColor(Color.parseColor("#559900"));
 	        velocityRenderer.setPointStyle(PointStyle.SQUARE);
 	        velocityRenderer.setFillPoints(true);
@@ -198,7 +237,7 @@ public class ViewGraphActivity extends Activity {
 	        velocityRenderer.setDisplayChartValues(true);
 	        velocityRenderer.setChartValuesTextSize(20);
 	 
-	        XYSeriesRenderer caloriesRenderer = new XYSeriesRenderer();
+	        caloriesRenderer = new XYSeriesRenderer();
 	        caloriesRenderer.setColor(Color.parseColor("#9900AA"));
 	        caloriesRenderer.setPointStyle(PointStyle.TRIANGLE);
 	        caloriesRenderer.setFillPoints(true);
@@ -207,7 +246,7 @@ public class ViewGraphActivity extends Activity {
 	        caloriesRenderer.setChartValuesTextSize(20);
 	        
 	        // Creating a XYMultipleSeriesRenderer to customize the whole chart
-	        XYMultipleSeriesRenderer multiRenderer = new XYMultipleSeriesRenderer();
+	        multiRenderer = new XYMultipleSeriesRenderer();
 	 
 	        multiRenderer.setChartTitle("Improvement Chart");
 	        multiRenderer.setChartTitleTextSize(40);

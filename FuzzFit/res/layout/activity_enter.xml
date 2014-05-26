@@ -36,7 +36,8 @@
         android:layout_alignLeft="@+id/recommendationTextView"
         android:layout_marginLeft="24dp"
         android:ems="10"
-        android:inputType="number" >
+        android:inputType="number" 
+        android:focusable="false">
 
         <requestFocus />
     </EditText>
@@ -59,7 +60,8 @@
         android:layout_alignLeft="@+id/timeEditText"
         android:layout_alignTop="@+id/distanceTextView"
         android:ems="10"
-        android:inputType="number" />
+        android:inputType="number"
+        android:focusable="false" />
 
     <EditText
         android:id="@+id/changeRecommendationEditText"
@@ -69,9 +71,10 @@
         android:layout_alignBottom="@+id/changeRecommendationtextView"
         android:layout_alignParentRight="true"
         android:layout_toRightOf="@+id/activityEnterButton"
-        android:ems="3"
+        android:ems="5"
         android:inputType="number"
-        android:maxLength="3"/>
+        android:maxLength="5"
+        android:focusable="false"/>
 
     <Button
         android:id="@+id/activityEnterButton"

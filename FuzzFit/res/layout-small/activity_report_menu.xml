@@ -1,0 +1,51 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".ReportMenuActivity" >
+    
+        <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:orientation="vertical" >
+
+            <TextView
+        android:id="@+id/whichReportTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:text="@string/select_report_menu"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+            
+        <Button
+            android:id="@+id/walkerReportButton"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/walker_report_menu"
+            android:layout_below="@+id/whichReportTextView" />
+
+        <Button
+            android:id="@+id/runnerReportButton"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/runner_report_menu" 
+            android:layout_below="@+id/walkerReportButton"/>
+
+        <Button
+            android:id="@+id/weightLossReportButton"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_marginTop="15dp"
+            android:text="@string/weight_loss_report_menu" 
+            android:layout_below="@+id/runnerReportButton"/>
+    </LinearLayout>
+    
+</RelativeLayout>

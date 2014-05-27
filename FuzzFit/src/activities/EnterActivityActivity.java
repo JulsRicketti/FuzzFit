@@ -127,7 +127,7 @@ public class EnterActivityActivity extends Activity {
 				float timeHours = Float.parseFloat(timeString)/60; //time converted into hours
 				float distanceKM = Float.parseFloat(distanceString)/1000;
 				float velocityKM = distanceKM/timeHours;
-				calorieHandler.calculateCalories(velocityKM, timeHours);
+				calorieHandler.calculateCalories(velocityKM, Float.parseFloat(timeString)); //here is where I calculate the calories (the conversion of the time is done within the function, which is why we need it in minutes)
 				if(MainActivity.activityOption.equals(walkerOption)){
 					MonitorObserver.updateWalk(context); 
 					analyse = new WalkingAnalyse(context);
@@ -145,9 +145,6 @@ public class EnterActivityActivity extends Activity {
 					
 				}
 				if(MainActivity.activityOption.equals(weightLossOption)){
-
-					
-					
 					MonitorObserver.updateWeightLoss();
 					analyse = new WeighLossAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());

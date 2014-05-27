@@ -87,20 +87,20 @@ public class WalkingAnalyse implements Analyse{
 		String date = getCurrentDate().toString().substring(0, 10);
 		try{
 		    Toast.makeText(context, "Number of entries: " + mediator.getActivityDistanceHistory().size(), Toast.LENGTH_SHORT).show();
-			if(!isSameDay()){
-				monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance));			 
-				analyse();
-				mediator.buildWalkerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
-			}
-			else{
-				//(should I keep using the updated recommendation?? For now, yes.)
-				distance += Float.parseFloat(mediator.getLastActivityDistance());
-				time += Float.parseFloat(mediator.getLastActivityTime());
-				calories += Float.parseFloat(mediator.getLastActivityCalories());
-				monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance));
-				analyse();
-				mediator.updateWalkerEntry(recommend.recommend(context),date, Float.toString(distance), Float.toString(time), Float.toString(calories));
-			} 
+//			if(!isSameDay()){
+			monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance));			 
+			analyse();
+			mediator.buildWalkerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
+//			}
+//			else{
+//				//(should I keep using the updated recommendation?? For now, yes.)
+//				distance += Float.parseFloat(mediator.getLastActivityDistance());
+//				time += Float.parseFloat(mediator.getLastActivityTime());
+//				calories += Float.parseFloat(mediator.getLastActivityCalories());
+//				monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance));
+//				analyse();
+//				mediator.updateWalkerEntry(recommend.recommend(context),date, Float.toString(distance), Float.toString(time), Float.toString(calories));
+//			} 
 		}
 		catch(ArrayIndexOutOfBoundsException e){
 			monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance));

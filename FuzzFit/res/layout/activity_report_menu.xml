@@ -18,32 +18,50 @@
         android:layout_marginTop="30dp"
         android:text="@string/select_report_menu"
         android:textAppearance="?android:attr/textAppearanceLarge" />
+    
+        <LinearLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_below="@+id/linearLayout3"
+        android:orientation="vertical" >
 
-    <Button
-        android:id="@+id/walkerReportButton"
+            <TextView
+        android:id="@+id/whichReportTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/whichReportTextView"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="37dp"
-        android:text="@string/walker_report_menu" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="30dp"
+        android:text="@string/select_report_menu"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+            
+        <Button
+            android:id="@+id/walkerReportButton"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="51dp"
+            android:text="@string/walker_report_menu"
+            android:layout_below="@+id/whichReportTextView" />
 
-    <Button
-        android:id="@+id/runnerReportButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/walkerReportButton"
-        android:layout_below="@+id/walkerReportButton"
-        android:layout_marginTop="50dp"
-        android:text="@string/runner_report_menu" />
+        <Button
+            android:id="@+id/runnerReportButton"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="55dp"
+            android:text="@string/runner_report_menu" 
+            android:layout_below="@+id/walkerReportButton"/>
 
-    <Button
-        android:id="@+id/weightLossReportButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/runnerReportButton"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp"
-        android:text="@string/weight_loss_report_menu" />
+        <Button
+            android:id="@+id/weightLossReportButton"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginTop="70dp"
+            android:layout_weight="0.28"
+            android:text="@string/weight_loss_report_menu" 
+            android:layout_below="@+id/runnerReportButton"/>
+    </LinearLayout>
     
 </RelativeLayout>

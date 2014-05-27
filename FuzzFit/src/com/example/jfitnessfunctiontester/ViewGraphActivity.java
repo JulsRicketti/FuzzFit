@@ -226,10 +226,10 @@ public class ViewGraphActivity extends Activity {
 	        }
 	 
 	        // Creating TimeSeries for Visits
-	        TimeSeries distanceSeries = new TimeSeries("Distance (meters)");
-	        TimeSeries timeSeries = new TimeSeries("Time (minutes)");
-	        TimeSeries velocitySeries = new TimeSeries("Average Velocity (km/h)");
-	        TimeSeries caloriesSeries = new TimeSeries("Calories Burned");
+	        TimeSeries distanceSeries = new TimeSeries(getString(R.string.series_distance));
+	        TimeSeries timeSeries = new TimeSeries(getString(R.string.series_time));
+	        TimeSeries velocitySeries = new TimeSeries(getString(R.string.series_velocity));
+	        TimeSeries caloriesSeries = new TimeSeries(getString(R.string.series_calories));
 	 
 	        // Adding distanceData to Visits and Views Series
 	        for(int i=0;i<dt.length;i++){
@@ -284,7 +284,7 @@ public class ViewGraphActivity extends Activity {
 	        // Creating a XYMultipleSeriesRenderer to customize the whole chart
 	        multiRenderer = new XYMultipleSeriesRenderer();
 	 
-	        multiRenderer.setChartTitle("Improvement Chart");
+	        multiRenderer.setChartTitle(getString(R.string.chart_name));
 	        multiRenderer.setChartTitleTextSize(40);
 	        multiRenderer.setLabelsColor(Color.BLACK);
 	        multiRenderer.setXTitle("Days");
@@ -302,13 +302,10 @@ public class ViewGraphActivity extends Activity {
 	        multiRenderer.setPointSize(10.0f);
 	        multiRenderer.setMargins(new int[] { 50, 50, 50, 22 }); //thing that fixes the legend (the 3rd one is the one to change)
 	        
-	        
 	        multiRenderer.addSeriesRenderer(distanceRenderer);
 	        multiRenderer.addSeriesRenderer(timeRenderer);
 	        multiRenderer.addSeriesRenderer(velocityRenderer);
 	        multiRenderer.addSeriesRenderer(caloriesRenderer);
-
-	        
 	 
 	        // Getting a reference to LinearLayout of the MainActivity Layout
 	        chartContainer = (LinearLayout) findViewById(R.id.chart_container);
@@ -329,15 +326,15 @@ public class ViewGraphActivity extends Activity {
 	 
 	                if (seriesSelection != null) {
 	                    int seriesIndex = seriesSelection.getSeriesIndex();
-	                    String selectedSeries="Distance";
+	                    String selectedSeries=getString(R.string.selected_series_distance);
 	                    if(seriesIndex==0)
-	                        selectedSeries = "Distance";
+	                        selectedSeries = getString(R.string.selected_series_distance);
 	                    if(seriesIndex==1)
-	                        selectedSeries = "Time";
+	                        selectedSeries = getString(R.string.selected_series_time);
 	                    if(seriesIndex==2)
-	                        selectedSeries = "Velocity";
+	                        selectedSeries = getString(R.string.selected_series_velocity);
 	                    if(seriesIndex==3)
-	                        selectedSeries = "Calories";
+	                        selectedSeries = getString(R.string.selected_series_calories);
 	                    // Getting the clicked Date ( x value )
 	                    long clickedDateSeconds = (long) seriesSelection.getXValue();
 	                    Date clickedDate = new Date(clickedDateSeconds);

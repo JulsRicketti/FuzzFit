@@ -22,8 +22,10 @@ import android.content.Intent;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -86,6 +88,7 @@ public class EnterActivityActivity extends Activity {
 		changeRecommendationEditText = (EditText) findViewById(R.id.changeRecommendationEditText);
 		changeRecommendationEditText.addTextChangedListener(changeRecommendationTextWatcher);
 		
+		
 		calorieHandler = new CalorieHandler(context);
 		
 		enterButton = (Button) findViewById(R.id.activityEnterButton);
@@ -110,6 +113,7 @@ public class EnterActivityActivity extends Activity {
 			
 			recommendationTextView.setText(getString(R.string.recommendation_enter)+WeightLossActivity.activityDistance+" "+ getString(R.string.text_view_recommendation_distance_km_enter)+" "+(WeightLossActivity.activityTime)*60+getString(R.string.text_view_recommendation_time_enter));
 		}
+		setEditTexts();
 	}
 
 	void setButtons(){
@@ -174,6 +178,38 @@ public class EnterActivityActivity extends Activity {
 				if(MainActivity.activityOption.equals(runnerOption)){
 					recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_time_enter));
 				}
+			}
+		});
+	}
+	
+	void setEditTexts(){
+		distanceEditText.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				v.setFocusable(true);
+	            v.setFocusableInTouchMode(true);
+	            return false;
+			}
+		});
+		
+		timeEditText.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				v.setFocusable(true);
+	            v.setFocusableInTouchMode(true);
+	            return false;
+			}
+		});
+		
+		changeRecommendationEditText.setOnTouchListener(new OnTouchListener() {
+			
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				v.setFocusable(true);
+				v.setFocusableInTouchMode(true);
+				return false;
 			}
 		});
 	}

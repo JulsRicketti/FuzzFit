@@ -90,11 +90,28 @@
     <string name="record_average_velocity">Record average velocity: </string>
     <string name="record_calories">Record burned calories: </string>
     
-    <!--  ReportListViewActivity   -->
+    <!--  ReportMenuActivity   -->
     <!--  XML   -->
     <string name="select_report_menu">Please select the report you wish to view.</string>
     <string name="walker_report_menu">Walker</string>
     <string name="runner_report_menu">Runner</string>
     <string name="weight_loss_report_menu">Weight Loss</string>
     <!--  Java   -->
+    
+    <!--  ViewGraphActivity   -->
+    <!--  XML   -->
+    <string name="distance_check_box">Distance</string>
+    <string name="time_check_box">Time</string>
+    <string name="velocity_check_box">Average Velocity</string>
+    <string name="calories_check_box">Calories</string>
+    <!--  Java   -->
+    <string name="series_distance">Distance (meters)</string>
+    <string name="series_time">Time (minutes)</string>
+    <string name="series_velocity">Average Velocity (km/h)</string>
+    <string name="series_calories">Calories Burned</string>
+    <string name="chart_name">Improvement Chart</string>
+	<string name="selected_series_distance">Distance</string>
+    <string name="selected_series_time">Time</string>
+    <string name="selected_series_velocity">Velocity</string>
+    <string name="selected_series_calories">Calories</string>    
 </resources>

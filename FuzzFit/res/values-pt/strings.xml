@@ -89,4 +89,21 @@
     <string name="walker_report_menu">Caminhada</string>
     <string name="runner_report_menu">Corrida</string>
     <string name="weight_loss_report_menu">Perda de Peso</string>
+    
+    <!--  ViewGraphActivity   -->
+    <!--  XML   -->
+    <string name="distance_check_box">Distância</string>
+    <string name="time_check_box">Tempo</string>
+    <string name="velocity_check_box">Velocidade Média</string>
+    <string name="calories_check_box">Calorias</string>
+    <!--  Java   -->
+    <string name="series_distance">Distância (metros)</string>
+    <string name="series_time">Tempo (minutos)</string>
+    <string name="series_velocity">Velocidade Média (km/h)</string>
+    <string name="series_calories">Calorias Queimadas</string>   
+    <string name="chart_name">Gráfico de Melhora</string>
+    <string name="selected_series_distance">Distância</string>
+    <string name="selected_series_time">Tempo</string>
+    <string name="selected_series_velocity">Velocidade</string>
+    <string name="selected_series_calories">Calorias</string> 
 </resources>

@@ -126,17 +126,53 @@ public class ViewGraphActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				if(((CheckBox)v).isChecked()){
-					multiRenderer.addSeriesRenderer(distanceRenderer);
-//					distanceRenderer.setColor(Color.parseColor("#990000")); //(making transparent method)
-				}
-				else{
-					//distanceRenderer.setColor(Color.TRANSPARENT); //(making transparent method)
-					multiRenderer.removeSeriesRenderer(distanceRenderer);
-					
-				}
+				if(((CheckBox)v).isChecked())
+					distanceRenderer.setColor(Color.parseColor("#990000")); //(making transparent method)
+				else
+					distanceRenderer.setColor(Color.TRANSPARENT); //(making transparent method)
+				mChart.repaint();
 			}
 		});
+		
+		checkBox2.setOnClickListener( new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if(((CheckBox)v).isChecked())
+					timeRenderer.setColor(Color.parseColor("#0000AA")); //(making transparent method)
+				else
+					timeRenderer.setColor(Color.TRANSPARENT); //(making transparent method)
+				mChart.repaint();
+				
+			}
+		});
+		checkBox3.setOnClickListener( new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				if(((CheckBox)v).isChecked())
+					velocityRenderer.setColor(Color.parseColor("#559900")); //(making transparent method)
+				else
+					velocityRenderer.setColor(Color.TRANSPARENT); //(making transparent method)
+				mChart.repaint();
+				
+			}
+		});
+		
+		checkBox4.setOnClickListener( new OnClickListener() {
+	
+			@Override
+			public void onClick(View v) {
+				if(((CheckBox)v).isChecked())
+					caloriesRenderer.setColor(Color.parseColor("#9900AA")); //(making transparent method)
+				else
+					caloriesRenderer.setColor(Color.TRANSPARENT); //(making transparent method)
+				mChart.repaint();
+			
+		}
+});
+
+		
 	}
 	
 	void setButtons(){

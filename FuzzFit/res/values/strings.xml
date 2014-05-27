@@ -17,7 +17,7 @@
     <string name="weight_register_user">Weight (kg): </string>
     <string name="height_register_user">Height (cm): </string>
     <string name="sex_register_user">Select sex</string>
-    <string name="finish_register_user">Finisht</string>
+    <string name="finish_register_user">Finish</string>
     
     <!--  EnterActivityActivity   -->
     <!--  XML   -->

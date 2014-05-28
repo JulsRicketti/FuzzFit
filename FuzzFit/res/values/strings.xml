@@ -59,6 +59,7 @@
     <string name="pedometer_weight_loss_title"> Weight Loss Program</string>
     <string name="minute_sound_check_box"> Minute Sound</string>
  	<string name="faster_sound_check_box"> Faster Sound</string>
+ 	<string name="completed_message"> Completed</string>
     
     <!--  WeightLossActivity   -->
     <!--  XML   -->

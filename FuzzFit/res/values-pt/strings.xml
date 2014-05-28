@@ -54,6 +54,7 @@
     <string name="pedometer_walker_title"> Treino de Caminhada</string>
     <string name="pedometer_runner_title"> Treino de Corrida</string>
     <string name="pedometer_weight_loss_title"> Programa de Perda de Peso</string>
+    <string name="completed_message"> Completado</string>
         
     
     

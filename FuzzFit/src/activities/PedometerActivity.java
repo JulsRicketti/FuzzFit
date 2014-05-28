@@ -289,8 +289,12 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 			public void onClick(View v) {
 				chronometer.setBase(SystemClock.elapsedRealtime());
 				chronometer.start();
+				if(MainActivity.activityOption.equals(runnerOption)) //we need to reset the timer
+					timer.start();
+				
 				resetSteps(v);
 				
+
 			}
 		});
 		
@@ -345,10 +349,13 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 					chronometer.stop();
 					handler.removeCallbacks(timedTask);
 					soundHandler.removeCallbacks(soundTask);
+					timer.cancel();//we need to stop the timer
+					
 					
 					resetButton.setEnabled(false);
 					startPedometerButton.setEnabled(false);
 					pausePedometerButton.setEnabled(false);
+					finishPedometerButton.setEnabled(false);
 				
 					
 					if(time>1 && distance>0){ // we will only save everything in the database if the user has more than a minute done and if he walked anything
@@ -419,7 +426,10 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	
 	public void resetSteps(View v){
 		numSteps =0;
-		stepsTextView.setText(String.valueOf(numSteps));
+		distance=0;
+		calories.setCalories(0);
+		stepsTextView.setText(getString(R.string.estimated_steps)+" "+String.valueOf(numSteps)+"\n"+ getString(R.string.estimated_distance) +distance+"\n"+getString(R.string.estimated_calories)+calories.getCalories());
+		
 	}
 	
 	private OnSeekBarChangeListener seekBarListener = new OnSeekBarChangeListener() {
@@ -477,9 +487,9 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		
 		@Override 
 		public void onFinish() { 
-			countDownTextView.setText("Completed."); 
+			countDownTextView.setText(getString(R.string.completed_message)); 
 			timerEndedSound.start(); //we need to make the sound the indicate the person that its done
-			
+			timer.cancel();
 			//send all the stuff to the database when it ends:
 			MonitorObserver.updateWalk(context); 
 			analyse = new WalkingAnalyse(context);

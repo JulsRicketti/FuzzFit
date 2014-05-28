@@ -148,19 +148,20 @@ public final class R {
          */
         public static final int age_register_user=0x7f070007;
         public static final int app_name=0x7f070000;
-        public static final int calories_check_box=0x7f070057;
+        public static final int calories_check_box=0x7f070058;
         public static final int change_button_recommendation_enter=0x7f070011;
         public static final int change_recommendation_enter=0x7f070010;
-        public static final int chart_name=0x7f07005c;
-        public static final int consume_more_calories_message=0x7f070036;
-        public static final int current_records_report=0x7f07003c;
-        public static final int default_calorie_message=0x7f070035;
+        public static final int chart_name=0x7f07005d;
+        public static final int completed_message=0x7f07002c;
+        public static final int consume_more_calories_message=0x7f070037;
+        public static final int current_records_report=0x7f07003d;
+        public static final int default_calorie_message=0x7f070036;
         /**   ViewGraphActivity   
   XML   
   ViewGraphActivity   
   XML   
          */
-        public static final int distance_check_box=0x7f070054;
+        public static final int distance_check_box=0x7f070055;
         public static final int distance_recommendation_enter=0x7f07000f;
         public static final int enter_button_recommendation_enter=0x7f070012;
         public static final int enter_runner_title=0x7f07001a;
@@ -176,18 +177,18 @@ public final class R {
   XML   
   ReportListViewActivity   
          */
-        public static final int export_data_report=0x7f07003b;
+        public static final int export_data_report=0x7f07003c;
         public static final int faster_sound_check_box=0x7f07002b;
         public static final int finish_button_pedometer=0x7f070020;
         public static final int finish_register_user=0x7f07000b;
         public static final int height_register_user=0x7f070009;
-        public static final int high_calorie_message=0x7f070034;
-        public static final int illustrate_progress_button_report=0x7f07003d;
+        public static final int high_calorie_message=0x7f070035;
+        public static final int illustrate_progress_button_report=0x7f07003e;
         public static final int inturrupted_timer=0x7f070026;
         /**   Java   
   Java   
          */
-        public static final int low_calorie_message=0x7f070033;
+        public static final int low_calorie_message=0x7f070034;
         public static final int minute_sound_check_box=0x7f07002a;
         public static final int open_pedometer_button_recommendation_enter=0x7f070013;
         public static final int pause_button_pedometer=0x7f07001f;
@@ -204,10 +205,10 @@ public final class R {
   PedometerActivity   
          */
         public static final int recommendation_pedometer=0x7f07001c;
-        public static final int record_average_velocity=0x7f07004a;
-        public static final int record_calories=0x7f07004b;
-        public static final int record_distance=0x7f070048;
-        public static final int record_time=0x7f070049;
+        public static final int record_average_velocity=0x7f07004b;
+        public static final int record_calories=0x7f07004c;
+        public static final int record_distance=0x7f070049;
+        public static final int record_time=0x7f07004a;
         /**   MainActivity   
   XML   
   MainActivity   
@@ -217,31 +218,31 @@ public final class R {
         public static final int report_main=0x7f070006;
         /**   Java   
          */
-        public static final int report_menu_title=0x7f070053;
-        public static final int report_runner_title=0x7f07004d;
-        public static final int report_walker_title=0x7f07004c;
-        public static final int report_weight_loss_title=0x7f07004e;
+        public static final int report_menu_title=0x7f070054;
+        public static final int report_runner_title=0x7f07004e;
+        public static final int report_walker_title=0x7f07004d;
+        public static final int report_weight_loss_title=0x7f07004f;
         public static final int reset_steps_button_pedometer=0x7f07001d;
         public static final int runner_main=0x7f070004;
-        public static final int runner_report_menu=0x7f070051;
+        public static final int runner_report_menu=0x7f070052;
         public static final int seek_bar_pedometer=0x7f070022;
         /**   ReportMenuActivity   
   XML   
   ReportMenuActivity   
          */
-        public static final int select_report_menu=0x7f07004f;
-        public static final int selected_series_calories=0x7f070060;
-        public static final int selected_series_distance=0x7f07005d;
-        public static final int selected_series_time=0x7f07005e;
-        public static final int selected_series_velocity=0x7f07005f;
+        public static final int select_report_menu=0x7f070050;
+        public static final int selected_series_calories=0x7f070061;
+        public static final int selected_series_distance=0x7f07005e;
+        public static final int selected_series_time=0x7f07005f;
+        public static final int selected_series_velocity=0x7f070060;
         public static final int sensitivity_bar_pedometer=0x7f070021;
-        public static final int series_calories=0x7f07005b;
+        public static final int series_calories=0x7f07005c;
         /**   Java   
   Java   
          */
-        public static final int series_distance=0x7f070058;
-        public static final int series_time=0x7f070059;
-        public static final int series_velocity=0x7f07005a;
+        public static final int series_distance=0x7f070059;
+        public static final int series_time=0x7f07005a;
+        public static final int series_velocity=0x7f07005b;
         public static final int sex_register_user=0x7f07000a;
         public static final int start_button_pedometer=0x7f07001e;
         /**   Java   
@@ -252,41 +253,41 @@ public final class R {
         public static final int text_view_recommendation_distance_enter=0x7f070016;
         public static final int text_view_recommendation_distance_km_enter=0x7f070017;
         public static final int text_view_recommendation_time_enter=0x7f070015;
-        public static final int time_check_box=0x7f070055;
+        public static final int time_check_box=0x7f070056;
         public static final int time_recommendation_enter=0x7f07000e;
-        public static final int toast_activity_average_velocity=0x7f070044;
-        public static final int toast_activity_average_velocity_unit=0x7f070045;
-        public static final int toast_activity_calories=0x7f070047;
+        public static final int toast_activity_average_velocity=0x7f070045;
+        public static final int toast_activity_average_velocity_unit=0x7f070046;
+        public static final int toast_activity_calories=0x7f070048;
         /**   Java   
   Java   
          */
-        public static final int toast_activity_date=0x7f07003e;
-        public static final int toast_activity_distance=0x7f070040;
-        public static final int toast_activity_distance_unit=0x7f070041;
-        public static final int toast_activity_monitor=0x7f070046;
-        public static final int toast_activity_recommendation=0x7f07003f;
-        public static final int toast_activity_time=0x7f070042;
-        public static final int toast_activity_time_unit=0x7f070043;
-        public static final int velocity_check_box=0x7f070056;
+        public static final int toast_activity_date=0x7f07003f;
+        public static final int toast_activity_distance=0x7f070041;
+        public static final int toast_activity_distance_unit=0x7f070042;
+        public static final int toast_activity_monitor=0x7f070047;
+        public static final int toast_activity_recommendation=0x7f070040;
+        public static final int toast_activity_time=0x7f070043;
+        public static final int toast_activity_time_unit=0x7f070044;
+        public static final int velocity_check_box=0x7f070057;
         public static final int walker_main=0x7f070003;
-        public static final int walker_report_menu=0x7f070050;
-        public static final int weight_loss_calories_to_burn=0x7f07002e;
-        public static final int weight_loss_distance=0x7f070037;
-        public static final int weight_loss_distance_unit=0x7f070038;
-        public static final int weight_loss_enter_activity=0x7f07002f;
-        public static final int weight_loss_exercise_option=0x7f070032;
-        public static final int weight_loss_exercise_time=0x7f070030;
-        public static final int weight_loss_exercise_time_button=0x7f070031;
-        public static final int weight_loss_get_recommendation=0x7f07002d;
+        public static final int walker_report_menu=0x7f070051;
+        public static final int weight_loss_calories_to_burn=0x7f07002f;
+        public static final int weight_loss_distance=0x7f070038;
+        public static final int weight_loss_distance_unit=0x7f070039;
+        public static final int weight_loss_enter_activity=0x7f070030;
+        public static final int weight_loss_exercise_option=0x7f070033;
+        public static final int weight_loss_exercise_time=0x7f070031;
+        public static final int weight_loss_exercise_time_button=0x7f070032;
+        public static final int weight_loss_get_recommendation=0x7f07002e;
         public static final int weight_loss_main=0x7f070005;
         /**   WeightLossActivity   
   XML   
   WeightLossActivity   
          */
-        public static final int weight_loss_message=0x7f07002c;
-        public static final int weight_loss_report_menu=0x7f070052;
-        public static final int weight_loss_time=0x7f070039;
-        public static final int weight_loss_time_unit=0x7f07003a;
+        public static final int weight_loss_message=0x7f07002d;
+        public static final int weight_loss_report_menu=0x7f070053;
+        public static final int weight_loss_time=0x7f07003a;
+        public static final int weight_loss_time_unit=0x7f07003b;
         public static final int weight_register_user=0x7f070008;
     }
     public static final class style {

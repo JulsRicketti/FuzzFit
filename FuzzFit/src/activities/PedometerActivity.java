@@ -115,6 +115,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	
 	int aprovado =100;
 	private Handler handler = new Handler();
+	private Handler soundHandler = new Handler();
 	 	
 	CounterClass timer; //the runner's timer
 	
@@ -215,8 +216,28 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		  public void run() {
 			  calculateCalories();
 			  handler.postDelayed(timedTask, CALORIE_UPDATE_INTERVAL);
-			  if(minuteSoundCheckBox.isChecked())
-				  minuteSound.start();
+		  }
+	 };
+	 
+	 private Runnable soundTask = new Runnable(){
+		 @Override
+		  public void run() {
+			 soundHandler.postDelayed(soundTask, MINUTE_INTERVAL);
+			if(minuteSoundCheckBox.isChecked())
+				minuteSound.start();
+			
+			if(fasterSoundCheckBox.isChecked()){
+				if(MainActivity.activityOption.equals(walkerOption)){
+					if(calculateVelocity()<user.getAverageWalkingSpeed()) //use the average walking speed for a person
+						goFasterSound.start();
+				}
+				else{ //we will use the same rule for both runner and weightloss
+					float averageRunningSpeed = (float) ((user.getAverageRunningSpeed())*3.6); //(convert it to km/h)
+					if(calculateVelocity()<averageRunningSpeed)//either use the half of the average running speed OR the running speed
+						goFasterSound.start();
+					
+				}
+			}
 		  }
 	 };
 
@@ -243,17 +264,17 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	void calculateCalories(){
 		setCurrentDistance();
 		//whip telling you to speed up a bit
-		if(MainActivity.activityOption.equals(walkerOption)){
-		if(calculateVelocity()<user.getAverageWalkingSpeed()) //use the average walking speed for a person
-			if(fasterSoundCheckBox.isChecked())
-				goFasterSound.start();
-		}
-		else{ //we will use the same rule for both runner and weightloss
-			float averageRunningSpeed = (float) ((user.getAverageRunningSpeed())*3.6); //(convert it to km/h)
-			if(calculateVelocity()<averageRunningSpeed)//either use the half of the average running speed OR the running speed
-				goFasterSound.start();
-			
-		}
+//		if(MainActivity.activityOption.equals(walkerOption)){
+//		if(calculateVelocity()<user.getAverageWalkingSpeed()) //use the average walking speed for a person
+//			if(fasterSoundCheckBox.isChecked())
+//				goFasterSound.start();
+//		}
+//		else{ //we will use the same rule for both runner and weightloss
+//			float averageRunningSpeed = (float) ((user.getAverageRunningSpeed())*3.6); //(convert it to km/h)
+//			if(calculateVelocity()<averageRunningSpeed)//either use the half of the average running speed OR the running speed
+//				goFasterSound.start();
+//			
+//		}
 		calories.calculateCalories(calculateVelocity(), 1); //here we need to give the time in minutes
 	}
 	 
@@ -289,7 +310,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 				finishPedometerButton.setEnabled(true);
 				resetButton.setEnabled(true);
 				handler.post(timedTask); //start handler (to calculate calories & other stuff)
-				
+				soundHandler.post(soundTask);
 			}
 		});
 		pausePedometerButton.setOnClickListener(new OnClickListener() {
@@ -304,6 +325,8 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 				timeWhenStopped = chronometer.getBase() - SystemClock.elapsedRealtime();
 				chronometer.stop();
 				handler.removeCallbacks(timedTask);
+				soundHandler.removeCallbacks(soundTask);
+				
 				startPedometerButton.setEnabled(true);
 				pausePedometerButton.setEnabled(false);
 				
@@ -321,7 +344,8 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 					timeWhenStopped = chronometer.getBase() - SystemClock.elapsedRealtime();
 					chronometer.stop();
 					handler.removeCallbacks(timedTask);
-				    
+					soundHandler.removeCallbacks(soundTask);
+					
 					resetButton.setEnabled(false);
 					startPedometerButton.setEnabled(false);
 					pausePedometerButton.setEnabled(false);
@@ -480,11 +504,13 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	    public void onPause() {
 	        super.onPause();
 	        handler.removeCallbacks(timedTask);
+	        soundHandler.removeCallbacks(soundTask);
 	    }
 
 	   @Override
 	    public void onStop() {
 	        super.onStop();
 	        handler.removeCallbacks(timedTask);
+	        soundHandler.removeCallbacks(soundTask);
 	    }
 }

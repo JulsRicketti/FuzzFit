@@ -60,9 +60,9 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	static final String runnerOption = "RUNNER";
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
-	final String walkerTitle = "Walk Training";
-	final String runnerTitle = "Run Training";
-	final String weightLossTitle = "Weight Loss Program";
+	final String walkerTitle = getString(R.string.pedometer_walker_title);
+	final String runnerTitle = getString(R.string.pedometer_runner_title);
+	final String weightLossTitle = getString(R.string.pedometer_weight_loss_title);
 	//How to find the stride?
 	//source : http://walking.about.com/cs/pedometers/a/pedometerset.htm
 	//height*strideLengh

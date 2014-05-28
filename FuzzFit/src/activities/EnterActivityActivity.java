@@ -36,9 +36,9 @@ public class EnterActivityActivity extends Activity {
 	static final String runnerOption = "RUNNER";
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
-	final String walkerTitle = "Walk Training";
-	final String runnerTitle = "Run Training";
-	final String weightLossTitle = "Weight Loss Program";
+	final String walkerTitle = getString(R.string.enter_walker_title);
+	final String runnerTitle = getString(R.string.enter_runner_title);
+	final String weightLossTitle = getString(R.string.enter_weight_loss_title);
 	
 	TextView recommendationTextView;
 	TextView changeRecommendationtextView;

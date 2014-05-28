@@ -49,7 +49,7 @@ public class RegisterUserActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_register_user);
 		
-		setTitle("Register User");
+		setTitle(getString(R.string.register_user_title));
 		
 		dbAdapter = new DatabaseAdapter(this);
 		dbAdapter = dbAdapter.open();

@@ -53,9 +53,9 @@ public class ReportListViewActivity extends ListActivity{
 	static final String runnerOption = "RUNNER";
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
-	final String walkerTitle = "Walk Training Report";
-	final String runnerTitle = "Run Training Report";
-	final String weightLossTitle = "Weight Loss Program Report";
+	final String walkerTitle = getString(R.string.report_walker_title);
+	final String runnerTitle = getString(R.string.report_runner_title);
+	final String weightLossTitle = getString(R.string.report_weight_loss_title);
 	
 	Button plotsButton;
 	Button exportDatabaseButton;

@@ -16,6 +16,7 @@
     <string name="height_register_user">Altura (cm): </string>
     <string name="sex_register_user">Selecione o seu sexo</string>
     <string name="finish_register_user">Concluir</string>
+    <string name="register_user_title">Registrar</string>
     
     <!--  EnterActivityActivity   -->
     <string name="recommendation_enter">Recomendação</string>
@@ -31,6 +32,9 @@
     <string name="text_view_recommendation_distance_enter">metros</string>
     <string name="text_view_recommendation_distance_km_enter">km em </string>        
  	<string name="text_view_recommendation_calories_enter"> calorias</string>
+ 	 <string name="enter_walker_title">Treino de Caminhada</string>
+ 	<string name="enter_runner_title"> Treino de Corrida</string>
+ 	<string name="enter_weight_loss_title"> Programa de Perda de Peso</string>
     
     <!--  PedometerActivity   -->
     <string name="recommendation_pedometer">Recomendação</string>
@@ -45,6 +49,10 @@
     <string name="estimated_distance">Estimativa de Distância (metros):</string>
     <string name="estimated_calories">Estimativa de Calorias Queimadas: </string>
     <string name="inturrupted_timer"> Interrompido </string>
+    <string name="pedometer_walker_title"> Treino de Caminhada</string>
+    <string name="pedometer_runner_title"> Treino de Corrida</string>
+    <string name="pedometer_weight_loss_title"> Programa de Perda de Peso</string>
+    
     
     <!--  WeightLossActivity   -->
     <string name="weight_loss_message">Consumo diário de calorias</string>
@@ -83,12 +91,16 @@
     <string name="record_time">Tempo recorde: </string>
     <string name="record_average_velocity">Velocidade média recorde: </string>
     <string name="record_calories">Recorde de calorias queimadas: </string>
+    <string name="report_walker_title">Relatório do Treino de Caminhada</string>
+    <string name="report_runner_title">Relatório do Traino de Corrida</string>
+    <string name="report_weight_loss_title">Relatório do Programa de Perda de Peso</string>
     
-    <!--  ReportListViewActivity   -->
+    <!--  ReportMenuActivity   -->
     <string name="select_report_menu">Por favor selecione o relato que deseja visualizar</string>
     <string name="walker_report_menu">Caminhada</string>
     <string name="runner_report_menu">Corrida</string>
     <string name="weight_loss_report_menu">Perda de Peso</string>
+    <string name="report_menu_title">Opções de Relatório</string>
     
     <!--  ViewGraphActivity   -->
     <!--  XML   -->

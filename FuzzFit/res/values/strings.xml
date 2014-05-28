@@ -18,6 +18,7 @@
     <string name="height_register_user">Height (cm): </string>
     <string name="sex_register_user">Select sex</string>
     <string name="finish_register_user">Finish</string>
+    <string name="register_user_title">Register</string>
     
     <!--  EnterActivityActivity   -->
     <!--  XML   -->
@@ -34,6 +35,9 @@
     <string name="text_view_recommendation_distance_enter">meters</string>
     <string name="text_view_recommendation_distance_km_enter">km in </string>        
  	<string name="text_view_recommendation_calories_enter"> calories</string>
+ 	<string name="enter_walker_title"> Walke Trainingr</string>
+ 	<string name="enter_runner_title"> Runner Training</string>
+ 	<string name="enter_weight_loss_title"> Weight Loss Program</string>
     
     <!--  PedometerActivity   -->
     <!--  XML   -->
@@ -49,6 +53,9 @@
     <string name="estimated_distance">Estimated Distance (meters):</string>
     <string name="estimated_calories">Estimated Calories Burned: </string>
     <string name="inturrupted_timer"> Inturrupted </string>
+    <string name="pedometer_walker_title"> Walk Training</string>
+    <string name="pedometer_runner_title"> Run Training</string>
+    <string name="pedometer_weight_loss_title"> Weight Loss Program</string>
     
     <!--  WeightLossActivity   -->
     <!--  XML   -->
@@ -89,6 +96,9 @@
     <string name="record_time">Record time: </string>
     <string name="record_average_velocity">Record average velocity: </string>
     <string name="record_calories">Record burned calories: </string>
+    <string name="report_walker_title">Walk Training Report </string>
+    <string name="report_runner_title">Run Training Report </string>
+    <string name="report_weight_loss_title">Weight Loss Program Report</string>
     
     <!--  ReportMenuActivity   -->
     <!--  XML   -->
@@ -97,6 +107,7 @@
     <string name="runner_report_menu">Runner</string>
     <string name="weight_loss_report_menu">Weight Loss</string>
     <!--  Java   -->
+    <string name="report_menu_title">Report Menu</string>
     
     <!--  ViewGraphActivity   -->
     <!--  XML   -->

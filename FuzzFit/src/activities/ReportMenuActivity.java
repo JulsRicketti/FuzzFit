@@ -31,7 +31,7 @@ public class ReportMenuActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_report_menu);
 		
-		setTitle("Report Menu");
+		setTitle(getString(R.string.report_menu_title));
 		
 		walkerReportButton = (Button) findViewById(R.id.walkerReportButton);
 		runnerReportButton = (Button) findViewById(R.id.runnerReportButton);

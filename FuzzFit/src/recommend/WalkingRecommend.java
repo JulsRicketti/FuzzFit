@@ -84,7 +84,7 @@ public class WalkingRecommend implements Recommend {
 		String lastTime= mediator.getActivityTimeHistory().get(mediator.getActivityTimeHistory().size()-1);
 		String lastCalories= mediator.getCalorieHistory().get(mediator.getCalorieHistory().size()-1);
 		
-		mediator.updateWeightLossEntry(Float.toString(this.currentRecommendation), lastDate, lastDistance, lastTime, lastCalories);
+		mediator.updateWalkerEntry(Float.toString(this.currentRecommendation), lastDate, lastDistance, lastTime, lastCalories);
 		
 	}
 }

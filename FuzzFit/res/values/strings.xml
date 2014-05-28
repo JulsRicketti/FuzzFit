@@ -38,6 +38,7 @@
  	<string name="enter_walker_title"> Walker Training</string>
  	<string name="enter_runner_title"> Runner Training</string>
  	<string name="enter_weight_loss_title"> Weight Loss Program</string>
+
     
     <!--  PedometerActivity   -->
     <!--  XML   -->
@@ -56,6 +57,8 @@
     <string name="pedometer_walker_title"> Walk Training</string>
     <string name="pedometer_runner_title"> Run Training</string>
     <string name="pedometer_weight_loss_title"> Weight Loss Program</string>
+    <string name="minute_sound_check_box"> Minute Sound</string>
+ 	<string name="faster_sound_check_box"> Faster Sound</string>
     
     <!--  WeightLossActivity   -->
     <!--  XML   -->

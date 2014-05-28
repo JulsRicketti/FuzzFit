@@ -44,6 +44,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.Chronometer;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -90,6 +91,9 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	//sensor manager
 	SensorManager sensorManager;
 	float acceleration;
+	
+	CheckBox minuteSoundCheckBox;
+	CheckBox fasterSoundCheckBox;
 	
 	//values to calculate number of steps:
 	float previousY;
@@ -156,6 +160,11 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		
 		setButtons();
 		
+		minuteSoundCheckBox = (CheckBox) findViewById(R.id.minuteSoundCheckBox);
+		minuteSoundCheckBox.setChecked(true);
+		fasterSoundCheckBox = (CheckBox) findViewById(R.id.fasterSoundCheckBox);
+		fasterSoundCheckBox.setChecked(true);
+		
 		sensitivityTextView = (TextView) findViewById(R.id.sensitivityTextView);
 		stepsTextView = (TextView) findViewById(R.id.stepsTextView);
 		countDownTextView = (TextView) findViewById(R.id.countDownTextView);
@@ -205,7 +214,8 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		  public void run() {
 			  calculateCalories();
 			  handler.postDelayed(timedTask, CALORIE_UPDATE_INTERVAL);
-			  minuteSound.start();
+			  if(minuteSoundCheckBox.isChecked())
+				  minuteSound.start();
 		  }
 	 };
 
@@ -234,7 +244,8 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		//whip telling you to speed up a bit
 		if(MainActivity.activityOption.equals(walkerOption)){
 		if(calculateVelocity()<user.getAverageWalkingSpeed()) //use the average walking speed for a person
-			goFasterSound.start();
+			if(fasterSoundCheckBox.isChecked())
+				goFasterSound.start();
 		}
 		else{ //we will use the same rule for both runner and weightloss
 			float averageRunningSpeed = (float) ((user.getAverageRunningSpeed())*3.6); //(convert it to km/h)

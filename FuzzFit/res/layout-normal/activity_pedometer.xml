@@ -14,21 +14,23 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="@string/recommendation_pedometer"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <Chronometer
         android:id="@+id/chronometerChronometer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chronometer"
-        android:textStyle="bold" android:textSize="20sp" />
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/countDownTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Count down Timer" 
-        android:textStyle="bold" android:textSize="20sp"/>
+        android:text="Count down Timer"
+        android:textSize="15sp"
+        android:textStyle="bold" />
 
     <TableRow
         android:id="@+id/tableRow2"
@@ -47,7 +49,8 @@
         android:layout_alignParentLeft="true"
         android:layout_below="@+id/countDownTextView"
         android:gravity="center_vertical|center_horizontal"
-        android:orientation="vertical" >
+        android:orientation="vertical"
+        android:layout_marginTop="-20dp" >
 
         <LinearLayout
             android:layout_width="fill_parent"
@@ -57,16 +60,16 @@
 
             <Button
                 android:id="@+id/startPedometerButton"                
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:layout_span="4"
                 android:gravity="center"
                 android:text="@string/start_button_pedometer" />
 
             <Button
                 android:id="@+id/resetButton"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:text="@string/reset_steps_button_pedometer" />
         </LinearLayout>
 
@@ -78,14 +81,14 @@
 
             <Button
                 android:id="@+id/pausePedometerButton"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:text="@string/pause_button_pedometer" />
 
             <Button
                 android:id="@+id/finishPedometerButton"
-                android:layout_width="110dp"
-                android:layout_height="110dp"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
                 android:text="@string/finish_button_pedometer" />
         </LinearLayout>
     </LinearLayout>
@@ -113,11 +116,11 @@
         <TextView
             android:id="@+id/stepsTextView"
             android:layout_width="wrap_content"
-            android:layout_height="20dp"
+            android:layout_height="50dp"
             android:layout_span="4"
             android:gravity="center_vertical|center_horizontal"
             android:text="---"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
+            android:textAppearance="?android:attr/textAppearanceSmall" />
 
         		<TextView
 	        android:id="@+id/seekBarTextView"

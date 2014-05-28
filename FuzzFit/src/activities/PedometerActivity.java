@@ -54,7 +54,8 @@ import android.os.Build;
 
 public class PedometerActivity extends Activity implements SensorEventListener{
 	
-	static final int CALORIE_UPDATE_INTERVAL = 60000;
+	static final int CALORIE_UPDATE_INTERVAL = 1000; //testing with one second (that way we really do have the velocity as m/s)
+	static final int MINUTE_INTERVAL = 60000; //might use it for the sounds
 	CalorieHandler calories;
 	
 	static final String walkerOption = "WALKER";
@@ -326,29 +327,31 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 					pausePedometerButton.setEnabled(false);
 				
 					
-					if(MainActivity.activityOption.equals(walkerOption)){
-						MonitorObserver.updateWalk(context); 
-						analyse = new WalkingAnalyse(context);
-						analyse.enterActivity(time, distance, calories.getCalories()); //this is what to do whenever inserting a new activity
-						recommend = new WalkingRecommend(context);
-						recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_distance_enter));
-					}
-					if(MainActivity.activityOption.equals(runnerOption)){
-						MonitorObserver.updateRun(context);
-						analyse = new RunningAnalyse(context);
-						analyse.enterActivity(time, distance, calories.getCalories());
-						recommend = new RunningRecommend(context);
-						recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_time_enter));
-						timer.cancel(); //cancel the timer
-						countDownTextView.setVisibility(View.GONE);
-					}	
-					if(MainActivity.activityOption.equals(weightLossOption)){
-						MonitorObserver.updateWeightLoss();
-						analyse = new WeighLossAnalyse(context);
-						analyse.enterActivity(time, distance, calories.getCalories());
-						recommend = new WeightLossRecommend(context);
-						recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+getString(R.string.text_view_recommendation_calories_enter));
-
+					if(time>1 && distance>0){ // we will only save everything in the database if the user has more than a minute done and if he walked anything
+						if(MainActivity.activityOption.equals(walkerOption)){
+							MonitorObserver.updateWalk(context); 
+							analyse = new WalkingAnalyse(context);
+							analyse.enterActivity(time, distance, calories.getCalories()); //this is what to do whenever inserting a new activity
+							recommend = new WalkingRecommend(context);
+							recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_distance_enter));
+						}
+						if(MainActivity.activityOption.equals(runnerOption)){
+							MonitorObserver.updateRun(context);
+							analyse = new RunningAnalyse(context);
+							analyse.enterActivity(time, distance, calories.getCalories());
+							recommend = new RunningRecommend(context);
+							recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_time_enter));
+							timer.cancel(); //cancel the timer
+							countDownTextView.setVisibility(View.GONE);
+						}	
+						if(MainActivity.activityOption.equals(weightLossOption)){
+							MonitorObserver.updateWeightLoss();
+							analyse = new WeighLossAnalyse(context);
+							analyse.enterActivity(time, distance, calories.getCalories());
+							recommend = new WeightLossRecommend(context);
+							recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+getString(R.string.text_view_recommendation_calories_enter));
+	
+						}
 					}
 			}
 		});
@@ -472,4 +475,16 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 			countDownTextView.setText(hms); 
 		} 
 	} 
+	
+	  @Override
+	    public void onPause() {
+	        super.onPause();
+	        handler.removeCallbacks(timedTask);
+	    }
+
+	   @Override
+	    public void onStop() {
+	        super.onStop();
+	        handler.removeCallbacks(timedTask);
+	    }
 }

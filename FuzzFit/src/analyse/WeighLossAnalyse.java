@@ -74,20 +74,10 @@ public class WeighLossAnalyse implements Analyse{
 	public void enterActivity(float time, float distance, float calories) {
 		String date = getCurrentDate().toString().substring(0, 10);
 		try{
+			monitorResult = Float.parseFloat(mediator.monitorWeightLoss(calories));
+			analyse();
+			mediator.buildWeightLossEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
 
-			if(!isSameDay()){
-				monitorResult = Float.parseFloat(mediator.monitorWeightLoss(calories));
-				analyse();
-				mediator.buildWeightLossEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
-			}
-			else{
-				distance += Float.parseFloat(mediator.getLastActivityDistance());
-				time += Float.parseFloat(mediator.getLastActivityTime());
-				calories += Float.parseFloat(mediator.getLastActivityCalories());
-				monitorResult = Float.parseFloat(mediator.monitorWeightLoss(calories));
-				analyse();
-				mediator.updateWeightLossEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time),Float.toString(calories));
-			}
 		}
 		catch(ArrayIndexOutOfBoundsException e){
 			monitorResult = Float.parseFloat(mediator.monitorWeightLoss(calories));

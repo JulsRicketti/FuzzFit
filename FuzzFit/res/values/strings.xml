@@ -35,7 +35,7 @@
     <string name="text_view_recommendation_distance_enter">meters</string>
     <string name="text_view_recommendation_distance_km_enter">km in </string>        
  	<string name="text_view_recommendation_calories_enter"> calories</string>
- 	<string name="enter_walker_title"> Walke Trainingr</string>
+ 	<string name="enter_walker_title"> Walker Training</string>
  	<string name="enter_runner_title"> Runner Training</string>
  	<string name="enter_weight_loss_title"> Weight Loss Program</string>
     

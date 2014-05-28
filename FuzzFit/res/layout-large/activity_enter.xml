@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context=".EnterActivityActivity" >
+
+    <TextView
+        android:id="@+id/recommendationTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="29dp"
+        android:text="@string/recommendation_enter"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
+
+    <TextView
+        android:id="@+id/timeTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/recommendationTextView"
+        android:layout_marginTop="48dp"
+        android:layout_toLeftOf="@+id/recommendationTextView"
+        android:text="@string/time_recommendation_enter" />
+
+    <TextView
+        android:id="@+id/distanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/timeTextView"
+        android:layout_below="@+id/timeEditText"
+        android:layout_marginTop="30dp"
+        android:text="@string/distance_recommendation_enter" />
+
+    <Button
+        android:id="@+id/activityEnterButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/pedometerButton"
+        android:layout_centerHorizontal="true"
+        android:text="@string/enter_button_recommendation_enter" />
+
+    <Button
+        android:id="@+id/pedometerButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/open_pedometer_button_recommendation_enter" />
+
+    <TextView
+        android:id="@+id/changeRecommendationtextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toLeftOf="@+id/changeRecommendationButton"
+        android:text="@string/change_recommendation_enter" />
+
+    <Button
+        android:id="@+id/changeRecommendationButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/activityEnterButton"
+        android:layout_below="@+id/changeRecommendationEditText"
+        android:layout_marginTop="48dp"
+        android:text="@string/change_button_recommendation_enter" />
+
+    <EditText
+        android:id="@+id/changeRecommendationEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/changeRecommendationtextView"
+        android:layout_alignRight="@+id/recommendationTextView"
+        android:ems="5"
+        android:focusable="false"
+        android:inputType="number"
+        android:maxLength="5" />
+
+    <EditText
+        android:id="@+id/timeEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/timeTextView"
+        android:layout_alignLeft="@+id/pedometerButton"
+        android:ems="10"
+        android:focusable="false"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/distanceEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/distanceTextView"
+        android:layout_toRightOf="@+id/distanceTextView"
+        android:ems="10"
+        android:focusable="false"
+        android:inputType="number" >
+
+        <requestFocus />
+    </EditText>
+
+</RelativeLayout>

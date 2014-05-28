@@ -41,9 +41,9 @@ public class ViewGraphActivity extends Activity {
 	static final String runnerOption = "RUNNER";
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
-	final String walkerTitle = getString(R.string.report_walker_title);
-	final String runnerTitle = getString(R.string.report_runner_title);
-	final String weightLossTitle = getString(R.string.report_weight_loss_title);
+//	final String walkerTitle = getString(R.string.report_walker_title);
+//	final String runnerTitle = getString(R.string.report_runner_title);
+//	final String weightLossTitle = getString(R.string.report_weight_loss_title);
 	
 	private GraphicalView mChart;
 	
@@ -68,11 +68,11 @@ public class ViewGraphActivity extends Activity {
 		
 		//set screen title
 		if(ReportMenuActivity.reportOption.equals(walkerOption))
-			setTitle(walkerTitle+ " Chart");
+			setTitle( getString(R.string.report_walker_title));
 		if(ReportMenuActivity.reportOption.equals(runnerOption))
-			setTitle(runnerTitle+ " Chart");
+			setTitle( getString(R.string.report_runner_title));
 		if(ReportMenuActivity.reportOption.equals(weightLossOption))
-			setTitle(weightLossTitle+ " Chart");
+			setTitle( getString(R.string.report_weight_loss_title));
 
 		
 //		exportGraphButton =(Button) findViewById(R.id.exportGraphButton);

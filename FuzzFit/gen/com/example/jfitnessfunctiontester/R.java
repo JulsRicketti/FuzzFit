@@ -60,7 +60,7 @@ public final class R {
         public static final int distanceTextView=0x7f0a0003;
         public static final int enterTestButton=0x7f0a0013;
         public static final int exportDatabaseButton=0x7f0a002f;
-        public static final int fasterSoundCheckBox=0x7f0a0025;
+        public static final int fasterSoundCheckBox=0x7f0a0021;
         public static final int finishPedometerButton=0x7f0a001f;
         public static final int finishRegisterButton=0x7f0a002c;
         public static final int heightRegisterEditText=0x7f0a002b;
@@ -70,7 +70,7 @@ public final class R {
         public static final int linearLayout2=0x7f0a0011;
         public static final int linearLayout3=0x7f0a000f;
         public static final int linearLayout4=0x7f0a0016;
-        public static final int minuteSoundCheckBox=0x7f0a0024;
+        public static final int minuteSoundCheckBox=0x7f0a0020;
         public static final int pausePedometerButton=0x7f0a001e;
         public static final int pedometerButton=0x7f0a0008;
         public static final int pedometerRecommendationTextView=0x7f0a0017;
@@ -87,12 +87,12 @@ public final class R {
         public static final int resetButton=0x7f0a001c;
         public static final int runnerButton=0x7f0a0014;
         public static final int runnerReportButton=0x7f0a0037;
-        public static final int seekBar1=0x7f0a0022;
-        public static final int seekBarTextView=0x7f0a0021;
-        public static final int sensitivityTextView=0x7f0a0023;
+        public static final int seekBar1=0x7f0a0024;
+        public static final int seekBarTextView=0x7f0a0023;
+        public static final int sensitivityTextView=0x7f0a0025;
         public static final int sexRegisterSpinner=0x7f0a002d;
         public static final int startPedometerButton=0x7f0a001d;
-        public static final int stepsTextView=0x7f0a0020;
+        public static final int stepsTextView=0x7f0a0022;
         public static final int tableRow2=0x7f0a001a;
         public static final int textView2=0x7f0a003a;
         public static final int timeEditText=0x7f0a0002;

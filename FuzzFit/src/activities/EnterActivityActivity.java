@@ -36,10 +36,6 @@ public class EnterActivityActivity extends Activity {
 	static final String runnerOption = "RUNNER";
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
-	final String walkerTitle = getString(R.string.enter_walker_title);
-	final String runnerTitle = getString(R.string.enter_runner_title);
-	final String weightLossTitle = getString(R.string.enter_weight_loss_title);
-	
 	TextView recommendationTextView;
 	TextView changeRecommendationtextView;
 	
@@ -69,11 +65,11 @@ public class EnterActivityActivity extends Activity {
 		
 		//set screen title
 		if(MainActivity.activityOption.equals(walkerOption))
-			setTitle(walkerTitle);
+			setTitle(getString(R.string.enter_walker_title));
 		if(MainActivity.activityOption.equals(runnerOption))
-			setTitle(runnerTitle);
+			setTitle(getString(R.string.enter_runner_title));
 		if(MainActivity.activityOption.equals(weightLossOption))
-			setTitle(weightLossTitle);
+			setTitle(getString(R.string.enter_weight_loss_title));
 		
 		context = this;
 		

@@ -17,7 +17,7 @@
         <ListView
             android:id="@android:id/list"
             android:layout_width="match_parent"
-            android:layout_height="400dp" >
+            android:layout_height="200dp" >
         </ListView>
 
     </LinearLayout>
@@ -28,7 +28,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/linearLayout1"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="10dp"
         android:text="@string/illustrate_progress_button_report" />
     <Button
         android:id="@+id/exportDatabaseButton"
@@ -36,7 +36,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/plotsButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="10dp"
         android:text="@string/export_data_report" />
     <TextView
         android:id="@+id/currentRecordsTextView"

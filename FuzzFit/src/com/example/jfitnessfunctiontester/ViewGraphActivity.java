@@ -41,10 +41,6 @@ public class ViewGraphActivity extends Activity {
 	static final String runnerOption = "RUNNER";
 	static final String weightLossOption = "WEIGHT_LOSS";
 	
-//	final String walkerTitle = getString(R.string.report_walker_title);
-//	final String runnerTitle = getString(R.string.report_runner_title);
-//	final String weightLossTitle = getString(R.string.report_weight_loss_title);
-	
 	private GraphicalView mChart;
 	
 //	Button exportGraphButton; //(at the moment, its deleted)

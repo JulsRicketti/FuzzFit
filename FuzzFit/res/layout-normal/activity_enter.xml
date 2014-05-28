@@ -28,42 +28,6 @@
         android:text="@string/time_recommendation_enter" />
 
     <EditText
-        android:id="@+id/timeEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/timeTextView"
-        android:layout_alignBottom="@+id/timeTextView"
-        android:layout_alignLeft="@+id/recommendationTextView"
-        android:layout_marginLeft="24dp"
-        android:ems="10"
-        android:inputType="number" 
-        android:focusable="false">
-
-        <requestFocus />
-    </EditText>
-
-    <TextView
-        android:id="@+id/distanceTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/timeTextView"
-        android:layout_below="@+id/timeEditText"
-        android:layout_marginTop="30dp"
-        android:text="@string/distance_recommendation_enter" />
-
-
-
-    <EditText
-        android:id="@+id/distanceEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/timeEditText"
-        android:layout_alignTop="@+id/distanceTextView"
-        android:ems="10"
-        android:inputType="number"
-        android:focusable="false" />
-
-    <EditText
         android:id="@+id/changeRecommendationEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -109,5 +73,35 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="20dp"
         android:text="@string/change_button_recommendation_enter" />
+
+    <EditText
+        android:id="@+id/timeEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/recommendationTextView"
+        android:layout_alignTop="@+id/timeTextView"
+        android:ems="10"
+        android:focusable="false"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/distanceEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/distanceTextView"
+        android:layout_alignBottom="@+id/distanceTextView"
+        android:layout_alignParentRight="true"
+        android:ems="10"
+        android:focusable="false"
+        android:inputType="number" />
+
+    <TextView
+        android:id="@+id/distanceTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/timeTextView"
+        android:layout_marginTop="18dp"
+        android:layout_toLeftOf="@+id/changeRecommendationButton"
+        android:text="@string/distance_recommendation_enter" />
 
 </RelativeLayout>

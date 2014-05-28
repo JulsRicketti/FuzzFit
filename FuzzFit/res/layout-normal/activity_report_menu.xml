@@ -42,7 +42,7 @@
             android:id="@+id/walkerReportButton"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginTop="51dp"
+            android:layout_marginTop="20dp"
             android:text="@string/walker_report_menu"
             android:layout_below="@+id/whichReportTextView" />
 
@@ -50,7 +50,7 @@
             android:id="@+id/runnerReportButton"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="20dp"
             android:text="@string/runner_report_menu" 
             android:layout_below="@+id/walkerReportButton"/>
 
@@ -58,8 +58,7 @@
             android:id="@+id/weightLossReportButton"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:layout_marginTop="70dp"
-            android:layout_weight="0.28"
+            android:layout_marginTop="20dp"
             android:text="@string/weight_loss_report_menu" 
             android:layout_below="@+id/runnerReportButton"/>
     </LinearLayout>

@@ -21,14 +21,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chronometer"
-        android:textStyle="bold" android:textSize="50sp" />
+        android:textStyle="bold" android:textSize="20sp" />
 
     <TextView
         android:id="@+id/countDownTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Count down Timer" 
-        android:textStyle="bold" android:textSize="50sp"/>
+        android:textStyle="bold" android:textSize="20sp"/>
 
     <TableRow
         android:id="@+id/tableRow2"
@@ -83,16 +83,16 @@
 
             <Button
                 android:id="@+id/resetButton"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:layout_span="4"
                 android:gravity="center"
                 android:text="@string/reset_steps_button_pedometer" />
 
             <Button
                 android:id="@+id/startPedometerButton"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:text="@string/start_button_pedometer" />
         </LinearLayout>
 
@@ -104,24 +104,23 @@
 
             <Button
                 android:id="@+id/pausePedometerButton"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:text="@string/pause_button_pedometer" />
 
             <Button
                 android:id="@+id/finishPedometerButton"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
+                android:layout_width="110dp"
+                android:layout_height="110dp"
                 android:text="@string/finish_button_pedometer" />
         </LinearLayout>
     </LinearLayout>
 
 
-
         <TextView
             android:id="@+id/stepsTextView"
             android:layout_width="wrap_content"
-            android:layout_height="200dp"
+            android:layout_height="20dp"
             android:layout_span="4"
             android:gravity="center_vertical|center_horizontal"
             android:text="---"

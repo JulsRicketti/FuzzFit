@@ -87,7 +87,7 @@
                 android:layout_height="150dp"
                 android:layout_span="4"
                 android:gravity="center"
-                 android:text="@string/start_button_pedometer"/>
+                android:text="@string/start_button_pedometer"/>
 
             <Button
                 android:id="@+id/resetButton"

@@ -283,14 +283,11 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 				chronometer.setBase(SystemClock.elapsedRealtime() + timeWhenStopped);
 				chronometer.start();
 				startPedometerButton.setEnabled(false);
-				pausePedometerButton.setEnabled(true);
+				if(!MainActivity.activityOption.equals(runnerOption)) //pause button is not activated for the runner
+					pausePedometerButton.setEnabled(true);
 				finishPedometerButton.setEnabled(true);
 				resetButton.setEnabled(true);
 				handler.post(timedTask); //start handler (to calculate calories & other stuff)
-				
-				//check to see if it's better to be put here
-//				if(MainActivity.activityOption.equals(weightLossOption))
-//					handler.post(timedTask); //to calculate the calories
 				
 			}
 		});

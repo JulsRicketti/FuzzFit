@@ -84,14 +84,14 @@ public final class R {
         public static final int relativeLayout1=0x7f0a000a;
         public static final int relativeLayout2=0x7f0a000b;
         public static final int reportButton=0x7f0a0012;
-        public static final int resetButton=0x7f0a001c;
+        public static final int resetButton=0x7f0a001d;
         public static final int runnerButton=0x7f0a0014;
         public static final int runnerReportButton=0x7f0a0037;
         public static final int seekBar1=0x7f0a0024;
         public static final int seekBarTextView=0x7f0a0023;
         public static final int sensitivityTextView=0x7f0a0025;
         public static final int sexRegisterSpinner=0x7f0a002d;
-        public static final int startPedometerButton=0x7f0a001d;
+        public static final int startPedometerButton=0x7f0a001c;
         public static final int stepsTextView=0x7f0a0022;
         public static final int tableRow2=0x7f0a001a;
         public static final int textView2=0x7f0a003a;

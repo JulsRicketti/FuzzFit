@@ -70,27 +70,6 @@
         android:text="@string/change_button_recommendation_enter" />
 
     <EditText
-        android:id="@+id/changeRecommendationEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/changeRecommendationtextView"
-        android:layout_alignRight="@+id/recommendationTextView"
-        android:ems="5"
-        android:focusable="false"
-        android:inputType="number"
-        android:maxLength="5" />
-
-    <EditText
-        android:id="@+id/timeEditText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/timeTextView"
-        android:layout_alignLeft="@+id/pedometerButton"
-        android:ems="10"
-        android:focusable="false"
-        android:inputType="number" />
-
-    <EditText
         android:id="@+id/distanceEditText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -102,5 +81,28 @@
 
         <requestFocus />
     </EditText>
+
+    <EditText
+        android:id="@+id/timeEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/timeTextView"
+        android:layout_alignBottom="@+id/timeTextView"
+        android:layout_toRightOf="@+id/timeTextView"
+        android:ems="10"
+        android:focusable="false"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/changeRecommendationEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/changeRecommendationtextView"
+        android:layout_alignBottom="@+id/changeRecommendationtextView"
+        android:layout_toRightOf="@+id/changeRecommendationtextView"
+        android:ems="5"
+        android:focusable="false"
+        android:inputType="number"
+        android:maxLength="5" />
 
 </RelativeLayout>

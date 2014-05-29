@@ -1,4 +1,4 @@
-package com.example.jfitnessfunctiontester;
+package activities;
 
 import history.History;
 
@@ -17,9 +17,13 @@ import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import com.example.jfitnessfunctiontester.R;
+import com.example.jfitnessfunctiontester.R.id;
+import com.example.jfitnessfunctiontester.R.layout;
+import com.example.jfitnessfunctiontester.R.menu;
+import com.example.jfitnessfunctiontester.R.string;
+
 import persistance.DatabaseAdapter;
-import activities.ReportListViewActivity;
-import activities.ReportMenuActivity;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;

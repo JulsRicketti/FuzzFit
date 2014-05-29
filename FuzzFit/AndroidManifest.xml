@@ -53,7 +53,7 @@
             android:name="activities.ReportListViewActivity">
         </activity>
         <activity
-            android:name="com.example.jfitnessfunctiontester.ViewGraphActivity" >
+            android:name="activities.ViewGraphActivity" >
         </activity>
     </application>
 

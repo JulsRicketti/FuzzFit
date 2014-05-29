@@ -45,7 +45,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jfitnessfunctiontester.R;
-import com.example.jfitnessfunctiontester.ViewGraphActivity;
 
 public class ReportListViewActivity extends ListActivity{
 	

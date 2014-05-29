@@ -105,7 +105,7 @@ public class RegisterUserActivity extends Activity {
 					if(sex.equals("Masculino")) //I need to translate the sex for further use in the app
 						sex = "Male";
 					dbAdapter.insertUser(age, weight, height, sex);
-					Toast.makeText(getApplicationContext(), "Done!  "+dbAdapter.getAllUserRecords().getCount(), Toast.LENGTH_SHORT).show();
+//					Toast.makeText(getApplicationContext(), "Done!  "+dbAdapter.getAllUserRecords().getCount(), Toast.LENGTH_SHORT).show();
 					Intent i  = new Intent(RegisterUserActivity.this,MainActivity.class);
 					startActivity(i);
 				}

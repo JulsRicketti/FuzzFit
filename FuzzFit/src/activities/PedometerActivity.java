@@ -193,7 +193,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		}
 		if(MainActivity.activityOption.equals(runnerOption)){
 			recommend = new RunningRecommend(this);
-			recommendationTextView.setText(getString(R.string.recommendation_enter)+recommend.recommend(this)+getString(R.string.text_view_recommendation_time_enter));
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(this)+" "+getString(R.string.text_view_recommendation_time_enter));
 			//recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" minutes");
 			int auxTimer = (int)(Float.parseFloat(recommend.recommend(this)))*60000;
 			timeTimerAux = auxTimer;
@@ -202,7 +202,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		}
 		if(MainActivity.activityOption.equals(weightLossOption)){
 			//We need to estimate velocity and calories every minute or so
-			recommendationTextView.setText(getString(R.string.recommendation_enter)+WeightLossActivity.activityDistance+" "+ getString(R.string.text_view_recommendation_distance_km_enter)+" "+(WeightLossActivity.activityTime)*60+getString(R.string.text_view_recommendation_time_enter));
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+WeightLossActivity.activityDistance+" "+ getString(R.string.text_view_recommendation_distance_km_enter)+" "+(WeightLossActivity.activityTime)*60+" "+getString(R.string.text_view_recommendation_time_enter));
 			//recommendationTextView.setText("Recommendation: "+WeightLossActivity.activityDistance+ "km in "+(WeightLossActivity.activityTime)*60+" minutes");
 			countDownTextView.setVisibility(View.GONE);  //the timer is only visible in the runner method
 		}

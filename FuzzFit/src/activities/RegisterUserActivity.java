@@ -70,9 +70,9 @@ public class RegisterUserActivity extends Activity {
 
 	}
 	void setSpinner(){
-		sexSpinnerList.add("Select Sex");
-		sexSpinnerList.add("Male");
-		sexSpinnerList.add("Female");
+		sexSpinnerList.add(getString(R.string.select_sex));
+		sexSpinnerList.add(getString(R.string.select_sex_male));
+		sexSpinnerList.add(getString(R.string.select_sex_female));
 		ArrayAdapter<String> sexArrayAdapter = new ArrayAdapter<String>(RegisterUserActivity.this,android.R.layout.simple_spinner_item,sexSpinnerList);
 		sexRegisterSpinner.setAdapter(sexArrayAdapter);
 		
@@ -102,6 +102,8 @@ public class RegisterUserActivity extends Activity {
 				// TODO Auto-generated method stub
 				if(!sex.equals("Select Sex") && !weight.equals("") && !height.equals("") && !age.equals("")){
 					dbAdapter.deleteAll(DatabaseAdapter.USER_PROFILE_TABLE); //we make sure only one is made for this application
+					if(sex.equals("Masculino")) //I need to translate the sex for further use in the app
+						sex = "Male";
 					dbAdapter.insertUser(age, weight, height, sex);
 					Toast.makeText(getApplicationContext(), "Done!  "+dbAdapter.getAllUserRecords().getCount(), Toast.LENGTH_SHORT).show();
 					Intent i  = new Intent(RegisterUserActivity.this,MainActivity.class);

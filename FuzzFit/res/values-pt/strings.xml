@@ -17,14 +17,17 @@
     <string name="sex_register_user">Selecione o seu sexo</string>
     <string name="finish_register_user">Concluir</string>
     <string name="register_user_title">Registrar</string>
+    <string name="select_sex">Selecionar Sexo</string>
+    <string name="select_sex_male">Masculino</string>
+    <string name="select_sex_female">Feminino</string>
     
     <!--  EnterActivityActivity   -->
-    <string name="recommendation_enter">Recomendação</string>
+    <string name="recommendation_enter">Recomendação: </string>
     <string name="time_recommendation_enter">Tempo (minutos):</string>
     <string name="distance_recommendation_enter">Distância (metros):</string>
     <string name="change_recommendation_enter">Trocar Recomendação:</string>
     <string name="change_button_recommendation_enter">Trocar</string>
-    <string name="enter_button_recommendation_enter">Entra</string>
+    <string name="enter_button_recommendation_enter">Inserir</string>
     <string name="open_pedometer_button_recommendation_enter">Abrir Pedômetro</string>
         <!--  Java   -->
     <string name="text_view_next_recommendation_enter">Próxima Recomendação: </string>
@@ -37,12 +40,12 @@
  	<string name="enter_weight_loss_title"> Programa de Perda de Peso</string>
     
     <!--  PedometerActivity   -->
-    <string name="recommendation_pedometer">Recomendação</string>
+    <string name="recommendation_pedometer">Recomendação: </string>
     <string name="reset_steps_button_pedometer">Reiniciar Passos</string>
-    <string name="start_button_pedometer">Começar</string>
+    <string name="start_button_pedometer">Iniciar</string>
     <string name="pause_button_pedometer">Pausar</string>
     <string name="finish_button_pedometer">Terminar</string>
-    <string name="sensitivity_bar_pedometer">Sensitividade</string>
+    <string name="sensitivity_bar_pedometer">Sensibilidade</string>
     <string name="seek_bar_pedometer">Ajuste a sensitividade do pedômetro utilizando a barra abaixo:</string>
     <string name="minute_sound_check_box"> Som do Minuto</string>
  	<string name="faster_sound_check_box"> Som de Ir Mais Rápido</string>
@@ -62,7 +65,7 @@
     <string name="weight_loss_message">Consumo diário de calorias</string>
     <string name="weight_loss_get_recommendation">Pegar recomendação</string>
     <string name="weight_loss_calories_to_burn">Calorias a Queimar</string>
-    <string name="weight_loss_enter_activity">Inpor Atividade</string>
+    <string name="weight_loss_enter_activity">Inserir Atividade</string>
     <string name="weight_loss_exercise_time">Ajustar tempo de atividade (minutos)</string>
     <string name="weight_loss_exercise_time_button">Ajustar Atividade</string>
     <string name="weight_loss_exercise_option">Opções de Atividade</string>

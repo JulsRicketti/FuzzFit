@@ -99,7 +99,7 @@ public class EnterActivityActivity extends Activity {
 		}
 		if(MainActivity.activityOption.equals(runnerOption)){
 			recommend = new RunningRecommend(this);
-			recommendationTextView.setText(getString(R.string.recommendation_enter)+recommend.recommend(this)+getString(R.string.text_view_recommendation_time_enter));
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(this)+" "+getString(R.string.text_view_recommendation_time_enter));
 		}
 		if(MainActivity.activityOption.equals(weightLossOption)){
 			//we need to make the adjustment options invisible
@@ -107,7 +107,7 @@ public class EnterActivityActivity extends Activity {
 			changeRecommendationButton.setVisibility(View.GONE);
 			changeRecommendationEditText.setVisibility(View.GONE);
 			
-			recommendationTextView.setText(getString(R.string.recommendation_enter)+WeightLossActivity.activityDistance+" "+ getString(R.string.text_view_recommendation_distance_km_enter)+" "+(WeightLossActivity.activityTime)*60+getString(R.string.text_view_recommendation_time_enter));
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+WeightLossActivity.activityDistance+" "+ getString(R.string.text_view_recommendation_distance_km_enter)+" "+(WeightLossActivity.activityTime)*60+" "+getString(R.string.text_view_recommendation_time_enter));
 		}
 		setEditTexts();
 	}

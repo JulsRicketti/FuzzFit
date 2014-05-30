@@ -1,5 +1,7 @@
 package activities;
 
+import com.fuzzfit.R;
+
 import history.History;
 import android.app.Activity;
 import android.content.Context;
@@ -10,7 +12,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-import com.example.jfitnessfunctiontester.R;
 
 public class ReportMenuActivity extends Activity {
 

@@ -1,5 +1,7 @@
 package activities;
 
+import com.fuzzfit.R;
+
 import others.CalorieHandler;
 import monitor.MonitorObserver;
 import recommend.Recommend;
@@ -7,9 +9,6 @@ import recommend.RunningRecommend;
 import recommend.WalkingRecommend;
 import recommend.WeightLossRecommend;
 
-import com.example.jfitnessfunctiontester.R;
-import com.example.jfitnessfunctiontester.R.layout;
-import com.example.jfitnessfunctiontester.R.menu;
 
 import analyse.Analyse;
 import analyse.RunningAnalyse;
@@ -127,7 +126,11 @@ public class EnterActivityActivity extends Activity {
 				if(MainActivity.activityOption.equals(walkerOption)){
 					MonitorObserver.updateWalk(context); 
 					analyse = new WalkingAnalyse(context);
-					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories()); //this is what to do whenever inserting a new activity
+					//(test for now, not sure if it's the best approach)
+					if(Float.parseFloat(timeString)==WeightLossActivity.activityTime && Float.parseFloat(distanceString)==WeightLossActivity.activityDistance)
+						analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), WeightLossActivity.caloriesToLose);
+					else
+						analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories()); //this is what to do whenever inserting a new activity
 					recommend = new WalkingRecommend(context);
 					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_distance_enter));
 				

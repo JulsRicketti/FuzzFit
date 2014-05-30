@@ -3,10 +3,7 @@ package activities;
 
 import java.util.ArrayList;
 
-import com.example.jfitnessfunctiontester.R;
-import com.example.jfitnessfunctiontester.R.id;
-import com.example.jfitnessfunctiontester.R.layout;
-import com.example.jfitnessfunctiontester.R.menu;
+import com.fuzzfit.R;
 
 import persistance.DatabaseAdapter;
 import android.app.Activity;

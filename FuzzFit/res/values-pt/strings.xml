@@ -62,7 +62,7 @@
     
     
     <!--  WeightLossActivity   -->
-    <string name="weight_loss_message">Consumo diário de calorias</string>
+    <string name="weight_loss_message">Calorias Consumidas Hoje</string>
     <string name="weight_loss_get_recommendation">Pegar recomendação</string>
     <string name="weight_loss_calories_to_burn">Calorias a Queimar</string>
     <string name="weight_loss_enter_activity">Inserir Atividade</string>

@@ -1,9 +1,10 @@
 package activities;
 
+import com.fuzzfit.R;
+
 import others.Mediator;
 import others.User;
 
-import com.example.jfitnessfunctiontester.R;
 
 
 import history.History;

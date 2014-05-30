@@ -1,6 +1,5 @@
 package others;
 
-import com.example.jfitnessfunctiontester.R;
 
 import persistance.DatabaseAdapter;
 import android.content.Context;

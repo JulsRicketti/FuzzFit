@@ -4,6 +4,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
+import com.fuzzfit.R;
+
 import others.CalorieHandler;
 import others.User;
 
@@ -12,11 +14,6 @@ import recommend.Recommend;
 import recommend.RunningRecommend;
 import recommend.WalkingRecommend;
 import recommend.WeightLossRecommend;
-
-import com.example.jfitnessfunctiontester.R;
-import com.example.jfitnessfunctiontester.R.id;
-import com.example.jfitnessfunctiontester.R.layout;
-import com.example.jfitnessfunctiontester.R.menu;
 
 
 import analyse.Analyse;

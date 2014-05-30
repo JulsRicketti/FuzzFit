@@ -1,5 +1,7 @@
 package activities;
 
+import com.fuzzfit.R;
+
 import monitor.MonitorObserver;
 import others.CalorieHandler;
 import others.Mediator;
@@ -20,8 +22,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.jfitnessfunctiontester.R;
 
 public class WeightLossActivity extends Activity {
 

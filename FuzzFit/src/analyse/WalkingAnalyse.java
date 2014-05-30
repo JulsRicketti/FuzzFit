@@ -86,7 +86,7 @@ public class WalkingAnalyse implements Analyse{
 		this.distance =distance;
 		String date = getCurrentDate().toString().substring(0, 10);
 		try{
-		    Toast.makeText(context, "Number of entries: " + mediator.getActivityDistanceHistory().size(), Toast.LENGTH_SHORT).show();
+//		    Toast.makeText(context, "Number of entries: " + mediator.getActivityDistanceHistory().size(), Toast.LENGTH_SHORT).show();
 //			if(!isSameDay()){
 			monitorResult = Float.parseFloat(mediator.monitorWalker(time, distance));			 
 			analyse();

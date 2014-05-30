@@ -66,7 +66,7 @@
     
     <!--  WeightLossActivity   -->
     <!--  XML   -->
-    <string name="weight_loss_message">Calorie consumption of the day</string>
+    <string name="weight_loss_message">Calories Consumed Today</string>
     <string name="weight_loss_get_recommendation">Get Recommendation</string>
     <string name="weight_loss_calories_to_burn">Calories to Burn</string>
     <string name="weight_loss_enter_activity">Enter Activity</string>

@@ -1,5 +1,6 @@
 package monitor;
 
+
 import others.User;
 
 import activities.WeightLossActivity;

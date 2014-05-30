@@ -23,6 +23,8 @@ import org.achartengine.model.XYMultipleSeriesDataset;
 import org.achartengine.renderer.XYMultipleSeriesRenderer;
 import org.achartengine.renderer.XYSeriesRenderer;
 
+import com.fuzzfit.R;
+
 import persistance.DatabaseAdapter;
 import android.app.ActionBar.LayoutParams;
 import android.app.ListActivity;
@@ -43,8 +45,6 @@ import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.TextView;
 import android.widget.Toast;
-
-import com.example.jfitnessfunctiontester.R;
 
 public class ReportListViewActivity extends ListActivity{
 	

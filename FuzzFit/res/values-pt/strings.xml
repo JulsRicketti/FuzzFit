@@ -8,7 +8,7 @@
     <string name="walker_main">Caminhada</string>
     <string name="runner_main">Corrida</string>
     <string name="weight_loss_main">Perda de Peso</string>
-    <string name="report_main">Relato</string>
+    <string name="report_main">Visualizar Relatórios</string>
 
     <!--  RegisterUserActivity   -->
     <string name="age_register_user">Idade: </string>
@@ -70,7 +70,7 @@
     <string name="weight_loss_get_recommendation">Pegar recomendação</string>
     <string name="weight_loss_calories_to_burn">Calorias a Queimar</string>
     <string name="weight_loss_enter_activity">Inserir Atividade</string>
-    <string name="weight_loss_exercise_time">Ajustar tempo de atividade (minutos)</string>
+    <string name="weight_loss_exercise_time">(Opcional) Personalize o tempo que você deseja completar a atividade (em minutos)</string>
     <string name="weight_loss_exercise_time_button">Ajustar Atividade</string>
     <string name="weight_loss_exercise_option">Opções de Atividade</string>
     <!--  Java   -->

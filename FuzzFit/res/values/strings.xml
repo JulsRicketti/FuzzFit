@@ -9,7 +9,7 @@
     <string name="walker_main">Walker</string>
     <string name="runner_main">Runner</string>
     <string name="weight_loss_main">Weight Loss</string>
-    <string name="report_main">Report</string>
+    <string name="report_main">View Report</string>
    
     <!--  RegisterUserActivity   -->
     <!--  XML   -->
@@ -73,7 +73,7 @@
     <string name="weight_loss_get_recommendation">Get Recommendation</string>
     <string name="weight_loss_calories_to_burn">Calories to Burn</string>
     <string name="weight_loss_enter_activity">Enter Activity</string>
-    <string name="weight_loss_exercise_time">Adjust Exercise Time (minutes)</string>
+    <string name="weight_loss_exercise_time">Optional: Personalize how long you would like to take to complete the exercise (in minutes)</string>
     <string name="weight_loss_exercise_time_button">Adjust Exercise</string>
     <string name="weight_loss_exercise_option">Exercise Option</string>
     <!--  Java   -->

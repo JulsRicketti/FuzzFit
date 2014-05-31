@@ -98,11 +98,14 @@ public class RegisterUserActivity extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if(!sex.equals("Select Sex") && !weight.equals("") && !height.equals("") && !age.equals("")){
+					if(dbAdapter.getAllUserRecords().getCount()==0)
+						Toast.makeText(getApplicationContext(), getString(R.string.registration_confirmation), Toast.LENGTH_SHORT).show();
+					else
+						Toast.makeText(getApplicationContext(), getString(R.string.update_confirmation), Toast.LENGTH_SHORT).show();
 					dbAdapter.deleteAll(DatabaseAdapter.USER_PROFILE_TABLE); //we make sure only one is made for this application
 					if(sex.equals("Masculino")) //I need to translate the sex for further use in the app
 						sex = "Male";
 					dbAdapter.insertUser(age, weight, height, sex);
-//					Toast.makeText(getApplicationContext(), "Done!  "+dbAdapter.getAllUserRecords().getCount(), Toast.LENGTH_SHORT).show();
 					Intent i  = new Intent(RegisterUserActivity.this,MainActivity.class);
 					startActivity(i);
 				}

@@ -20,6 +20,10 @@
     <string name="select_sex">Selecionar Sexo</string>
     <string name="select_sex_male">Masculino</string>
     <string name="select_sex_female">Feminino</string>
+    <!--  Java   -->
+    <string name="registration_confirmation">Os seus dados foram registrados com sucesso.</string>
+    <string name="update_confirmation">Os seus dados foram atualizados com sucesso.</string>
+    
     
     <!--  EnterActivityActivity   -->
     <string name="recommendation_enter">Recomendação: </string>

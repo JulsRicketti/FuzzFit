@@ -90,15 +90,17 @@ public class EnterActivityActivity extends Activity {
 		pedometerButton = (Button) findViewById(R.id.pedometerButton);
 		changeRecommendationButton =(Button) findViewById(R.id.changeRecommendationButton);
 		setButtons();
-		
+		float recommendationAux;
 		//we need to set the kind of activity we are doing here:
 		if(MainActivity.activityOption.equals(walkerOption)){
 			recommend = new WalkingRecommend(this);
-			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(this)+" "+getString(R.string.text_view_recommendation_distance_enter));
+			recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_distance_enter));
 		}
 		if(MainActivity.activityOption.equals(runnerOption)){
 			recommend = new RunningRecommend(this);
-			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(this)+" "+getString(R.string.text_view_recommendation_time_enter));
+			recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_time_enter));
 		}
 		if(MainActivity.activityOption.equals(weightLossOption)){
 			//we need to make the adjustment options invisible
@@ -119,6 +121,7 @@ public class EnterActivityActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				float recommendationAux;
 				float timeHours = Float.parseFloat(timeString)/60; //time converted into hours
 				float distanceKM = Float.parseFloat(distanceString)/1000;
 				float velocityKM = distanceKM/timeHours;
@@ -132,7 +135,8 @@ public class EnterActivityActivity extends Activity {
 					else
 						analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories()); //this is what to do whenever inserting a new activity
 					recommend = new WalkingRecommend(context);
-					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_distance_enter));
+					recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
+					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_distance_enter));
 				
 				}
 				if(MainActivity.activityOption.equals(runnerOption)){
@@ -140,7 +144,8 @@ public class EnterActivityActivity extends Activity {
 					analyse = new RunningAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());
 					recommend = new RunningRecommend(context);
-					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_time_enter));
+					recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
+					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_time_enter));
 					
 				}
 				if(MainActivity.activityOption.equals(weightLossOption)){
@@ -148,7 +153,8 @@ public class EnterActivityActivity extends Activity {
 					analyse = new WeighLossAnalyse(context);
 					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());
 					recommend = new WeightLossRecommend(context);
-					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+getString(R.string.text_view_recommendation_calories_enter));
+					recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
+					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommendationAux+getString(R.string.text_view_recommendation_calories_enter));
 				}
 			}
 		});
@@ -168,11 +174,13 @@ public class EnterActivityActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				recommend.updateRecommendation(Float.parseFloat(changeRecommendationString));
+				float recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
+				
 				if(MainActivity.activityOption.equals(walkerOption)){
-					recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(context)+" "+getString(+R.string.text_view_recommendation_distance_enter));			
+					recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommendationAux+" "+getString(+R.string.text_view_recommendation_distance_enter));			
 				}
 				if(MainActivity.activityOption.equals(runnerOption)){
-					recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_time_enter));
+					recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_time_enter));
 				}
 			}
 		});

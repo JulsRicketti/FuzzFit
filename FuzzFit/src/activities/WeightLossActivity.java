@@ -166,7 +166,7 @@ public class WeightLossActivity extends Activity {
 				activityTime = 1; //(default is 1 hour)
 				activityVelocity = caloriesHandler.calculateActivityVelocity(caloriesToLose, activityTime); //comes in km/h
 				activityDistance = activityVelocity*(activityTime);
-				wlExerciseOptionTextView.setText(getString(R.string.weight_loss_distance)+activityDistance+getString(R.string.weight_loss_distance_unit)+"\n"+getString(R.string.weight_loss_time)+activityTime+getString(R.string.weight_loss_time_unit));
+				wlExerciseOptionTextView.setText(getString(R.string.weight_loss_distance)+activityDistance+getString(R.string.weight_loss_distance_unit)+"\n"+getString(R.string.weight_loss_time)+(activityTime*60)+getString(R.string.weight_loss_time_unit));
 				adjustExerciseTimeEditText.setEnabled(true);
 				MonitorObserver.updateWeightLoss(); //update the observer so we know the values we are monitoring
 

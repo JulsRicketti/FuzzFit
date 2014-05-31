@@ -184,14 +184,13 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		recommendationTextView =(TextView) findViewById(R.id.pedometerRecommendationTextView);
 		if(MainActivity.activityOption.equals(walkerOption)){
 			recommend = new WalkingRecommend(this);
-			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(this)+" "+getString(R.string.text_view_recommendation_distance_enter));
-			countDownTextView.setVisibility(View.GONE); //the timer is only visible in the runner method
-			//	recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" meters");			
+			float recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_distance_enter));
+			countDownTextView.setVisibility(View.GONE); //the timer is only visible in the runner method			
 		}
 		if(MainActivity.activityOption.equals(runnerOption)){
 			recommend = new RunningRecommend(this);
 			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(this)+" "+getString(R.string.text_view_recommendation_time_enter));
-			//recommendationTextView.setText("Recommendation: "+recommend.recommend(this)+" minutes");
 			int auxTimer = (int)(Float.parseFloat(recommend.recommend(this)))*60000;
 			timeTimerAux = auxTimer;
 			timer = new CounterClass(auxTimer,1000);
@@ -200,7 +199,6 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		if(MainActivity.activityOption.equals(weightLossOption)){
 			//We need to estimate velocity and calories every minute or so
 			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+WeightLossActivity.activityDistance+" "+ getString(R.string.text_view_recommendation_distance_km_enter)+" "+(WeightLossActivity.activityTime)*60+" "+getString(R.string.text_view_recommendation_time_enter));
-			//recommendationTextView.setText("Recommendation: "+WeightLossActivity.activityDistance+ "km in "+(WeightLossActivity.activityTime)*60+" minutes");
 			countDownTextView.setVisibility(View.GONE);  //the timer is only visible in the runner method
 		}
 		
@@ -260,18 +258,6 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 
 	void calculateCalories(){
 		setCurrentDistance();
-		//whip telling you to speed up a bit
-//		if(MainActivity.activityOption.equals(walkerOption)){
-//		if(calculateVelocity()<user.getAverageWalkingSpeed()) //use the average walking speed for a person
-//			if(fasterSoundCheckBox.isChecked())
-//				goFasterSound.start();
-//		}
-//		else{ //we will use the same rule for both runner and weightloss
-//			float averageRunningSpeed = (float) ((user.getAverageRunningSpeed())*3.6); //(convert it to km/h)
-//			if(calculateVelocity()<averageRunningSpeed)//either use the half of the average running speed OR the running speed
-//				goFasterSound.start();
-//			
-//		}
 		calories.calculateCalories(calculateVelocity(), 1); //here we need to give the time in minutes
 	}
 	 
@@ -354,14 +340,15 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 					pausePedometerButton.setEnabled(false);
 					finishPedometerButton.setEnabled(false);
 				
-					
+					float recommendationAux;
 					if(time>1 && distance>0){ // we will only save everything in the database if the user has more than a minute done and if he walked anything
 						if(MainActivity.activityOption.equals(walkerOption)){
 							MonitorObserver.updateWalk(context); 
 							analyse = new WalkingAnalyse(context);
 							analyse.enterActivity(time, distance, calories.getCalories()); //this is what to do whenever inserting a new activity
 							recommend = new WalkingRecommend(context);
-							recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommend.recommend(context)+" "+getString(R.string.text_view_recommendation_distance_enter));
+							recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
+							recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_distance_enter));
 						}
 						if(MainActivity.activityOption.equals(runnerOption)){
 							MonitorObserver.updateRun(context);

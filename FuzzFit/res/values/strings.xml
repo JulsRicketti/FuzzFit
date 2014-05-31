@@ -22,6 +22,9 @@
     <string name="select_sex">Select Sex</string>
     <string name="select_sex_male">Male</string>
     <string name="select_sex_female">Female</string>
+    <!--  Java   -->
+    <string name="registration_confirmation">Your data has been successfully registered.</string>
+    <string name="update_confirmation">Your data has been successfully updated.</string>
     
     <!--  EnterActivityActivity   -->
     <!--  XML   -->

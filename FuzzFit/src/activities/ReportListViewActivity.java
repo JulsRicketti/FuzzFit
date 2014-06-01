@@ -158,6 +158,7 @@ public class ReportListViewActivity extends ListActivity{
 			
 			@Override
 			public void onClick(View v) {
+				String email="";
 				try {
 					File sdCard = Environment.getExternalStorageDirectory();
 					File dir = new File (sdCard.getAbsolutePath() + "/FuzzFitDocuments");
@@ -171,19 +172,31 @@ public class ReportListViewActivity extends ListActivity{
 					myOutWriter.append(ReportMenuActivity.reportOption+" History:\n");											
 					for(int i =0; i<history.getHistory(table).activityDate.size(); i++){
 						myOutWriter.append(" Date: "+history.getHistory(table).activityDate.get(i));
+						email += " Date: "+history.getHistory(table).activityDate.get(i);
 						myOutWriter.append(" Recommendation: "+history.getHistory(table).recommendation.get(i));
+						email+="\n Recommendation: "+history.getHistory(table).recommendation.get(i);
 						myOutWriter.append(" Distance: "+history.getHistory(table).activityDistance.get(i));
+						email+="\n Distance: "+history.getHistory(table).activityDistance.get(i);
 						myOutWriter.append(" Time: "+history.getHistory(table).activityTime.get(i));
+						email+="\n Time: "+history.getHistory(table).activityTime.get(i);
 						myOutWriter.append(" Average Velocity: "+history.getHistory(table).activityVelocity.get(i));
+						email +="\n Average Velocity: "+history.getHistory(table).activityVelocity.get(i);
 						myOutWriter.append(" Monitor: "+history.getHistory(table).monitor.get(i));
+						email+="\n Monitor: "+history.getHistory(table).monitor.get(i);
 						myOutWriter.append(" Calories: "+history.getHistory(table).calories.get(i)+"\n");
+						email+="\n Calories: "+history.getHistory(table).calories.get(i)+"\n";
 					}
 					//records:
 					myOutWriter.append("\nRecords:");
+					email +="\nRecords:";
 					myOutWriter.append("\nRecord Distance: "+getBiggestItem(history.getHistory(table).activityDistance));
+					email +="\nRecord Distance: "+getBiggestItem(history.getHistory(table).activityDistance);
 					myOutWriter.append("\nRecord time: "+getBiggestItem(history.getHistory(table).activityTime));
+					email+="\nRecord time: "+getBiggestItem(history.getHistory(table).activityTime);
 					myOutWriter.append("\nRecord average velocity: "+getBiggestItem(history.getHistory(table).activityVelocity));
+					email +="\nRecord average velocity: "+getBiggestItem(history.getHistory(table).activityVelocity);
 					myOutWriter.append("\nRecord burned calories: "+getBiggestItem(history.getHistory(table).calories));
+					email +="\nRecord burned calories: "+getBiggestItem(history.getHistory(table).calories);
 					myOutWriter.close();
 					fOut.close();
 					sendBroadcast(new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE).setData(Uri.fromFile(myFile)));
@@ -194,7 +207,19 @@ public class ReportListViewActivity extends ListActivity{
 					Toast.makeText(getBaseContext(), e.getMessage(),
 							Toast.LENGTH_SHORT).show();
 				}
+				//email
+				Intent i = new Intent(Intent.ACTION_SEND);
+				i.setType("message/rfc822");
+				i.putExtra(Intent.EXTRA_EMAIL  , new String[]{"thefuzzfamilyprojects@gmail.com"});
+				i.putExtra(Intent.EXTRA_SUBJECT, "Activity Data");
+				i.putExtra(Intent.EXTRA_TEXT   , email);
+				try {
+				    startActivity(Intent.createChooser(i, "Send mail..."));
+				} catch (android.content.ActivityNotFoundException ex) {
+				    Toast.makeText(context, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+				}
 			}
+						
 		});
 	}
 	

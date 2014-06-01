@@ -82,7 +82,8 @@
         android:layout_alignTop="@+id/timeTextView"
         android:ems="3"
         android:focusable="false"
-        android:inputType="number" />
+        android:inputType="number" 
+        android:maxLength="3"/>
 
     <TextView
         android:id="@+id/distanceTextView"
@@ -99,8 +100,9 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/changeRecommendationButton"
         android:layout_below="@+id/timeTextView"
-        android:ems="3"
+        android:ems="5"
         android:focusable="false"
-        android:inputType="number" />
+        android:inputType="number" 
+        android:maxLength="5"/>
 
 </RelativeLayout>

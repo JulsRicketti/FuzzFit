@@ -75,9 +75,10 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@+id/distanceTextView"
         android:layout_toRightOf="@+id/distanceTextView"
-        android:ems="10"
+        android:ems="5"
         android:focusable="false"
-        android:inputType="number" >
+        android:inputType="number" 
+        android:maxLength="5">
 
         <requestFocus />
     </EditText>
@@ -89,9 +90,10 @@
         android:layout_alignBaseline="@+id/timeTextView"
         android:layout_alignBottom="@+id/timeTextView"
         android:layout_toRightOf="@+id/timeTextView"
-        android:ems="10"
+        android:ems="3"
         android:focusable="false"
-        android:inputType="number" />
+        android:inputType="number" 
+        android:maxLength="3"/>
 
     <EditText
         android:id="@+id/changeRecommendationEditText"

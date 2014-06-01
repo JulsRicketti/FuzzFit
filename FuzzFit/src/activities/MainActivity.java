@@ -39,8 +39,8 @@ public class MainActivity extends Activity {
 	
 	Button reportButton;
 	
-	Button deleteDBButton; //used only for testing!
-	Button insertDataButton; //also used only for testing (inserts fake data)
+//	Button deleteDBButton; //used only for testing!
+//	Button insertDataButton; //also used only for testing (inserts fake data)
 	String distance="0", time="0";
 	
     DatabaseAdapter db = new DatabaseAdapter(this);

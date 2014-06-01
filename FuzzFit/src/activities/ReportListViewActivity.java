@@ -234,13 +234,6 @@ public class ReportListViewActivity extends ListActivity{
 				"\n"+getString(R.string.toast_activity_average_velocity)+" "+history.getHistory(table).activityVelocity.get(position)+" "+getString(R.string.toast_activity_average_velocity_unit)+
 				"\n"+getString(R.string.toast_activity_monitor)+" "+history.getHistory(table).monitor.get(position)+
 				"\n"+getString(R.string.toast_activity_calories)+" "+history.getHistory(table).calories.get(position), Toast.LENGTH_LONG).show();
-//	      Toast.makeText(this, "Activity Date: "+history.getHistory(table).activityDate.get(position)+
-//	      "\nActivity Recommendation: "+history.getHistory(table).recommendation.get(position)+ //see how I can choose
-//	      "\nActivity Distance: "+history.getHistory(table).activityDistance.get(position)+" meters"+
-//	      "\nActivity Time: "+history.getHistory(table).activityTime.get(position)+" minutes"+
-//	      "\nActivity Average Velocity: "+history.getHistory(table).activityVelocity.get(position)+ "km/h"+
-//	      "\nActivity Monitor: "+history.getHistory(table).monitor.get(position)+
-//	      "\nActivity Calories: "+history.getHistory(table).calories.get(position), Toast.LENGTH_LONG).show();
 	}
 
 	

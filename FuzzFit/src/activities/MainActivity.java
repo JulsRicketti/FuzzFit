@@ -71,8 +71,10 @@ public class MainActivity extends Activity {
 		
 		setButtons();
 		db.open();
-		//db.deleteAll(DatabaseAdapter.USER_PROFILE_TABLE); //just for testing remember to remove!!
-
+//		db.deleteAll(DatabaseAdapter.USER_PROFILE_TABLE); //just for testing remember to remove!!
+//		db.deleteAll(DatabaseAdapter.RUNNER_HISTORY_TABLE);
+//		db.deleteAll(DatabaseAdapter.WALKER_HISTORY_TABLE);
+//		db.deleteAll(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE);
 		if(db.userProfileIsEmpty()){
 			walkerButton.setEnabled(false);
 			runnerButton.setEnabled(false);

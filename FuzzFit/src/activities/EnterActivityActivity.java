@@ -1,5 +1,9 @@
 package activities;
 
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+
 import com.fuzzfit.R;
 
 import others.CalorieHandler;
@@ -121,6 +125,7 @@ public class EnterActivityActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
+				calorieHandler.setCalories(0); //we always need to reset it!
 				float recommendationAux;
 				float timeHours = Float.parseFloat(timeString)/60; //time converted into hours
 				float distanceKM = Float.parseFloat(distanceString)/1000;
@@ -129,11 +134,7 @@ public class EnterActivityActivity extends Activity {
 				if(MainActivity.activityOption.equals(walkerOption)){
 					MonitorObserver.updateWalk(context); 
 					analyse = new WalkingAnalyse(context);
-					//(test for now, not sure if it's the best approach)
-					if(Float.parseFloat(timeString)==WeightLossActivity.activityTime && Float.parseFloat(distanceString)==WeightLossActivity.activityDistance)
-						analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), WeightLossActivity.caloriesToLose);
-					else
-						analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories()); //this is what to do whenever inserting a new activity
+					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());
 					recommend = new WalkingRecommend(context);
 					recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
 					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_distance_enter));
@@ -151,7 +152,11 @@ public class EnterActivityActivity extends Activity {
 				if(MainActivity.activityOption.equals(weightLossOption)){
 					MonitorObserver.updateWeightLoss();
 					analyse = new WeighLossAnalyse(context);
-					analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories());
+					//(test for now, not sure if it's the best approach)
+					if(Float.parseFloat(timeString)==WeightLossActivity.activityTime && Float.parseFloat(distanceString)==WeightLossActivity.activityDistance)
+						analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), WeightLossActivity.caloriesToLose);
+					else
+						analyse.enterActivity(Float.parseFloat(timeString), Float.parseFloat(distanceString), calorieHandler.getCalories()); //this is what to do whenever inserting a new activity
 					recommend = new WeightLossRecommend(context);
 					recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
 					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommendationAux+getString(R.string.text_view_recommendation_calories_enter));

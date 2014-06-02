@@ -146,8 +146,9 @@ public class Mediator {
 	public void updateWalkerEntry(String recommendation, String activityDate, String activityDistance, String activityTime, String calories){
 		float averageVelocity = (Float.parseFloat(activityDistance))/(Float.parseFloat(activityTime)*60);
 		averageVelocity *=3.6; //convert to km/h
+		String averageVelocityString = String.format("%.2f", averageVelocity);
 		String lastMonitor =  getMonitorHistory().get(getMonitorHistory().size()-1);
-		history.updateDatabase(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, Float.toString(averageVelocity), lastMonitor , calories);
+		history.updateDatabase(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, averageVelocityString, lastMonitor , calories);
 
 	}
 	
@@ -155,36 +156,41 @@ public class Mediator {
 	public void updateWeightLossEntry(String recommendation, String activityDate, String activityDistance, String activityTime, String calories){
 		float averageVelocity = (Float.parseFloat(activityDistance))/(Float.parseFloat(activityTime)*60);
 		averageVelocity *=3.6; //convert to km/h
+		String averageVelocityString = String.format("%.2f", averageVelocity);
 		String lastMonitor =  getMonitorHistory().get(getMonitorHistory().size()-1);
-		history.updateDatabase(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, Float.toString(averageVelocity), lastMonitor , calories);
+		history.updateDatabase(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, averageVelocityString, lastMonitor , calories);
 
 	}
 	
 	public void updateRunnerEntry(String recommendation, String activityDate, String activityDistance, String activityTime, String calories){
 		float averageVelocity = (Float.parseFloat(activityDistance))/(Float.parseFloat(activityTime)*60);
 		averageVelocity *=3.6; //convert to km/h
+		String averageVelocityString = String.format("%.2f", averageVelocity);		
 		String lastMonitor =  getMonitorHistory().get(getMonitorHistory().size()-1);
-		history.updateDatabase(DatabaseAdapter.RUNNER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, Float.toString(averageVelocity), lastMonitor , calories);
+		history.updateDatabase(DatabaseAdapter.RUNNER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime, averageVelocityString, lastMonitor , calories);
 	}
 	
 	//this is what will be used whenever it goes through the recommend class
 	public void buildWalkerEntry(String recommendation, String activityDate, String activityDistance, String activityTime, String calories){
 		float averageVelocity = (Float.parseFloat(activityDistance))/(Float.parseFloat(activityTime)*60);
 		averageVelocity *=3.6; //convert to km/h
-		history.insert(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,Float.toString(averageVelocity), getMonitorResult(), calories);
+		String averageVelocityString = String.format("%.2f", averageVelocity);	
+		history.insert(DatabaseAdapter.WALKER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,averageVelocityString, getMonitorResult(), calories);
 	}
 	
 	//For the next two ones remembers to change the situation with the velocity	
 	public void buildWeightLossEntry(String recommendation, String activityDate, String activityDistance, String activityTime, String calories){
 		float averageVelocity = (Float.parseFloat(activityDistance))/(Float.parseFloat(activityTime)*60);
 		averageVelocity *=3.6; //convert to km/h
-		history.insert(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,Float.toString(averageVelocity), getMonitorResult(), calories);
+		String averageVelocityString = String.format("%.2f", averageVelocity);			
+		history.insert(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,averageVelocityString, getMonitorResult(), calories);
 	}
 	
 	public void buildRunnerEntry(String recommendation, String activityDate, String activityDistance, String activityTime, String calories){
 		float averageVelocity = (Float.parseFloat(activityDistance))/(Float.parseFloat(activityTime)*60);
 		averageVelocity *=3.6; //convert to km/h
-		history.insert(DatabaseAdapter.RUNNER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,Float.toString(averageVelocity), getMonitorResult(), calories);
+		String averageVelocityString = String.format("%.2f", averageVelocity);
+		history.insert(DatabaseAdapter.RUNNER_HISTORY_TABLE, recommendation, activityDate, activityDistance, activityTime,averageVelocityString, getMonitorResult(), calories);
 	}
 	
 	

@@ -33,24 +33,24 @@ public final class R {
         public static final int mr_fuzz_colored2=0x7f020001;
     }
     public static final class id {
-        public static final int RelativeLayout1=0x7f0a0043;
-        public static final int action_settings=0x7f0a004d;
+        public static final int RelativeLayout1=0x7f0a0044;
+        public static final int action_settings=0x7f0a004e;
         public static final int activityEnterButton=0x7f0a0007;
-        public static final int adjustExerciseTimeEditText=0x7f0a004a;
-        public static final int adjustTimeTextView=0x7f0a0049;
+        public static final int adjustExerciseTimeEditText=0x7f0a004b;
+        public static final int adjustTimeTextView=0x7f0a004a;
         public static final int ageRegisterEditText=0x7f0a0029;
         public static final int ageRegisterTextView=0x7f0a0026;
         public static final int buttonLayout=0x7f0a001b;
-        public static final int caloriesRecommendationTextView=0x7f0a0047;
+        public static final int caloriesRecommendationTextView=0x7f0a0048;
         public static final int changeRecommendationButton=0x7f0a0009;
         public static final int changeRecommendationEditText=0x7f0a0005;
         public static final int changeRecommendationtextView=0x7f0a0006;
         public static final int chart_container=0x7f0a003d;
-        public static final int checkBox1=0x7f0a003f;
-        public static final int checkBox2=0x7f0a0040;
-        public static final int checkBox3=0x7f0a0041;
-        public static final int checkBox4=0x7f0a0042;
-        public static final int checkbox_container=0x7f0a003e;
+        public static final int checkBox1=0x7f0a0040;
+        public static final int checkBox2=0x7f0a0041;
+        public static final int checkBox3=0x7f0a0042;
+        public static final int checkBox4=0x7f0a0043;
+        public static final int checkbox_container=0x7f0a003f;
         public static final int chronometerChronometer=0x7f0a0018;
         public static final int countDownTextView=0x7f0a0019;
         public static final int currentRecordsTextView=0x7f0a0030;
@@ -63,6 +63,7 @@ public final class R {
         public static final int fasterSoundCheckBox=0x7f0a0021;
         public static final int finishPedometerButton=0x7f0a001f;
         public static final int finishRegisterButton=0x7f0a002c;
+        public static final int graph_view_layout=0x7f0a003e;
         public static final int heightRegisterEditText=0x7f0a002b;
         public static final int heightRegisterTextView=0x7f0a0028;
         public static final int insertDataButton=0x7f0a000d;
@@ -105,12 +106,12 @@ public final class R {
         public static final int weightRegisterEditText=0x7f0a002a;
         public static final int weightRegisterTextView=0x7f0a0027;
         public static final int whichReportTextView=0x7f0a0035;
-        public static final int wlCalorieConsumptionEditText=0x7f0a0045;
-        public static final int wlEnterActivityButton=0x7f0a0048;
-        public static final int wlExerciseOptionTextView=0x7f0a004c;
-        public static final int wlMessageTextView=0x7f0a0044;
-        public static final int wlRecommendationButton=0x7f0a0046;
-        public static final int wlSwitchExerciseButton=0x7f0a004b;
+        public static final int wlCalorieConsumptionEditText=0x7f0a0046;
+        public static final int wlEnterActivityButton=0x7f0a0049;
+        public static final int wlExerciseOptionTextView=0x7f0a004d;
+        public static final int wlMessageTextView=0x7f0a0045;
+        public static final int wlRecommendationButton=0x7f0a0047;
+        public static final int wlSwitchExerciseButton=0x7f0a004c;
     }
     public static final class layout {
         public static final int activity_enter=0x7f030000;

@@ -43,8 +43,6 @@ public class ViewGraphActivity extends Activity {
 	
 	private GraphicalView mChart;
 	
-//	Button exportGraphButton; //(at the moment, its deleted)
-	
 	History history;
 	ArrayList<String> dates;
 	ArrayList<String> distanceData;
@@ -61,7 +59,6 @@ public class ViewGraphActivity extends Activity {
 		setContentView(R.layout.activity_view_graph);
 		
 
-		
 		//set screen title
 		if(ReportMenuActivity.reportOption.equals(walkerOption))
 			setTitle( getString(R.string.report_walker_title));
@@ -70,9 +67,6 @@ public class ViewGraphActivity extends Activity {
 		if(ReportMenuActivity.reportOption.equals(weightLossOption))
 			setTitle( getString(R.string.report_weight_loss_title));
 
-		
-//		exportGraphButton =(Button) findViewById(R.id.exportGraphButton);
-		setButtons();
 		
 		history = new History(context);
 
@@ -171,30 +165,53 @@ public class ViewGraphActivity extends Activity {
 		
 	}
 	
-	void setButtons(){
-//		exportGraphButton.setOnClickListener(new OnClickListener() {
-			
-//			@Override
-//			public void onClick(View v) {
-//				bmImage = (ImageView)findViewById(R.id.image);
-//
-//				chartContainer.setDrawingCacheEnabled(true);
-//			      // this is the important code :)  
-//			      // Without it the view will have a dimension of 0,0 and the bitmap will be null          
-//
-//				chartContainer.measure(MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED), 
-//			            MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED));
-//
-//
-//				chartContainer.buildDrawingCache(true);
-//			      Bitmap b = Bitmap.createBitmap(chartContainer.getDrawingCache());
-//			      chartContainer.setDrawingCacheEnabled(false); // clear drawing cache
-//
-//			      bmImage.setImageBitmap(b);
-				
-//			}
-//		});
+	private class GraphParameters{
+		public int lineWidth;
+		public int valuesTextSize;
+		public int axisTitleTextSize;
+		public int legendTextSize;
+		public int chartTitleTextSize;
+		public int chartLabelTextSize;
+		public float pointSize;
+		public int []margins;
 	}
+	
+	GraphParameters graphParameters = new GraphParameters();
+	
+	void setGraphSizes(){
+        if(findViewById(R.id.graph_view_layout).getTag().equals("small_screen")){
+        	graphParameters.lineWidth = 2;
+        	graphParameters.valuesTextSize =8;
+        	graphParameters.chartTitleTextSize = 10;
+        	graphParameters.axisTitleTextSize = 10;
+        	graphParameters.legendTextSize = 8;
+        	graphParameters.chartLabelTextSize = 8;
+        	graphParameters.pointSize = 3.0f;
+        	graphParameters.margins = new int[]{10, 20, 50, 0 };
+        }
+        if(findViewById(R.id.graph_view_layout).getTag().equals("normal_screen") ||findViewById(R.id.graph_view_layout).getTag().equals("default_screen")){
+        	graphParameters.lineWidth = 3;
+        	graphParameters.valuesTextSize =15;
+        	graphParameters.chartTitleTextSize = 20;
+        	graphParameters.axisTitleTextSize = 12;
+        	graphParameters.legendTextSize = 15;
+        	graphParameters.chartLabelTextSize = 15;
+        	graphParameters.pointSize = 3.0f;
+        	graphParameters.margins = new int[]{10, 20, 50, 0 };
+        }
+        if(findViewById(R.id.graph_view_layout).getTag().equals("large_screen") ||findViewById(R.id.graph_view_layout).getTag().equals("xlarge_screen")){
+        	graphParameters.lineWidth = 5;
+        	graphParameters.valuesTextSize =20;
+        	graphParameters.chartTitleTextSize = 40;
+        	graphParameters.axisTitleTextSize = 20;
+        	graphParameters.legendTextSize = 25;
+        	graphParameters.chartLabelTextSize = 30;
+        	graphParameters.pointSize = 10.0f;
+        	graphParameters.margins = new int[]{50, 50, 50, 22 };
+        	
+        }
+	}
+	
 	XYMultipleSeriesDataset dataSet;
 	XYMultipleSeriesRenderer multiRenderer; //need to keep it out so the checkboxes can see it
 	XYSeriesRenderer distanceRenderer;
@@ -202,7 +219,9 @@ public class ViewGraphActivity extends Activity {
 	XYSeriesRenderer velocityRenderer;
 	XYSeriesRenderer caloriesRenderer;
 	private void openChart(){
-		 
+		setGraphSizes(); //(here we set the parameters for each screen size) 
+		
+		
 	        Date[] dt = new Date[dates.size()];
 	        float[] distance = new float[dates.size()];
 	        float[] velocity = new float[dates.size()];
@@ -248,55 +267,55 @@ public class ViewGraphActivity extends Activity {
 	        distanceRenderer.setColor(Color.parseColor("#990000"));
 	        distanceRenderer.setPointStyle(PointStyle.DIAMOND);
 	        distanceRenderer.setFillPoints(true);
-	        distanceRenderer.setLineWidth(5);
+	        distanceRenderer.setLineWidth(graphParameters.lineWidth);
 	        distanceRenderer.setDisplayChartValues(true);
-	        distanceRenderer.setChartValuesTextSize(20);
+	        distanceRenderer.setChartValuesTextSize(graphParameters.valuesTextSize);
 	 
 	        // Creating XYSeriesRenderer to customize timeSeries
 	        timeRenderer = new XYSeriesRenderer();
 	        timeRenderer.setColor(Color.parseColor("#0000AA"));
 	        timeRenderer.setPointStyle(PointStyle.CIRCLE);
 	        timeRenderer.setFillPoints(true);
-	        timeRenderer.setLineWidth(5);
+	        timeRenderer.setLineWidth(graphParameters.lineWidth);
 	        timeRenderer.setDisplayChartValues(true);
-	        timeRenderer.setChartValuesTextSize(20);
+	        timeRenderer.setChartValuesTextSize(graphParameters.valuesTextSize);
 	        
 	        velocityRenderer = new XYSeriesRenderer();
 	        velocityRenderer.setColor(Color.parseColor("#559900"));
 	        velocityRenderer.setPointStyle(PointStyle.SQUARE);
 	        velocityRenderer.setFillPoints(true);
-	        velocityRenderer.setLineWidth(5);
+	        velocityRenderer.setLineWidth(graphParameters.lineWidth);
 	        velocityRenderer.setDisplayChartValues(true);
-	        velocityRenderer.setChartValuesTextSize(20);
+	        velocityRenderer.setChartValuesTextSize(graphParameters.valuesTextSize);
 	 
 	        caloriesRenderer = new XYSeriesRenderer();
 	        caloriesRenderer.setColor(Color.parseColor("#9900AA"));
 	        caloriesRenderer.setPointStyle(PointStyle.TRIANGLE);
 	        caloriesRenderer.setFillPoints(true);
-	        caloriesRenderer.setLineWidth(5);
+	        caloriesRenderer.setLineWidth(graphParameters.lineWidth);
 	        caloriesRenderer.setDisplayChartValues(true);
-	        caloriesRenderer.setChartValuesTextSize(20);
+	        caloriesRenderer.setChartValuesTextSize(graphParameters.valuesTextSize);
 	        
 	        // Creating a XYMultipleSeriesRenderer to customize the whole chart
 	        multiRenderer = new XYMultipleSeriesRenderer();
 	 
 	        multiRenderer.setChartTitle(getString(R.string.chart_name));
-	        multiRenderer.setChartTitleTextSize(40);
+	        multiRenderer.setChartTitleTextSize(graphParameters.chartTitleTextSize);
 	        multiRenderer.setLabelsColor(Color.BLACK);
 	        multiRenderer.setXTitle("Days");
 	        multiRenderer.setXLabelsColor(Color.BLACK);
-	        multiRenderer.setAxisTitleTextSize(20);
-	        multiRenderer.setLegendTextSize(25);
+	        multiRenderer.setAxisTitleTextSize(graphParameters.axisTitleTextSize);
+	        multiRenderer.setLegendTextSize(graphParameters.legendTextSize);
 	        multiRenderer.setYTitle("Count");
 	        multiRenderer.setYLabelsColor(0,Color.BLACK);
-	        multiRenderer.setLabelsTextSize(30);
+	        multiRenderer.setLabelsTextSize(graphParameters.chartLabelTextSize);
 	        multiRenderer.setZoomButtonsVisible(true);
 	        multiRenderer.setBackgroundColor(Color.parseColor("#F5F5F5"));
 	        multiRenderer.setMarginsColor(Color.parseColor("#F5F5F5"));
 	        multiRenderer.setShowGrid(true);
 	        multiRenderer.setGridColor(Color.GRAY);
-	        multiRenderer.setPointSize(10.0f);
-	        multiRenderer.setMargins(new int[] { 50, 50, 50, 22 }); //thing that fixes the legend (the 3rd one is the one to change)
+	        multiRenderer.setPointSize(graphParameters.pointSize);
+	        multiRenderer.setMargins(graphParameters.margins); //thing that fixes the legend (the 3rd one is the one to change)
 	        
 	        multiRenderer.addSeriesRenderer(distanceRenderer);
 	        multiRenderer.addSeriesRenderer(timeRenderer);

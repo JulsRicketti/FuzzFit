@@ -332,7 +332,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 					chronometer.stop();
 					handler.removeCallbacks(timedTask);
 					soundHandler.removeCallbacks(soundTask);
-					timer.cancel();//we need to stop the timer
+
 					
 					
 					resetButton.setEnabled(false);
@@ -343,6 +343,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 					float recommendationAux;
 					if(time>1 && distance>0){ // we will only save everything in the database if the user has more than a minute done and if he walked anything
 						if(MainActivity.activityOption.equals(walkerOption)){
+							
 							MonitorObserver.updateWalk(context); 
 							analyse = new WalkingAnalyse(context);
 							analyse.enterActivity(time, distance, calories.getCalories()); //this is what to do whenever inserting a new activity
@@ -351,6 +352,7 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 							recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_distance_enter));
 						}
 						if(MainActivity.activityOption.equals(runnerOption)){
+							timer.cancel();//we need to stop the timer
 							MonitorObserver.updateRun(context);
 							analyse = new RunningAnalyse(context);
 							analyse.enterActivity(time, distance, calories.getCalories());

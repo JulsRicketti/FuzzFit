@@ -80,24 +80,6 @@
             android:text="@string/change_button_recommendation_enter" />
     </RelativeLayout>
 
-    <Button
-        android:id="@+id/activityEnterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/changeRecommendationLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="36dp"
-        android:text="@string/enter_button_recommendation_enter" />
-
-   <Button
-       android:id="@+id/pedometerButton"
-       android:layout_width="wrap_content"
-       android:layout_height="wrap_content"
-       android:layout_alignParentBottom="true"
-       android:layout_centerHorizontal="true"
-       android:layout_marginBottom="32dp"
-       android:text="@string/open_pedometer_button_recommendation_enter" />
-
    <RelativeLayout
        android:id="@+id/timeLinearLayout"
        android:layout_width="wrap_content"
@@ -127,5 +109,22 @@
            <requestFocus />
        </EditText>
    </RelativeLayout>
+
+   <Button
+       android:id="@+id/activityEnterButton"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_above="@+id/pedometerButton"
+       android:layout_centerHorizontal="true"
+       android:text="@string/enter_button_recommendation_enter" />
+
+   <Button
+       android:id="@+id/pedometerButton"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+       android:layout_alignRight="@+id/distanceLayout"
+       android:layout_marginBottom="23dp"
+       android:text="@string/open_pedometer_button_recommendation_enter" />
 
 </RelativeLayout>

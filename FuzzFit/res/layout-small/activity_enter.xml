@@ -8,67 +8,12 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".EnterActivityActivity" >
 
-    <Button
-        android:id="@+id/activityEnterButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/pedometerButton"
-        android:layout_centerHorizontal="true"
-        android:text="@string/enter_button_recommendation_enter" />
-
-    <TextView
-        android:id="@+id/recommendationTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/recommendation_enter"
-        android:textAppearance="?android:attr/textAppearanceLarge" />
-
-    <Button
-        android:id="@+id/pedometerButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/open_pedometer_button_recommendation_enter" />
 
     <RelativeLayout
-        android:id="@+id/relativeLayout1"
+        android:id="@+id/distanceLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/recommendationTextView"
-        android:orientation="vertical" >
-
-        <TextView
-            android:id="@+id/timeTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/timeEditText"
-            android:layout_alignBottom="@+id/timeEditText"
-            android:layout_alignParentLeft="true"
-            android:text="@string/time_recommendation_enter" />
-
-        <EditText
-            android:id="@+id/timeEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/timeTextView"
-            android:ems="3"
-            android:focusable="false"
-            android:inputType="number"
-            android:maxLength="3"/>
-
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:id="@+id/relativeLayout2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/relativeLayout1"
-        android:layout_below="@+id/relativeLayout1"
-        android:layout_marginTop="28dp" >
+        android:layout_below="@+id/timeLinearLayout" >
 
         <EditText
             android:id="@+id/distanceEditText"
@@ -78,58 +23,106 @@
             android:layout_toRightOf="@+id/distanceTextView"
             android:ems="5"
             android:focusable="false"
-            android:inputType="number" 
-            android:maxLength="5"/>
+            android:inputType="number"
+            android:maxLength="5" />
 
         <TextView
             android:id="@+id/distanceTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/distanceEditText"
             android:layout_alignBottom="@+id/distanceEditText"
             android:layout_alignParentLeft="true"
             android:text="@string/distance_recommendation_enter" />
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/activityEnterButton"
-        android:layout_alignLeft="@+id/relativeLayout2" >
+   <RelativeLayout
+       android:id="@+id/timeLinearLayout"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/distanceLayout"
+       android:layout_alignTop="@+id/recommendationTextView"
+       android:orientation="horizontal" >
 
-        <Button
-            android:id="@+id/changeRecommendationButton"
-            style="?android:attr/buttonStyleSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/changeRecommendationEditText"
-            android:text="@string/change_button_recommendation_enter" 
-            android:textSize="8dp"/>
+       <TextView
+           android:id="@+id/timeTextView"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_marginTop="48dp"
+           android:text="@string/time_recommendation_enter" />
 
-        <EditText
-            android:id="@+id/changeRecommendationEditText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/changeRecommendationtextView"
-            android:ems="5"
-            android:focusable="false"
-            android:inputType="number"
-            android:maxLength="5" >
+       <EditText
+           android:id="@+id/timeEditText"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignBottom="@+id/timeTextView"
+           android:layout_toRightOf="@+id/timeTextView"
+           android:ems="3"
+           android:focusable="false"
+           android:inputType="number"
+           android:maxLength="3" />
+   </RelativeLayout>
 
-            <requestFocus />
-        </EditText>
+   <Button
+       android:id="@+id/pedometerButton"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentBottom="true"
+       android:layout_centerHorizontal="true"
+       android:text="@string/open_pedometer_button_recommendation_enter" />
 
-        <TextView
-            android:id="@+id/changeRecommendationtextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:text="@string/change_recommendation_enter" />
+   <TextView
+       android:id="@+id/recommendationTextView"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_alignParentTop="true"
+       android:layout_alignRight="@+id/distanceLayout"
+       android:text="@string/recommendation_enter"
+       android:textAppearance="?android:attr/textAppearanceMedium" />
 
-    </RelativeLayout>
+   <Button
+       android:id="@+id/activityEnterButton"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"
+       android:layout_above="@+id/pedometerButton"
+       android:layout_centerHorizontal="true"
+       android:text="@string/enter_button_recommendation_enter" />
+
+   <RelativeLayout
+       android:id="@+id/changeRecommendationLayout"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content"
+       android:layout_alignLeft="@+id/distanceLayout"
+       android:layout_centerVertical="true" >
+
+       <TextView
+           android:id="@+id/changeRecommendationtextView"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignBottom="@+id/changeRecommendationEditText"
+           android:layout_toLeftOf="@+id/changeRecommendationEditText"
+           android:text="@string/change_recommendation_enter" />
+
+       <EditText
+           android:id="@+id/changeRecommendationEditText"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_alignParentRight="true"
+           android:layout_alignParentTop="true"
+           android:ems="5"
+           android:focusable="false"
+           android:inputType="number"
+           android:maxLength="5" >
+
+           <requestFocus />
+       </EditText>
+
+       <Button
+           android:id="@+id/changeRecommendationButton"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content"
+           android:layout_below="@+id/changeRecommendationEditText"
+           android:layout_centerInParent="true"
+           android:text="@string/change_button_recommendation_enter" />
+   </RelativeLayout>
 
 </RelativeLayout>

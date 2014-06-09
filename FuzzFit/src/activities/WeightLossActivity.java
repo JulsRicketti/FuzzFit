@@ -178,33 +178,12 @@ public class WeightLossActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-//				boolean entered =false;
-//				activityTime=1;
-//				if(variationNumber==0 && !entered){ //30 minutes
-//					activityTime = activityTime/2;
-//					variationNumber=1;
-//					entered=true;
-//				}
-//				if(variationNumber==1 && !entered){ //80 minutes
-//					activityTime += activityTime/3;
-//					variationNumber=2;
-//					entered=true;
-//				}
-//				if(variationNumber==2&& !entered){ //120 minutes
-//					activityTime += activityTime;
-//					variationNumber=3;
-//					entered=true;
-//				}
-//				if(variationNumber==3&& !entered){ //60 minutes
-//					activityTime = 1;
-//					variationNumber=0;
-//					entered=true;
-//				}
 				activityTime = (Float.parseFloat(adjustExerciseTime))/60; 
 				activityVelocity = caloriesHandler.calculateActivityVelocity(caloriesToLose, activityTime); //comes in km/h
 				activityDistance = activityVelocity*(activityTime);
-				wlExerciseOptionTextView.setText(getString(R.string.weight_loss_distance)+activityDistance+getString(R.string.weight_loss_distance_unit)+"\n"+getString(R.string.weight_loss_time)+activityTime+getString(R.string.weight_loss_time_unit));
-				//wlExerciseOptionTextView.setText("Distance: "+activityDistance+" km\nTime: "+activityTime*60 +"minutes");
+				String activityDistanceString = String.format("%.2f", activityDistance);
+				activityDistance = Float.parseFloat(activityDistanceString); //just did this to make it a more reasonable number
+				wlExerciseOptionTextView.setText(getString(R.string.weight_loss_distance)+activityDistanceString+getString(R.string.weight_loss_distance_unit)+"\n"+getString(R.string.weight_loss_time)+adjustExerciseTime+getString(R.string.weight_loss_time_unit));
 
 			}
 		});

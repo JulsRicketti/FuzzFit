@@ -9,7 +9,7 @@
     tools:context=".MainActivity" >
 
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/timeLinearLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
@@ -20,7 +20,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/linearLayout1"
+        android:layout_alignTop="@+id/timeLinearLayout"
         android:orientation="vertical" >
 
         <Button
@@ -50,7 +50,7 @@
         android:id="@+id/linearLayout2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_alignLeft="@+id/timeLinearLayout"
         android:layout_below="@+id/linearLayout3"
         android:orientation="vertical" >
 

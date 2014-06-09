@@ -9,7 +9,7 @@
     tools:context=".ReportListViewActivity" >
     
     <LinearLayout
-        android:id="@+id/linearLayout1"
+        android:id="@+id/timeLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal" >
@@ -26,7 +26,7 @@
         android:id="@+id/plotsButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/linearLayout1"
+        android:layout_below="@+id/timeLinearLayout"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="@string/illustrate_progress_button_report" />

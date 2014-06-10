@@ -40,7 +40,7 @@ public class WeightLossMonitor extends Monitor {
 		
 		fuzzifier(0, 0, calories);
 		fuzzyRules(null);
-		inferenceEngine();
+		agreggation();
 		defuzzifier();
 	}
 	
@@ -132,7 +132,7 @@ public class WeightLossMonitor extends Monitor {
 	}
 
 	@Override
-	void inferenceEngine() {
+	void agreggation() {
 		insufficientOutputs = auxOutputs[0];
 		averageOutputs = auxOutputs[1];
 		sufficientOutputs = auxOutputs[2];

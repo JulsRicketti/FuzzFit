@@ -50,7 +50,7 @@ public class WalkingMonitor extends Monitor {
 			goodDistance = dailyMinDistance + dailyMinDistance/2;
 			fuzzifier(timeInput, distanceInput, 0);
 			fuzzyRules(null);
-			inferenceEngine();
+			agreggation();
 			defuzzifier();
 		}
 
@@ -212,7 +212,7 @@ public class WalkingMonitor extends Monitor {
 		}
 
 		@Override
-		public void inferenceEngine() {
+		public void agreggation() {
 			// now we will choose the rules that will be use:
 			//Insufficient ones:
 			insufficientOutputs = max(auxOutputs[0], auxOutputs[6]);

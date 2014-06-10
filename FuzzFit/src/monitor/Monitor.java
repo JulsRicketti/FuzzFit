@@ -53,7 +53,7 @@ public abstract class Monitor {
 	
 	abstract void fuzzifier(float timeInput, float distanceInput, float caloriesInput);
 	abstract void fuzzyRules(FuzzySet[] inputSet);
-	abstract void inferenceEngine();
+	abstract void agreggation();
 	abstract void defuzzifier();
 	
 	float min(float input1, float input2){

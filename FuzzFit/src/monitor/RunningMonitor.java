@@ -56,7 +56,7 @@ public class RunningMonitor extends Monitor{
 		
 		fuzzifier(timeInput, distanceInput, 0);
 		fuzzyRules(null);
-		inferenceEngine();
+		agreggation();
 		defuzzifier();
 	}
 	
@@ -203,8 +203,8 @@ public class RunningMonitor extends Monitor{
 		outputs[2] = new FuzzySet(SUFFICIENT, min(timeMap.get(GOOD).getDegreeOfMembership(), distanceMap.get(GOOD).getDegreeOfMembership()));
 		outputs[3] = new FuzzySet(AVERAGE_SUFICIENT, min(timeMap.get(GOOD).getDegreeOfMembership(), distanceMap.get(BAD).getDegreeOfMembership()));
 		outputs[4] = new FuzzySet(SUFFICIENT, min(timeMap.get(GOOD).getDegreeOfMembership(), distanceMap.get(AVERAGE).getDegreeOfMembership())); //here
-		outputs[5] = new FuzzySet(SUFFICIENT, min(timeMap.get(AVERAGE).getDegreeOfMembership(), distanceMap.get(GOOD).getDegreeOfMembership()));
-		outputs[6] = new FuzzySet(AVERAGE_SUFICIENT, min(timeMap.get(AVERAGE).getDegreeOfMembership(), distanceMap.get(BAD).getDegreeOfMembership()));
+		outputs[5] = new FuzzySet(AVERAGE_SUFICIENT, min(timeMap.get(AVERAGE).getDegreeOfMembership(), distanceMap.get(GOOD).getDegreeOfMembership()));
+		outputs[6] = new FuzzySet(INSUFFICIENT, min(timeMap.get(AVERAGE).getDegreeOfMembership(), distanceMap.get(BAD).getDegreeOfMembership()));
 		outputs[7] = new FuzzySet(INSUFFICIENT, min(timeMap.get(BAD).getDegreeOfMembership(), distanceMap.get(GOOD).getDegreeOfMembership()));
 		outputs[8] = new FuzzySet(INSUFFICIENT, min(timeMap.get(BAD).getDegreeOfMembership(), distanceMap.get(AVERAGE).getDegreeOfMembership())); //here
 		
@@ -213,7 +213,7 @@ public class RunningMonitor extends Monitor{
 	}
 
 	@Override
-	void inferenceEngine() {
+	void agreggation() {
 		insufficientOutputs = max(auxOutputs[0], auxOutputs[6]);
 		insufficientOutputs = max(insufficientOutputs, auxOutputs[8]);
 		

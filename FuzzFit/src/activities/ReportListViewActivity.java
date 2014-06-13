@@ -7,12 +7,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.text.Format;
+import java.text.NumberFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
+import java.util.Locale;
 
 import org.achartengine.ChartFactory;
 import org.achartengine.GraphicalView;
@@ -137,8 +139,15 @@ public class ReportListViewActivity extends ListActivity{
 		ArrayList<Float> arrayListFloat = new ArrayList<Float>();
 		
 		//we "convert" all of the string items into float to find the largest
-		for(int i=0; i<arrayList.size(); i++)
-			arrayListFloat.add(Float.parseFloat(arrayList.get(i)));
+			for(int i=0; i<arrayList.size(); i++){
+				try{
+					arrayListFloat.add(Float.parseFloat(arrayList.get(i)));
+				}
+				catch (NumberFormatException n){
+					String aux = arrayList.get(i).replace(",", ".");
+					arrayListFloat.add(Float.parseFloat(aux));
+				}
+			}
 		Collections.sort(arrayListFloat);
 		
 		return arrayListFloat.get(arrayListFloat.size()-1);

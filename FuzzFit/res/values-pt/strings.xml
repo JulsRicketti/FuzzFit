@@ -74,7 +74,8 @@
     <string name="weight_loss_exercise_time_button">Ajustar Atividade</string>
     <string name="weight_loss_exercise_option">Opções de Atividade</string>
     <!--  Java   -->
-    <string name="low_calorie_message">Para uma perda de peso saudável, por favor consuma mais de 1500 calorias por dia. (Consulte um nutricionista se necessário) Apenas faça estar atividades quando estiver consumindo mais 1500 calorias diárias.</string>
+    <string name="low_calorie_message_start">Para uma perda de peso saudável, por favor consuma mais de  </string>
+    <string name="low_calorie_message_end">calorias por dia. (Consulte um nutricionista se necessário) Apenas faça estar atividades quando estiver consumindo este mínimo de calorias diárias.</string>
     <string name="high_calorie_message">Para a possibilidade de máxima perda de peso sem danos ao corpo, por favor consuma menos de 2500 calorias diárias. (Consulte um nutricionista se necessário)</string>
     <string name="default_calorie_message">Por default, supomos que você esteja consumindo 2000 calorias diárias. (Consulte um nutricionista se necessário)</string>
     <string name="consume_more_calories_message">Por favor consuma mais calorias</string>

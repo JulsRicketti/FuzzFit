@@ -177,7 +177,7 @@ public class ReportListViewActivity extends ListActivity{
 					FileOutputStream fOut = new FileOutputStream(myFile);
 					OutputStreamWriter myOutWriter = new OutputStreamWriter(fOut);
 					
-					
+					email += ReportMenuActivity.reportOption+" History:\n";
 					myOutWriter.append(ReportMenuActivity.reportOption+" History:\n");											
 					for(int i =0; i<history.getHistory(table).activityDate.size(); i++){
 						myOutWriter.append(" Date: "+history.getHistory(table).activityDate.get(i));

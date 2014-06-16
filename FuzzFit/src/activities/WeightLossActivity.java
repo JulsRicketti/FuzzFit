@@ -5,6 +5,7 @@ import com.fuzzfit.R;
 import monitor.MonitorObserver;
 import others.CalorieHandler;
 import others.Mediator;
+import others.User;
 import recommend.Recommend;
 import recommend.WeightLossRecommend;
 import analyse.Analyse;
@@ -13,6 +14,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.UserDictionary;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.Menu;
@@ -45,6 +47,9 @@ public class WeightLossActivity extends Activity {
 	Mediator mediator; 
 	CalorieHandler caloriesHandler;
 	
+	User user; //we need the user to know the sex
+	String sex;
+	int minimumCalories=0;
 	
 	public static float caloriesToLose, activityVelocity, activityTime, activityDistance;
 	@Override
@@ -53,6 +58,14 @@ public class WeightLossActivity extends Activity {
 		setContentView(R.layout.activity_weight_loss);
 		
 		setTitle(getString(R.string.pedometer_weight_loss_title));
+		
+		//here we set the minimum calories a user must consume in order to be healthy
+		user = new User(context);
+		sex = user.getSex();
+		if(sex.equals("Male"))
+			minimumCalories = 1800;
+		else
+			minimumCalories = 1200;
 		
 		caloriesRecommendationTextView = (TextView) findViewById(R.id.caloriesRecommendationTextView);
 		wlExerciseOptionTextView = (TextView) findViewById(R.id.wlExerciseOptionTextView);
@@ -139,8 +152,8 @@ public class WeightLossActivity extends Activity {
 				float calorieConsumptionValue=0;
 				if(!calorieConsumption.equals("")){
 					calorieConsumptionValue = Float.parseFloat(calorieConsumption);	
-					if(calorieConsumptionValue<1500){
-						Toast.makeText(getApplicationContext(), getString(R.string.low_calorie_message), Toast.LENGTH_LONG).show();
+					if(calorieConsumptionValue<minimumCalories){
+						Toast.makeText(getApplicationContext(), getString(R.string.low_calorie_message_start)+" "+minimumCalories+" "+getString(R.string.low_calorie_message_end), Toast.LENGTH_LONG).show();
 						caloriesRecommendationTextView.setText(getString(R.string.consume_more_calories_message));
 						return;
 					}

@@ -27,6 +27,8 @@
     
     <!--  EnterActivityActivity   -->
     <string name="recommendation_enter">Recomendação: </string>
+    <string name="walking_recommendation_time">Por favor faça esta atividade em pelo menos 30 a 60 minutos </string>
+    <string name="running_recommendation_distance">Tente atingir a distância de </string>
     <string name="time_recommendation_enter">Tempo (minutos):</string>
     <string name="distance_recommendation_enter">Distância (metros):</string>
     <string name="change_recommendation_enter">Trocar Recomendação:</string>

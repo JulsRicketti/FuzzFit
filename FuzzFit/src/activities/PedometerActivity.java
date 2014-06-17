@@ -190,7 +190,9 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 		}
 		if(MainActivity.activityOption.equals(runnerOption)){
 			recommend = new RunningRecommend(this);
-			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(this)+" "+getString(R.string.text_view_recommendation_time_enter));
+			MonitorObserver.updateRun(context); //Test!
+			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+MonitorObserver.currentRunningDistance+" "+getString(R.string.text_view_recommendation_distance_enter)); //testing code!!
+			//recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommend.recommend(this)+" "+getString(R.string.text_view_recommendation_time_enter)); //original code!!
 			int auxTimer = (int)(Float.parseFloat(recommend.recommend(this)))*60000;
 			timeTimerAux = auxTimer;
 			timer = new CounterClass(auxTimer,1000);

@@ -32,6 +32,7 @@ import android.view.View.OnTouchListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class EnterActivityActivity extends Activity {
 
@@ -100,11 +101,14 @@ public class EnterActivityActivity extends Activity {
 			recommend = new WalkingRecommend(this);
 			recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
 			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_distance_enter));
+			Toast.makeText(context, getString(R.string.walking_recommendation_time), Toast.LENGTH_LONG).show();
 		}
 		if(MainActivity.activityOption.equals(runnerOption)){
 			recommend = new RunningRecommend(this);
 			recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
 			recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_time_enter));
+			MonitorObserver.updateRun(context);
+			Toast.makeText(context, getString(R.string.running_recommendation_distance)+" "+MonitorObserver.currentRunningDistance+" "+getString(R.string.text_view_recommendation_distance_enter), Toast.LENGTH_LONG).show();
 		}
 		if(MainActivity.activityOption.equals(weightLossOption)){
 			//we need to make the adjustment options invisible
@@ -147,7 +151,6 @@ public class EnterActivityActivity extends Activity {
 					recommend = new RunningRecommend(context);
 					recommendationAux = Math.round(Float.parseFloat(recommend.recommend(context)));
 					recommendationTextView.setText(getString(R.string.text_view_next_recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_time_enter));
-					
 				}
 				if(MainActivity.activityOption.equals(weightLossOption)){
 					MonitorObserver.updateWeightLoss();
@@ -185,7 +188,9 @@ public class EnterActivityActivity extends Activity {
 					recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommendationAux+" "+getString(+R.string.text_view_recommendation_distance_enter));			
 				}
 				if(MainActivity.activityOption.equals(runnerOption)){
+					
 					recommendationTextView.setText(getString(R.string.recommendation_enter)+" "+recommendationAux+" "+getString(R.string.text_view_recommendation_time_enter));
+					Toast.makeText(context, getString(R.string.running_recommendation_distance)+" "+MonitorObserver.currentRunningDistance+" "+getString(R.string.text_view_recommendation_distance_enter), Toast.LENGTH_LONG).show();
 				}
 			}
 		});

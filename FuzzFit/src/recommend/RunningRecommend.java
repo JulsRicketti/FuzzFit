@@ -1,5 +1,6 @@
 package recommend;
 
+import monitor.MonitorObserver;
 import others.Mediator;
 
 import android.content.Context;
@@ -92,7 +93,7 @@ public class RunningRecommend implements Recommend {
 		String lastCalories= mediator.getCalorieHistory().get(mediator.getCalorieHistory().size()-1);
 		//we need to update our db entry
 		mediator.updateRunnerEntry(Float.toString(this.currentTimeRecommendation), lastDate, lastDistance, lastTime, lastCalories);
-		
+		MonitorObserver.updateRun(context); //we need to update these variables too
 	}
 
 }

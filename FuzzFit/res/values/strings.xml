@@ -29,6 +29,8 @@
     <!--  EnterActivityActivity   -->
     <!--  XML   -->
     <string name="recommendation_enter">Recommendation:  </string>
+    <string name="walking_recommendation_time">Please do this activity in at least 30 to 60 minutes  </string>
+        <string name="running_recommendation_distance">Try to reach a distance of </string>
     <string name="time_recommendation_enter">Time (minutes):</string>
     <string name="distance_recommendation_enter">Distance (meters):</string>
     <string name="change_recommendation_enter">Change recommendation:</string>

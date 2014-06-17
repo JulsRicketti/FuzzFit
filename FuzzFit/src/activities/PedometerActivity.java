@@ -51,7 +51,7 @@ import android.os.Build;
 
 public class PedometerActivity extends Activity implements SensorEventListener{
 	
-	static final int CALORIE_UPDATE_INTERVAL = 1000; //testing with one second (that way we really do have the velocity as m/s)
+	static final int CALORIE_UPDATE_INTERVAL = 10000; //testing with 1 seconds
 	static final int MINUTE_INTERVAL = 60000; //might use it for the sounds
 	CalorieHandler calories;
 	
@@ -253,7 +253,8 @@ public class PedometerActivity extends Activity implements SensorEventListener{
 	float kmHConstant = (float) 3.6;
 	float calculateVelocity(){
 		//v=d/tv (m/s)
-		return (currentDistanceInterval/60)*kmHConstant; //by the end of the calculation, we convert it to km/h
+		//distance is in meters.
+		return (currentDistanceInterval/10)*kmHConstant; //by the end of the calculation, we convert it to km/h
 	}
 
 	void calculateCalories(){

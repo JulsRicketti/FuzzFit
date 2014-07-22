@@ -71,7 +71,7 @@ public class MainActivity extends Activity {
 		
 		setButtons();
 		db.open();
-//		db.deleteAll(DatabaseAdapter.USER_PROFILE_TABLE); //just for testing remember to remove!!
+//		db.deleteAll(DatabaseAdapter.USER_PROFILE_TABLE); //just for testing remember to remove!!		
 //		db.deleteAll(DatabaseAdapter.RUNNER_HISTORY_TABLE);
 //		db.deleteAll(DatabaseAdapter.WALKER_HISTORY_TABLE);
 //		db.deleteAll(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE);
@@ -80,7 +80,7 @@ public class MainActivity extends Activity {
 			runnerButton.setEnabled(false);
 			weightLossButton.setEnabled(false);
 			reportButton.setEnabled(false);
-			Toast.makeText(getApplicationContext(), "Please register yourself before we start.", Toast.LENGTH_LONG).show();
+			Toast.makeText(getApplicationContext(), getString(R.string.before_start), Toast.LENGTH_LONG).show();
 		}
 		else{
 			walkerButton.setEnabled(true);
@@ -88,6 +88,7 @@ public class MainActivity extends Activity {
 			weightLossButton.setEnabled(true);
 			reportButton.setEnabled(true);
 		}
+
 		db.close();
 		
 	}
@@ -98,8 +99,10 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
+			
 				Intent i  = new Intent(MainActivity.this,RegisterUserActivity.class);
 				startActivity(i);
+				//For testing purposes, this will now th be the button to insert data into the graphs:
 				
 			}
 		});
@@ -148,73 +151,6 @@ public class MainActivity extends Activity {
 				
 			}
 		});
-		
-//		deleteDBButton.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				db.open();
-//				db.deleteAll(DatabaseAdapter.RUNNER_HISTORY_TABLE);
-//				db.deleteAll(DatabaseAdapter.WALKER_HISTORY_TABLE);
-//				db.deleteAll(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE);
-//				db.close();
-//			}
-//		});
-//		
-//		insertDataButton.setOnClickListener(new OnClickListener() {
-//			
-//			@Override
-//			public void onClick(View v) {
-//				
-//				db.open();
-//				
-//				//delete everything we have first
-//				db.deleteAll(DatabaseAdapter.RUNNER_HISTORY_TABLE);
-//				db.deleteAll(DatabaseAdapter.WALKER_HISTORY_TABLE);
-//				db.deleteAll(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE);
-//				
-//				//walker:
-//				db.insertActivity(DatabaseAdapter.WALKER_HISTORY_TABLE, "785", "2014-05-01", "800", "60", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.WALKER_HISTORY_TABLE, "785", "2014-05-02", "900", "60", "13", "91", "130");
-//				db.insertActivity(DatabaseAdapter.WALKER_HISTORY_TABLE, "785", "2014-05-03", "800", "60", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.WALKER_HISTORY_TABLE, "785", "2014-05-04", "1000", "60", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.WALKER_HISTORY_TABLE, "785", "2014-05-05", "900", "60", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.WALKER_HISTORY_TABLE, "785", "2014-05-06", "1123", "60", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.WALKER_HISTORY_TABLE, "785", "2014-05-07", "911", "60", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.WALKER_HISTORY_TABLE, "785", "2014-05-08", "800", "60", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.WALKER_HISTORY_TABLE, "785", "2014-05-09", "1234", "60", "13", "96", "100");				
-//				db.insertActivity(DatabaseAdapter.WALKER_HISTORY_TABLE, "785", "2014-05-10", "231", "60", "13", "96", "100");
-//				
-//				//runner
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "10", "2014-05-01", "1400", "10", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "15", "2014-05-01", "1000", "15", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "15", "2014-05-01", "1000", "15", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "20", "2014-05-01", "1300", "15", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "20", "2014-05-02", "900", "15", "13", "91", "130");
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "20", "2014-05-03", "800", "20", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "25", "2014-05-04", "1000", "20", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "25", "2014-05-05", "900", "25", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "30", "2014-05-06", "1123", "30", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "30", "2014-05-07", "911", "30", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "30", "2014-05-08", "800", "30", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "30", "2014-05-09", "1500", "35", "13", "96", "100");				
-//				db.insertActivity(DatabaseAdapter.RUNNER_HISTORY_TABLE, "30", "2014-05-10", "1400", "35", "13", "96", "100");
-//				
-//				//weightloss
-//				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-01", "1000", "10", "13", "96", "100");
-//				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-02", "900", "15", "13", "91", "150");
-//				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-03", "800", "20", "13", "96", "150");
-//				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-04", "1000", "20", "13", "96", "200");
-//				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-05", "900", "25", "13", "96", "250");
-//				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-06", "1123", "30", "13", "96", "300");
-//				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-07", "911", "30", "13", "96", "350");
-//				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-08", "800", "30", "13", "96", "400");
-//				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-09", "1500", "35", "13", "96", "450");				
-//				db.insertActivity(DatabaseAdapter.WEIGHT_LOSS_HISTORY_TABLE, "400", "2014-05-10", "1400", "35", "13", "96", "500");
-//
-//				db.close();
-//			}
-//		});
 	}
 	
 	@Override

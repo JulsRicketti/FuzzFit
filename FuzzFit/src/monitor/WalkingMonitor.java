@@ -7,17 +7,6 @@ import java.util.HashMap;
 
 
 public class WalkingMonitor extends Monitor {
-	
-	
-	//set names
-		static final String BAD = "bad";
-		static final String AVERAGE = "average";
-		static final String GOOD = "good";
-		
-		//output set names
-		static final String INSUFFICIENT = "insufficient";
-		static final String SUFFICIENT = "sufficient";
-		static final String AVERAGE_SUFICIENT = "average";
 		
 		//output definitions:
 		static final float perfect = 100;
@@ -35,11 +24,6 @@ public class WalkingMonitor extends Monitor {
 		FuzzySet[] distanceSet;
 		HashMap <String, FuzzySet> timeMap = new HashMap<String, Monitor.FuzzySet>();
 		HashMap <String, FuzzySet>distanceMap = new HashMap<String, Monitor.FuzzySet>();
-		
-		FuzzySet[] auxOutputs; //just for now
-		FuzzySet insufficientOutputs;
-		FuzzySet averageOutputs;
-		FuzzySet sufficientOutputs;
 		
 		public WalkingMonitor(){
 			

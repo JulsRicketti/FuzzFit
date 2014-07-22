@@ -6,15 +6,7 @@ import monitor.Monitor.FuzzySet;
 
 public class WeightLossMonitor extends Monitor {
 
-	//set names
-	static final String BAD = "bad";
-	static final String AVERAGE = "average";
-	static final String GOOD = "good";
-	
-	//output set names
-	static final String INSUFFICIENT = "insufficient";
-	static final String SUFFICIENT = "sufficient";
-	static final String AVERAGE_SUFICIENT = "average";
+
 	
 	//output definitions:
 	static final float perfect = 100;
@@ -28,11 +20,7 @@ public class WeightLossMonitor extends Monitor {
 	FuzzySet[] caloriesSet;
 	HashMap <String, FuzzySet> caloriesMap = new HashMap<String, Monitor.FuzzySet>();
 	
-	FuzzySet[] auxOutputs; //just for now
-	FuzzySet insufficientOutputs;
-	FuzzySet averageOutputs;
-	FuzzySet sufficientOutputs;
-	
+
 	
 	public WeightLossMonitor(float calories){
 		dailyCalories = MonitorObserver.calories;

@@ -207,7 +207,7 @@ public class Mediator {
 		return Float.toString(monitor.getResult());
 	}
 	
-	public String monitorRunner(float time, float distance, float velocity){
+	public String monitorRunner(float time, float distance){
 		monitor = new RunningMonitor(time, distance);
 		return Float.toString(monitor.getResult());
 	}

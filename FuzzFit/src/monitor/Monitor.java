@@ -2,7 +2,20 @@ package monitor;
 
 public abstract class Monitor {
 
+	//set names
+	static final String BAD = "bad";
+	static final String AVERAGE = "average";
+	static final String GOOD = "good";
 	
+	//output set names
+	static final String INSUFFICIENT = "insufficient";
+	static final String SUFFICIENT = "sufficient";
+	static final String AVERAGE_SUFICIENT = "average";
+	
+	FuzzySet[] auxOutputs; //just for now
+	FuzzySet insufficientOutputs;
+	FuzzySet averageOutputs;
+	FuzzySet sufficientOutputs;
 	
 	public class FuzzySet{
 		String name;

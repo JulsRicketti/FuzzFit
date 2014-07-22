@@ -70,12 +70,12 @@ public class RunningAnalyse implements Analyse{
 		
 		String date = getCurrentDate().toString().substring(0, 10);
 		try{
-			monitorResult = Float.parseFloat(mediator.monitorRunner(time, distance, 0));			 
+			monitorResult = Float.parseFloat(mediator.monitorRunner(time, distance));			 
 			analyse();
 			mediator.buildRunnerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
 		}
 		catch(ArrayIndexOutOfBoundsException e){
-			monitorResult = Float.parseFloat(mediator.monitorRunner(time, distance, 0));
+			monitorResult = Float.parseFloat(mediator.monitorRunner(time, distance));
 			analyse();
 			mediator.buildRunnerEntry(recommend.recommend(context), date, Float.toString(distance), Float.toString(time), Float.toString(calories));
 		}

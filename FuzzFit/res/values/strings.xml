@@ -4,12 +4,14 @@
     <string name="app_name">FuzzFit</string>
     <string name="action_settings">Settings</string>
     <!--  MainActivity   -->
+        <string name="before_start">Please register yourself before we start.</string>
     <!--  XML   -->
     <string name="register_update_user">Register/Update</string>
     <string name="walker_main">Walker</string>
     <string name="runner_main">Runner</string>
     <string name="weight_loss_main">Weight Loss</string>
     <string name="report_main">View Report</string>
+    
    
     <!--  RegisterUserActivity   -->
     <!--  XML   -->
@@ -29,7 +31,7 @@
     <!--  EnterActivityActivity   -->
     <!--  XML   -->
     <string name="recommendation_enter">Recommendation:  </string>
-    <string name="walking_recommendation_time">Please do this activity in at least 30 to 60 minutes  </string>
+    <string name="walking_recommendation_time">Please make sure to also walk for at least 30 to 60 minutes.  </string>
         <string name="running_recommendation_distance">Try to reach a distance of </string>
     <string name="time_recommendation_enter">Time (minutes):</string>
     <string name="distance_recommendation_enter">Distance (meters):</string>

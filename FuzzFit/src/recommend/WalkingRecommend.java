@@ -79,12 +79,13 @@ public class WalkingRecommend implements Recommend {
 	@Override
 	public void updateRecommendation(float newRecommendation) {
 		this.currentRecommendation = newRecommendation;
-		String lastDate = mediator.getActivityDateHistory().get(mediator.getActivityDateHistory().size()-1);
-		String lastDistance= mediator.getActivityDistanceHistory().get(mediator.getActivityDistanceHistory().size()-1);
-		String lastTime= mediator.getActivityTimeHistory().get(mediator.getActivityTimeHistory().size()-1);
-		String lastCalories= mediator.getCalorieHistory().get(mediator.getCalorieHistory().size()-1);
-		
-		mediator.updateWalkerEntry(Float.toString(this.currentRecommendation), lastDate, lastDistance, lastTime, lastCalories);
-		
+		if(isNotEmpty){
+			String lastDate = mediator.getActivityDateHistory().get(mediator.getActivityDateHistory().size()-1);
+			String lastDistance= mediator.getActivityDistanceHistory().get(mediator.getActivityDistanceHistory().size()-1);
+			String lastTime= mediator.getActivityTimeHistory().get(mediator.getActivityTimeHistory().size()-1);
+			String lastCalories= mediator.getCalorieHistory().get(mediator.getCalorieHistory().size()-1);
+			
+			mediator.updateWalkerEntry(Float.toString(this.currentRecommendation), lastDate, lastDistance, lastTime, lastCalories);
+		}
 	}
 }

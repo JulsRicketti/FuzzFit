@@ -62,6 +62,9 @@ public class ReportListViewActivity extends ListActivity{
 	ArrayList<String> dates;
 	ArrayList<String> calories;
 	ArrayList<String> distance;
+	
+
+	
 	Context context = this;
 	
 	String[] list_view_test;

@@ -49,6 +49,11 @@ public class ViewGraphActivity extends Activity {
 	ArrayList<String> timeData;
 	ArrayList<String> velocityData;
 	ArrayList<String> caloriesData;
+	
+	//For testing purposes only:
+	ArrayList<String> recommendationData;
+	ArrayList<String> monitorData;
+	
 	Context context = this;
 	
 	CheckBox checkBox1, checkBox2, checkBox3, checkBox4;
@@ -76,6 +81,12 @@ public class ViewGraphActivity extends Activity {
 	    	timeData = history.getWalkerHistory().activityTime;
 	    	velocityData = history.getWalkerHistory().activityVelocity;
 	    	caloriesData = history.getWalkerHistory().calories;
+	    	
+	    	//(testing purposes only!)
+	    	recommendationData = history.getWalkerHistory().recommendation;
+	    	monitorData = history.getWalkerHistory().monitor;
+	    	
+	    	
 	    }
 
 	    if(ReportMenuActivity.reportOption.equals(runnerOption)){//(distanceData)
@@ -84,6 +95,11 @@ public class ViewGraphActivity extends Activity {
 	    	timeData = history.getRunnerHistory().activityTime;
 	    	velocityData = history.getRunnerHistory().activityVelocity;
 	    	caloriesData = history.getRunnerHistory().calories;
+	    	
+	    	//(testing purposes only!)
+	    	recommendationData = history.getRunnerHistory().recommendation;
+	    	monitorData = history.getRunnerHistory().monitor;
+
 	    }
 	    
 	    if(ReportMenuActivity.reportOption.equals(weightLossOption)){//(calories)
@@ -92,6 +108,10 @@ public class ViewGraphActivity extends Activity {
 	    	timeData = history.getWeightLossHistory().activityTime;
 	    	velocityData = history.getWeightLossHistory().activityVelocity;
 	    	caloriesData = history.getWeightLossHistory().calories;
+	    	
+	    	//(testing purposes only!)
+	    	recommendationData = history.getWeightLossHistory().recommendation;
+	    	monitorData = history.getWeightLossHistory().monitor;
 
 	    }
 		openChart();
@@ -232,8 +252,26 @@ public class ViewGraphActivity extends Activity {
 					dt[i]= new SimpleDateFormat("yyyy-MM-dd").parse(dates.get(i));
 					distance[i] = Float.parseFloat(distanceData.get(i));
 					time[i] = Float.parseFloat(timeData.get(i));
-					velocity[i] =  Float.parseFloat(velocityData.get(i));
+					
+					//Commented these for testing purposes only!!
+					try{
+						velocity[i] =  Float.parseFloat(velocityData.get(i));
+					}
+					catch (Exception exp){
+						String aux = velocityData.get(i).replace(",", ".");
+						velocity[i] = Float.parseFloat(aux);
+					}
 					calories[i] = Float.parseFloat(caloriesData.get(i));
+					//this is just for recommendation!!
+//					try{
+//					velocity[i] = Math.round(Float.parseFloat(recommendationData.get(i-1)));
+//					}
+//					catch (Exception exp){
+//						velocity[i] = 1740;
+//					}
+//					calories[i] = Math.round(Float.parseFloat(monitorData.get(i)));
+
+					
 				} catch (ParseException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -245,6 +283,8 @@ public class ViewGraphActivity extends Activity {
 	        TimeSeries timeSeries = new TimeSeries(getString(R.string.series_time));
 	        TimeSeries velocitySeries = new TimeSeries(getString(R.string.series_velocity));
 	        TimeSeries caloriesSeries = new TimeSeries(getString(R.string.series_calories));
+//	        TimeSeries velocitySeries = new TimeSeries("Recomendação (metros)");
+//	        TimeSeries caloriesSeries = new TimeSeries("Resultado do Monitor (%)");
 	 
 	        // Adding distanceData to Visits and Views Series
 	        for(int i=0;i<dt.length;i++){
@@ -302,11 +342,11 @@ public class ViewGraphActivity extends Activity {
 	        multiRenderer.setChartTitle(getString(R.string.chart_name));
 	        multiRenderer.setChartTitleTextSize(graphParameters.chartTitleTextSize);
 	        multiRenderer.setLabelsColor(Color.BLACK);
-	        multiRenderer.setXTitle("Days");
+	        multiRenderer.setXTitle("Dias"); //testing purposes only (change it back to Days!)
 	        multiRenderer.setXLabelsColor(Color.BLACK);
 	        multiRenderer.setAxisTitleTextSize(graphParameters.axisTitleTextSize);
 	        multiRenderer.setLegendTextSize(graphParameters.legendTextSize);
-	        multiRenderer.setYTitle("Count");
+	        multiRenderer.setYTitle(" "); //testing purposes only (change it back to Count!)
 	        multiRenderer.setYLabelsColor(0,Color.BLACK);
 	        multiRenderer.setLabelsTextSize(graphParameters.chartLabelTextSize);
 	        multiRenderer.setZoomButtonsVisible(true);

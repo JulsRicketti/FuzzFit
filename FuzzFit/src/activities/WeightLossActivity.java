@@ -195,7 +195,13 @@ public class WeightLossActivity extends Activity {
 				activityVelocity = caloriesHandler.calculateActivityVelocity(caloriesToLose, activityTime); //comes in km/h
 				activityDistance = activityVelocity*(activityTime);
 				String activityDistanceString = String.format("%.2f", activityDistance);
-				activityDistance = Float.parseFloat(activityDistanceString); //just did this to make it a more reasonable number
+				try{
+					activityDistance = Float.parseFloat(activityDistanceString); //just did this to make it a more reasonable number
+				}
+				catch(Exception e){
+					String aux = activityDistanceString.replace(",", ".");
+					activityDistance= Float.parseFloat(aux);
+				}
 				wlExerciseOptionTextView.setText(getString(R.string.weight_loss_distance)+activityDistanceString+getString(R.string.weight_loss_distance_unit)+"\n"+getString(R.string.weight_loss_time)+adjustExerciseTime+getString(R.string.weight_loss_time_unit));
 
 			}
